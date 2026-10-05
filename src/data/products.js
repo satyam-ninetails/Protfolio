@@ -71,9 +71,22 @@ export const products = [
 
   make(H, 'hole-saw-cutting-machine', 'Hole Saw Cutting Machine', [I('hole-saw/hole-saw.png')], 'Hole saw cutting machine for precise openings and branch connections.'),
 
-  make(B, 'butt-jointing-machine-2024758s', 'Butt Jointing Machine 2024758S',
-    [],
-    'Butt jointing machine for strong, uniform pipe joints.', { specifications: [['Model', '2024758S'], ['Other specifications', 'Available on request']] }),
+  // Sample products using placeholder photos — replace with real products/images.
+  make(R, 'heavy-duty-roll-grooving-machine', 'Heavy-Duty Roll Grooving Machine', [I('roll-grooving/jk150.jpg')], 'Rugged roll grooving machine for continuous production use.'),
+  make(R, 'portable-roll-grooving-machine', 'Portable Roll Grooving Machine', [I('roll-grooving/jk150.jpg')], 'Portable roll grooving machine for site work.'),
+  make(C, 'heavy-duty-pipe-cutting-machine', 'Heavy-Duty Pipe Cutting Machine', [I('pipe-cutting/kc114.png')], 'Strong cutting machine for larger pipe diameters.'),
+  make(C, 'portable-pipe-cutting-machine', 'Portable Pipe Cutting Machine', [I('pipe-cutting/kc114.png')], 'Lightweight pipe cutter for flexible on-site use.'),
+  make(H, 'heavy-duty-hole-saw-cutting-machine', 'Heavy-Duty Hole Saw Cutting Machine', [I('hole-saw/hole-saw.png')], 'Robust hole saw machine for demanding fabrication.'),
+  make(H, 'hole-saw-cutter-set', 'Hole Saw Cutter Set', [I('hole-saw/hole-saw.png')], 'Multi-size cutter set for branch connections and openings.'),
+  make('pressure-test-pumps', 'hand-operated-pressure-test-pump', 'Hand Operated Pressure Test Pump', [I('pressure-test/sample-1.jpg')], 'Manual pump for hydrostatic testing of pipes and systems.'),
+  make('pressure-test-pumps', 'electric-pressure-test-pump', 'Electric Pressure Test Pump', [I('pressure-test/sample-2.jpg')], 'Electric pump for faster, higher-volume pressure testing.'),
+  make('pressure-test-pumps', 'high-pressure-test-pump', 'High Pressure Test Pump', [I('pressure-test/sample-1.jpg')], 'Heavy-duty pump for high pressure test applications.'),
+  make(B, 'manual-butt-jointing-machine', 'Manual Butt Jointing Machine', [I('butt-jointing/sample-1.jpg')], 'Manual machine for aligning and jointing pipe sections.'),
+  make(B, 'hydraulic-butt-jointing-machine', 'Hydraulic Butt Jointing Machine', [I('butt-jointing/sample-2.jpg')], 'Hydraulic machine for consistent, repeatable joints.'),
+  make(B, 'heavy-duty-butt-jointing-machine', 'Heavy-Duty Butt Jointing Machine', [I('butt-jointing/sample-1.jpg')], 'Heavy-duty machine for larger pipe sizes.'),
+  make('pipe-bending-machines', 'manual-pipe-bending-machine', 'Manual Pipe Bending Machine', [I('pipe-bending/sample-1.png')], 'Manual bender for accurate, repeatable bends.'),
+  make('pipe-bending-machines', 'hydraulic-pipe-bending-machine', 'Hydraulic Pipe Bending Machine', [I('pipe-bending/sample-2.jpg')], 'Hydraulic bender for smooth bends with less effort.'),
+  make('pipe-bending-machines', 'electric-pipe-bending-machine', 'Electric Pipe Bending Machine', [I('pipe-bending/sample-1.png')], 'Electric bender for high-volume production bending.'),
 
   make(S, 'rex-type-threading-dies', 'Rex Type Threading Dies', [I('spare-parts/dies-rex-type-1.jpg'), I('spare-parts/dies-rex-type-2.jpg')], 'Threading dies for SQ50A and SQ100A machines.', { applications: ['SQ50A', 'SQ100A'] }),
   make(S, '100-type-threading-dies', '100 Type Threading Dies', [I('spare-parts/dies-100-type-1.jpg'), I('spare-parts/dies-100-type-2.jpg')], 'Threading dies for SQ50B1 and SQ100D1 machines.', { applications: ['SQ50B1', 'SQ100D1'] }),
@@ -87,6 +100,6 @@ export const products = [
 
 export const getProduct = (slug) => products.find((p) => p.slug === slug)
 export const productsByCategory = (slug) => products.filter((p) => p.category === slug)
-export const featuredProducts = ['sq100a-pipe-threading-machine', 'jk150-roll-grooving-machine', 'kc114-pipe-cutting-machine', 'hole-saw-cutting-machine', 'butt-jointing-machine-2024758s', 'sq150a-pipe-threading-machine'].map(getProduct)
+export const featuredProducts = ['sq100a-pipe-threading-machine', 'jk150-roll-grooving-machine', 'kc114-pipe-cutting-machine', 'hole-saw-cutting-machine', 'hydraulic-butt-jointing-machine', 'sq150a-pipe-threading-machine'].map(getProduct)
 
 export const heroProducts = ['sq100a-pipe-threading-machine', 'hole-saw-cutting-machine', 'kc114-pipe-cutting-machine', 'jk150-roll-grooving-machine', 'rex-type-threading-dies'].map(getProduct)
