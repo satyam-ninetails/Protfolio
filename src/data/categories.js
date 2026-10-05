@@ -11,7 +11,7 @@ export const categories = [
     description: 'Hole saw cutting machines for precise openings and branch connections.' },
   { slug: 'pressure-test-pumps', name: 'Pressure Test Pumps', image: null,
     description: 'Pumps for dependable hydrostatic pressure testing of pipes and systems.' },
-  { slug: 'butt-jointing-machine', name: 'Butt Jointing Machine', image: img('butt-jointing/model-2024758s-1.jpg'),
+  { slug: 'butt-jointing-machine', name: 'Butt Jointing Machine', image: null,
     description: 'Butt jointing machines for strong, uniform pipe joints.' },
   { slug: 'pipe-bending-machines', name: 'Pipe Bending Machines', image: null,
     description: 'Bending machines for accurate, repeatable pipe bends.' },

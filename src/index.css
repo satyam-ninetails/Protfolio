@@ -210,3 +210,25 @@ html,body{overflow-x:hidden}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:560px){.eyebrow{letter-spacing:.1em;font-size:.7rem}.hero-img img{aspect-ratio:1/1}}
+
+/* ---------- minimal hero ---------- */
+.hero{background:#fff}
+.hero-gear,.hero-img{display:none}
+.hero-in{grid-template-columns:1fr 1fr;padding-top:64px;padding-bottom:64px}
+.hero-text h1{font-size:clamp(2.1rem,4.6vw,3.6rem)}
+.hero-stage{position:relative;aspect-ratio:1/1;max-width:560px;width:100%;margin-left:auto;animation:fadeUp .9s .2s cubic-bezier(.2,.7,.2,1) both}
+.hero-disc{position:absolute;inset:6% 6% 16%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,var(--soft) 55%,#E9EEF6);border:1px solid var(--line)}
+.hero-disc::after{content:"";position:absolute;inset:-5%;border-radius:50%;border:1.5px dashed #D3DAE7;animation:spin 60s linear infinite}
+.hero-slide{position:absolute;inset:0 0 12%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.94) translateY(10px);transition:opacity .7s ease,transform .9s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.hero-slide.on{opacity:1;transform:none;pointer-events:auto}
+.hero-slide img{width:84%;height:84%;object-fit:contain;filter:drop-shadow(0 24px 28px rgba(20,38,74,.2));animation:none}
+.hero-caption{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero-caption span{font-weight:700;color:var(--navy);font-size:1rem;animation:fadeUp .5s ease both}
+.hero-dots{display:flex;gap:4px}
+.hero-dots button{width:30px;height:30px;min-height:0;background:none;border:0;padding:0;cursor:pointer;position:relative}
+.hero-dots button::after{content:"";position:absolute;left:4px;right:4px;top:13px;height:3px;border-radius:2px;background:var(--line);transition:.3s}
+.hero-dots button.on::after{background:var(--amber)}
+@media(max-width:860px){
+  .hero-in{grid-template-columns:1fr;gap:24px;padding-top:36px;padding-bottom:48px}
+  .hero-stage{margin:0 auto;max-width:420px}
+}

@@ -3,6 +3,41 @@
 const I = (p) => `/images/products/${p}`
 const TBC = [['Specifications', 'Available on request — please contact us']]
 
+
+// Placeholder copy per category — replace with real product text.
+const COPY = {
+  'pipe-threading-machines': {
+    description: ['Built for fast, accurate threading of pipes in workshops and on site, this machine delivers clean, consistent threads cut after cut. A sturdy body and a straightforward control layout make it easy for operators to set up and keep productive through long working days.', 'Compatible threading dies and accessories are available as spare parts, so the machine can be adapted to different pipe sizes and thread standards.'],
+    features: ['Clean, consistent thread quality', 'Rugged construction for daily industrial use', 'Simple operation with easy die changes', 'Compatible dies and accessories available'],
+    applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
+  },
+  'roll-grooving-machine': {
+    description: ['Designed to produce uniform grooves on steel pipe quickly, this roll grooving machine supports reliable grooved-coupling connections. Its rigid frame and precise rollers help keep groove depth consistent across a production run.', 'Rollers and shafts for different pipe sizes are available separately.'],
+    features: ['Consistent groove depth and profile', 'Rigid frame for stable operation', 'Interchangeable rollers for different sizes', 'Straightforward set-up and operation'],
+    applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  },
+  'pipe-cutting-machine': {
+    description: ['A dependable cutting solution for producing clean, square pipe cuts with minimal effort. The machine is designed for stable clamping and smooth cutting, helping reduce rework and material waste.', 'Suitable for both workshop and on-site use where accuracy and speed matter.'],
+    features: ['Clean, accurate cuts', 'Secure pipe clamping for stable cutting', 'Robust build for repeated use', 'Operator-friendly design'],
+    applications: ['Pipe fabrication', 'Construction and plant maintenance', 'Pipeline installation', 'Workshop production'],
+  },
+  'hole-saw-cutting-machines': {
+    description: ['Produces precise round openings for branch connections and fittings. A stable setup and well-matched cutters help deliver neat, burr-controlled holes in a wide range of applications.', 'Cutters in multiple sizes can be supplied to suit your requirement.'],
+    features: ['Precise, neat openings', 'Multiple cutter sizes available', 'Durable cutting components', 'Easy to set up and operate'],
+    applications: ['Branch and tee connections', 'Pipe and tube fabrication', 'Plant maintenance', 'Installation work'],
+  },
+  'butt-jointing-machine': {
+    description: ['Designed for creating strong, uniform butt joints between pipe sections. Accurate alignment and controlled operation help achieve dependable joint quality across projects.', 'Please contact us for the configurations available for your pipe size and material.'],
+    features: ['Accurate pipe alignment', 'Uniform, repeatable joint quality', 'Sturdy construction', 'Technical support available'],
+    applications: ['Pipeline construction', 'Water and gas distribution', 'Industrial piping', 'Fabrication workshops'],
+  },
+  'spare-parts': {
+    description: ['Genuine consumables and replacement parts help keep your machines running reliably and reduce downtime. Compatibility details are listed on this page; contact us if you are unsure which part fits your machine.'],
+    features: ['Made to fit specified machine models', 'Durable materials for long service life', 'Helps reduce machine downtime', 'Available on enquiry'],
+    applications: ['Routine machine maintenance', 'Replacement of worn components', 'Machine upgrades and size changes'],
+  },
+}
+
 let n = 0
 const make = (category, slug, name, images, shortDescription, extra = {}) => ({
   id: `${category.slice(0, 3)}-${String(++n).padStart(3, '0')}`,
@@ -12,10 +47,10 @@ const make = (category, slug, name, images, shortDescription, extra = {}) => ({
   image: images[0] || null,
   images,
   shortDescription,
-  description: extra.description || `${name} from FLEET. Contact our team for detailed technical information, configuration options and availability.`,
-  features: extra.features || ['Engineered for dependable performance', 'Built for durability in industrial use', 'Technical support available'],
+  description: extra.description || (COPY[category]?.description || []).join('\n\n') || `${name} from FLEET. Contact our team for detailed technical information.`,
+  features: extra.features || COPY[category]?.features || ['Engineered for dependable performance'],
   specifications: extra.specifications || TBC,
-  applications: extra.applications || ['Pipe processing', 'Industrial and construction projects'],
+  applications: extra.applications || COPY[category]?.applications || ['Pipe processing'],
 })
 
 const T = 'pipe-threading-machines'
@@ -37,7 +72,7 @@ export const products = [
   make(H, 'hole-saw-cutting-machine', 'Hole Saw Cutting Machine', [I('hole-saw/hole-saw.png')], 'Hole saw cutting machine for precise openings and branch connections.'),
 
   make(B, 'butt-jointing-machine-2024758s', 'Butt Jointing Machine 2024758S',
-    Array.from({ length: 10 }, (_, i) => I(`butt-jointing/model-2024758s-${i + 1}.jpg`)),
+    [],
     'Butt jointing machine for strong, uniform pipe joints.', { specifications: [['Model', '2024758S'], ['Other specifications', 'Available on request']] }),
 
   make(S, 'rex-type-threading-dies', 'Rex Type Threading Dies', [I('spare-parts/dies-rex-type-1.jpg'), I('spare-parts/dies-rex-type-2.jpg')], 'Threading dies for SQ50A and SQ100A machines.', { applications: ['SQ50A', 'SQ100A'] }),
@@ -53,3 +88,5 @@ export const products = [
 export const getProduct = (slug) => products.find((p) => p.slug === slug)
 export const productsByCategory = (slug) => products.filter((p) => p.category === slug)
 export const featuredProducts = ['sq100a-pipe-threading-machine', 'jk150-roll-grooving-machine', 'kc114-pipe-cutting-machine', 'hole-saw-cutting-machine', 'butt-jointing-machine-2024758s', 'sq150a-pipe-threading-machine'].map(getProduct)
+
+export const heroProducts = ['sq100a-pipe-threading-machine', 'hole-saw-cutting-machine', 'kc114-pipe-cutting-machine', 'jk150-roll-grooving-machine', 'rex-type-threading-dies'].map(getProduct)

@@ -41,7 +41,7 @@ export default function ProductDetails() {
             <span className="eyebrow">{cat.name}</span>
             <h1>{p.name}</h1>
             <p className="lead">{p.shortDescription}</p>
-            <p>{p.description}</p>
+            {p.description.split('\n\n').map((t) => <p key={t}>{t}</p>)}
             <div className="actions">
               <Link className="btn btn-primary" to={`/contact?product=${encodeURIComponent(p.name)}`}>Enquire Now</Link>
               <Link className="btn btn-outline" to={`/products/${cat.slug}`}>Back to {cat.name}</Link>

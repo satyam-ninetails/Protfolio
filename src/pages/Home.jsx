@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <>
       <SEO />
-      <Hero image="/images/products/pipe-threading/sq100a.jpg" />
+      <Hero />
 
       <section className="section">
         <div className="container">
