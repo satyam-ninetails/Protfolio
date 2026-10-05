@@ -15,6 +15,11 @@ export default function Footer() {
           {categories.map((c) => <Link key={c.slug} to={`/products/${c.slug}`}>{c.name}</Link>)}
         </div>
         <div>
+          <h4>Company</h4>
+          <Link to="/about">About Us</Link>
+          <Link to="/contact">Contact Us</Link>
+        </div>
+        <div>
           <h4>Contact</h4>
           <p>{company.address}</p>
           <p>{company.phone}</p>
@@ -22,7 +27,7 @@ export default function Footer() {
           <Link to="/contact">Send an enquiry →</Link>
         </div>
       </div>
-      <div className="container copy">© {new Date().getFullYear()} {company.name}. All rights reserved.</div>
+      <div className="container copy">© {new Date().getFullYear()} {company.legalName}. All rights reserved.</div>
     </footer>
   )
 }

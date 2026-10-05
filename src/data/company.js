@@ -1,6 +1,7 @@
 // Placeholder business details — replace with real information.
 export const company = {
   name: 'FLEET',
+  legalName: 'FLEET INDUSTRIES PRIVATE LIMITED',
   tagline: 'Building the Future Together',
   address: '[Company address]',
   phone: '[Phone number]',

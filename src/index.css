@@ -114,7 +114,7 @@ input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 
 
 /* footer */
 .footer{background:var(--navy-d);color:#b9c4db;padding-top:64px}
-.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr .8fr 1fr;gap:40px;padding-bottom:40px}
 .footer h4{color:#fff;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
 .footer a,.footer p{display:block;font-size:.92rem;margin:0 0 9px}.footer a:hover{color:var(--amber)}
 .footer-logo{height:72px;width:auto;background:#fff;border-radius:6px;padding:4px 10px;margin-bottom:14px}
@@ -138,4 +138,69 @@ input:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 
   .logo img{height:56px}.header-in{height:68px}.drawer{inset:68px 0 0}
   .btn{width:100%}.actions .btn{flex:1 1 100%}
   .info-box{padding:26px}
+}
+
+/* ---------- animation ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.card.reveal,.reveal>.card{height:100%}
+.reveal>.card{height:100%}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.hero-text>*{animation:fadeUp .8s cubic-bezier(.2,.7,.2,1) both}
+.hero-text>:nth-child(1){animation-delay:.05s}.hero-text>:nth-child(2){animation-delay:.15s}.hero-text>:nth-child(3){animation-delay:.28s}.hero-text>:nth-child(4){animation-delay:.4s}
+.hero-img{animation:fadeUp .9s .25s cubic-bezier(.2,.7,.2,1) both}
+.hero-img img{animation:floaty 7s ease-in-out 1.2s infinite}
+.hero-gear{animation:spin 90s linear infinite;transform-origin:center}
+.page-head .container>*{animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both}
+.page-head .container>:nth-child(2){animation-delay:.08s}.page-head .container>:nth-child(3){animation-delay:.16s}.page-head .container>:nth-child(4){animation-delay:.24s}
+.mega{animation:slideDown .2s ease both}
+.drawer{animation:fadeIn .2s ease both}
+.drawer a:not(.btn){animation:fadeUp .35s ease both}
+.btn-primary,.btn-accent{position:relative;overflow:hidden}
+.btn:active{transform:scale(.97)}
+.main-img img{animation:fadeIn .4s ease both}
+.thumbs button{transition:border-color .2s,transform .2s}.thumbs button:hover{transform:translateY(-2px)}
+.nav-desktop>a:not(.btn),.nav-btn{transition:color .2s,border-color .2s}
+.why{transition:transform .25s,box-shadow .25s}.why:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
+.about-head{position:relative;overflow:hidden}.about-head .hero-gear{width:420px;right:-80px;top:-60px}
+.chips{display:flex;flex-wrap:wrap;gap:12px}
+.chip{display:inline-block;padding:12px 22px;border:1.5px solid var(--line);border-radius:999px;font-weight:600;color:var(--navy);background:#fff;transition:.2s}
+.chip:hover{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-2px)}
+.about p{margin-bottom:1em}
+.about .link-arrow{display:inline-block;margin-top:6px}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+/* ---------- extra mobile polish ---------- */
+html,body{overflow-x:hidden}
+.btn,.burger,.drawer a,.mega-grid a,.nav-btn{min-height:44px}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr 1fr}.hero-gear{width:480px}}
+@media(max-width:860px){
+  .header-in{height:68px}.drawer{inset:68px 0 0}
+  .hero-gear{width:340px;right:-120px;top:-60px}
+  .hero-img{padding:12px}.hero-img::after{left:-6px;bottom:-6px;width:60px;height:60px}
+  .cta{padding:64px 0}
+  .page-head{padding:36px 0 28px}
+  .main-img img{aspect-ratio:4/3}
+  .sec-head{margin-bottom:28px}
+}
+@media(max-width:560px){
+  .container{padding:0 16px}
+  h1{font-size:2rem}
+  .hero-text p,.page-head p{font-size:1rem}
+  .card-body{padding:16px 18px 20px}
+  .why{padding:22px}
+  .footer-grid{grid-template-columns:1fr;gap:28px}
+  .specs th,.specs td{padding:11px 12px;font-size:.9rem}
+  .specs th{width:42%}
+  .thumbs button{flex-basis:64px;height:64px}
+  .chip{padding:10px 16px;font-size:.9rem}
+  input,textarea{font-size:16px}
 }

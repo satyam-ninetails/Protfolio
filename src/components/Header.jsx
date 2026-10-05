@@ -33,6 +33,7 @@ export default function Header() {
               </div>
             )}
           </div>
+          <NavLink to="/about">About Us</NavLink>
           <NavLink to="/contact" className="btn btn-primary btn-sm">Contact Us</NavLink>
         </nav>
 
@@ -46,6 +47,7 @@ export default function Header() {
           <Link to="/">Home</Link>
           <p className="drawer-label">Products</p>
           {categories.map((c) => <Link key={c.slug} to={`/products/${c.slug}`}>{c.name}</Link>)}
+          <Link to="/about">About Us</Link>
           <Link to="/contact" className="btn btn-primary">Contact Us</Link>
         </nav>
       )}

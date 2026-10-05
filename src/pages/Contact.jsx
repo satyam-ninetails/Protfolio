@@ -31,7 +31,7 @@ export default function Contact() {
             <button className="btn btn-primary" type="submit">Submit Enquiry</button>
           </form>
           <aside className="info-box">
-            <h3>{company.name}</h3>
+            <h3>{company.legalName}</h3>
             <dl>
               <dt>Address</dt><dd>{company.address}</dd>
               <dt>Phone</dt><dd>{company.phone}</dd>
