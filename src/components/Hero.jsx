@@ -67,23 +67,25 @@ export default function Hero() {
         <div className={`hs-track${drag ? ' drag' : ''}`} style={{ transform: `translate3d(calc(${-i * 100}% + ${drag}px), 0, 0)` }}>
           {slides.map((s, k) => (
             <div key={s.category} className={`hs-slide${k === i ? ' on' : ''}`} role="group" aria-roledescription="slide" aria-label={`${k + 1} of ${n}`} aria-hidden={k !== i}>
-              <div className="container hs-in">
-                <div className="hs-copy">
-                  <span className="hs-eyebrow">{String(k + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
-                  <h2>{s.cat.name}</h2>
+              <div className="hs-split">
+                {s.products.map((p, m) => (
+                  <Link key={p.slug} to={`/products/${p.category}/${p.slug}`} className="hs-half" style={{ '--m': m }} tabIndex={k === i ? 0 : -1}>
+                    <Img src={photo(p)} alt={p.name} loading={near(k) ? 'eager' : 'lazy'} draggable="false" />
+                    <span className="hs-cap"><b>{p.name}</b><i aria-hidden="true">→</i></span>
+                  </Link>
+                ))}
+              </div>
+              <div className="hs-info">
+                <div className="container hs-info-in">
+                  <div className="hs-copy">
+                    <span className="hs-eyebrow">{String(k + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
+                    <h2>{s.cat.name}</h2>
+                  </div>
                   <p>{s.cat.description}</p>
                   <div className="actions">
                     <Link to={`/products/${s.category}`} className="btn btn-accent" tabIndex={k === i ? 0 : -1}>View range</Link>
                     <Link to="/contact" className="btn btn-ghost" tabIndex={k === i ? 0 : -1}>Contact Us</Link>
                   </div>
-                </div>
-                <div className="hs-pair">
-                  {s.products.map((p, m) => (
-                    <Link key={p.slug} to={`/products/${p.category}/${p.slug}`} className="hs-card" style={{ '--m': m }} tabIndex={k === i ? 0 : -1}>
-                      <Img src={photo(p)} alt={p.name} loading={near(k) ? 'eager' : 'lazy'} draggable="false" />
-                      <span className="hs-cap"><b>{p.name}</b><i aria-hidden="true">→</i></span>
-                    </Link>
-                  ))}
                 </div>
               </div>
             </div>
