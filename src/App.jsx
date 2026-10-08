@@ -7,6 +7,7 @@ import Category from './pages/Category.jsx'
 import ProductDetails from './pages/ProductDetails.jsx'
 import Contact from './pages/Contact.jsx'
 import About from './pages/About.jsx'
+import Gallery from './pages/Gallery.jsx'
 import SEO from './components/SEO.jsx'
 
 function ScrollTop() {
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/products/:categorySlug/:slug" element={<ProductDetails />} />
           <Route path="/product/:slug" element={<ProductDetails />} />
           <Route path="/about" element={<About />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

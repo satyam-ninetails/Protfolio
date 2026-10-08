@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { categories } from '../data/categories.js'
-import { company } from '../data/company.js'
+import { company, dial } from '../data/company.js'
 
 export default function Footer() {
   return (
@@ -17,13 +17,15 @@ export default function Footer() {
         <div>
           <h4>Company</h4>
           <Link to="/about">About Us</Link>
+          <Link to="/gallery">Gallery</Link>
           <Link to="/contact">Contact Us</Link>
         </div>
         <div>
           <h4>Contact</h4>
           <p>{company.address}</p>
-          <p>{company.phone}</p>
-          <p>{company.email}</p>
+          {company.phones.map((ph) => <a key={ph} href={`tel:${dial(ph)}`}>{ph}</a>)}
+          <a href={`mailto:${company.email}`}>{company.email}</a>
+          <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
           <Link to="/contact">Send an enquiry →</Link>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom'
 import SEO from '../components/SEO.jsx'
-import { company } from '../data/company.js'
+import { company, dial } from '../data/company.js'
 
 export default function Contact() {
   const [q] = useSearchParams()
@@ -34,8 +34,13 @@ export default function Contact() {
             <h3>{company.legalName}</h3>
             <dl>
               <dt>Address</dt><dd>{company.address}</dd>
-              <dt>Phone</dt><dd>{company.phone}</dd>
-              <dt>Email</dt><dd>{company.email}</dd>
+              <dt>Call / WhatsApp</dt>
+              <dd>{company.phones.map((ph) => <a key={ph} href={`tel:${dial(ph)}`}>{ph}</a>)}</dd>
+              <dt>Email</dt>
+              <dd>
+                <a href={`mailto:${company.email}`}>{company.email}</a>
+                <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
+              </dd>
               <dt>Hours</dt><dd>{company.hours}</dd>
             </dl>
           </aside>
