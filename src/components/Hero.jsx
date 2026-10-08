@@ -1,91 +1,115 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Img from './Img.jsx'
-import { heroProducts } from '../data/products.js'
+import { heroSlides } from '../data/products.js'
+import { gallery } from '../data/gallery.js'
 import { categories, getCategory } from '../data/categories.js'
 
-const DUR = 5000
+const DUR = 6000
+const slides = heroSlides.map((s) => ({ ...s, cat: getCategory(s.category) }))
+// public/images/hero/ holds trimmed copies of the gallery photos so each machine fills its card.
+const photo = (p) => gallery.find((g) => g.product === p.slug)?.full.replace('/gallery/', '/hero/') || p.image
 
 export default function Hero() {
   const [i, setI] = useState(0)
   const [paused, setPaused] = useState(false)
-  const stage = useRef(null)
+  const [drag, setDrag] = useState(0)
+  const view = useRef(null)
   const touch = useRef(null)
-  const n = heroProducts.length
+  const n = slides.length
   const go = (k) => setI((k + n) % n)
+  // current slide and its neighbours load straight away so sliding never shows a blank card
+  const near = (k) => [0, 1, n - 1].some((d) => (i + d) % n === k)
 
   useEffect(() => {
-    if (paused) return
-    const t = setTimeout(() => go(i + 1), DUR)
+    if (paused || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const t = setTimeout(() => setI((k) => (k + 1) % n), DUR)
     return () => clearTimeout(t)
-  }, [i, paused])
+  }, [i, paused, n])
 
-  const move = (e) => {
-    const r = stage.current.getBoundingClientRect()
-    stage.current.style.setProperty('--mx', ((e.clientX - r.left) / r.width - 0.5).toFixed(2))
-    stage.current.style.setProperty('--my', ((e.clientY - r.top) / r.height - 0.5).toFixed(2))
+  const onStart = (e) => {
+    const t = e.touches[0]
+    touch.current = { x: t.clientX, y: t.clientY, lock: null }
+    setPaused(true)
   }
-  const cur = heroProducts[i]
+  const onMove = (e) => {
+    const s = touch.current
+    if (!s) return
+    const t = e.touches[0]
+    const dx = t.clientX - s.x
+    const dy = t.clientY - s.y
+    if (!s.lock && Math.max(Math.abs(dx), Math.abs(dy)) > 8) s.lock = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y'
+    if (s.lock === 'x') setDrag(dx)
+  }
+  const onEnd = () => {
+    const s = touch.current
+    touch.current = null
+    setPaused(false)
+    if (s?.lock === 'x' && Math.abs(drag) > (view.current?.clientWidth || 300) * 0.15) go(i + (drag < 0 ? 1 : -1))
+    setDrag(0)
+  }
 
   return (
-    <section className="hero">
-      <div className="container hero-in">
-        <div className="hero-text">
-          <span className="eyebrow">Pipe processing &amp; testing machinery</span>
-          <h1>Precision Machinery for <em>Modern Pipe</em> Solutions</h1>
-          <p>Reliable pipe processing and testing machines engineered for precision, efficiency and dependable performance.</p>
-          <div className="actions">
-            <Link to="/products/pipe-threading-machines" className="btn btn-primary">Explore Products</Link>
-            <Link to="/contact" className="btn btn-outline">Contact Us</Link>
-          </div>
-        </div>
+    <section
+      className="hero hs"
+      aria-roledescription="carousel"
+      aria-label="Product categories"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onKeyDown={(e) => { if (e.key === 'ArrowRight') go(i + 1); else if (e.key === 'ArrowLeft') go(i - 1) }}
+      style={{ '--dur': `${DUR}ms` }}
+    >
+      <h1 className="sr-only">Precision Machinery for Modern Pipe Solutions</h1>
 
-        <div
-          ref={stage}
-          className={`stage ${paused ? 'paused' : ''}`}
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => { setPaused(false); stage.current.style.setProperty('--mx', 0); stage.current.style.setProperty('--my', 0) }}
-          onMouseMove={move}
-          onTouchStart={(e) => { touch.current = e.touches[0].clientX }}
-          onTouchEnd={(e) => {
-            if (touch.current == null) return
-            const d = e.changedTouches[0].clientX - touch.current
-            if (Math.abs(d) > 40) go(i + (d < 0 ? 1 : -1))
-            touch.current = null
-          }}
-          style={{ '--dur': `${DUR}ms` }}
-        >
-          <div className="stage-view">
-            <span className="stage-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
-            {heroProducts.map((p, k) => (
-              <Link key={p.slug} to={`/products/${p.category}/${p.slug}`} className={`slide ${k === i ? 'on' : ''}`}
-                tabIndex={k === i ? 0 : -1} aria-hidden={k !== i} aria-label={p.name}>
-                <div className="art"><Img src={p.image} alt={p.name} loading={k === 0 ? 'eager' : 'lazy'} /></div>
-              </Link>
-            ))}
-          </div>
-          <div className="stage-bar">
-            <div className="stage-info" aria-live="polite">
-              <small>{getCategory(cur.category)?.name}</small>
-              <strong key={cur.slug}>{cur.name}</strong>
-              <Link to={`/products/${cur.category}/${cur.slug}`}>View details <span>→</span></Link>
+      <div ref={view} className="hs-view" onTouchStart={onStart} onTouchMove={onMove} onTouchEnd={onEnd} onTouchCancel={onEnd}>
+        <div className={`hs-track${drag ? ' drag' : ''}`} style={{ transform: `translate3d(calc(${-i * 100}% + ${drag}px), 0, 0)` }}>
+          {slides.map((s, k) => (
+            <div key={s.category} className={`hs-slide${k === i ? ' on' : ''}`} role="group" aria-roledescription="slide" aria-label={`${k + 1} of ${n}`} aria-hidden={k !== i}>
+              <div className="container hs-in">
+                <div className="hs-copy">
+                  <span className="hs-eyebrow">{String(k + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</span>
+                  <h2>{s.cat.name}</h2>
+                  <p>{s.cat.description}</p>
+                  <div className="actions">
+                    <Link to={`/products/${s.category}`} className="btn btn-accent" tabIndex={k === i ? 0 : -1}>View range</Link>
+                    <Link to="/contact" className="btn btn-ghost" tabIndex={k === i ? 0 : -1}>Contact Us</Link>
+                  </div>
+                </div>
+                <div className="hs-pair">
+                  {s.products.map((p, m) => (
+                    <Link key={p.slug} to={`/products/${p.category}/${p.slug}`} className="hs-card" style={{ '--m': m }} tabIndex={k === i ? 0 : -1}>
+                      <Img src={photo(p)} alt={p.name} loading={near(k) ? 'eager' : 'lazy'} draggable="false" />
+                      <span className="hs-cap"><b>{p.name}</b><i aria-hidden="true">→</i></span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div className="stage-arrows">
-              <button onClick={() => go(i - 1)} aria-label="Previous product">←</button>
-              <button onClick={() => go(i + 1)} aria-label="Next product">→</button>
-            </div>
-            <div className="stage-prog">
-              {heroProducts.map((p, k) => (
-                <button key={p.slug + (k === i ? i : '')} className={k < i ? 'done' : k === i ? 'on' : ''} onClick={() => go(k)} aria-label={`Show ${p.name}`}><i /></button>
-              ))}
-            </div>
-          </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="container hs-ui">
+        <div className="hs-prog" role="tablist" aria-label="Choose slide">
+          {slides.map((s, k) => (
+            <button key={s.category + (k === i ? i : '')} role="tab" aria-selected={k === i} className={k < i ? 'done' : k === i ? 'on' : ''} onClick={() => go(k)} aria-label={s.cat.name}><i /></button>
+          ))}
+        </div>
+        <div className="hs-arrows">
+          <button onClick={() => go(i - 1)} aria-label="Previous slide">←</button>
+          <button onClick={() => go(i + 1)} aria-label="Next slide">→</button>
         </div>
       </div>
 
       <nav className="ticker" aria-label="Product categories">
-        <div className="container ticker-in">
-          {categories.map((c) => <Link key={c.slug} to={`/products/${c.slug}`}>{c.name}</Link>)}
+        <div className="ticker-run">
+          {[0, 1].map((copy) => (
+            <div className="ticker-set" key={copy} aria-hidden={copy === 1}>
+              {categories.map((c) => <Link key={c.slug} to={`/products/${c.slug}`} tabIndex={copy ? -1 : 0}>{c.name}</Link>)}
+            </div>
+          ))}
         </div>
       </nav>
     </section>
