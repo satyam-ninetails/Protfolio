@@ -33,10 +33,17 @@ export default function Header() {
           </Link>
           <div className="head-contact">
             <p>
-              <b>Call / WhatsApp</b>
-              <a href={`tel:${dial(phone1)}`}>{phone1}</a> / <a href={`tel:${dial(phone2)}`}>{phone2}</a>
+              <svg className="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" /></svg>
+              <b className="lbl">Call / WhatsApp</b>
+              <span className="phones">
+                <a href={`tel:${dial(phone1)}`}>{phone1}</a><i>/</i><a href={`tel:${dial(phone2)}`}>{phone2}</a>
+              </span>
             </p>
-            <p><b>Email</b><a href={`mailto:${company.email}`}>{company.email}</a></p>
+            <p>
+              <svg className="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.6L12 13l7.5-5.4V7z" /></svg>
+              <b className="lbl">Email</b>
+              <a href={`mailto:${company.email}`}>{company.email}</a>
+            </p>
           </div>
         </div>
       </header>
