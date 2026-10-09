@@ -473,3 +473,6 @@ html{overflow-x:hidden}body{overflow-x:hidden;overflow-x:clip}
   .nav-quick a.wa-quick .wa-ico{width:24px;height:24px}
 }
 @media(max-width:360px){.head-contact .phones{font-size:.85rem}}
+
+.info-box .addr{display:block;margin-top:6px}.info-box .addr b{display:block;color:#fff;font-weight:600;font-size:.88rem}
+.footer p strong{color:#fff;font-weight:600}

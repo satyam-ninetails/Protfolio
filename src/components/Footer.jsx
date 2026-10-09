@@ -22,10 +22,9 @@ export default function Footer() {
         </div>
         <div>
           <h4>Contact</h4>
-          <p>{company.address}</p>
+          {company.addresses.map((a) => <p key={a.label}><strong>{a.label}</strong><br />{a.text}</p>)}
           {company.phones.map((ph) => <a key={ph} href={`tel:${dial(ph)}`}>{ph}</a>)}
           <a href={`mailto:${company.email}`}>{company.email}</a>
-          <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
           <Link to="/contact">Send an enquiry →</Link>
         </div>
       </div>

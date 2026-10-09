@@ -1,13 +1,15 @@
-// Business details. Address and hours are still placeholders — replace with real information.
+// Business details (from the FLEET catalogue 2026-27). Business hours are still a placeholder.
 export const company = {
   name: 'FLEET',
   legalName: 'FLEET INDUSTRIES PRIVATE LIMITED',
   tagline: 'Building the Future Together',
-  address: '[Company address]',
+  addresses: [
+    { label: 'Corporate Office / Warehouse', text: 'GF KH. NO. 91/3/2, Phirni Road, Bijwasan, New Delhi – 110061' },
+    { label: 'Bangalore Office / Warehouse', text: 'No 11, 2nd Cross, Dayanandanagar, Srirampura, Bangalore – 560021, Karnataka' },
+  ],
   strapline: 'Building the future together – with unmatched quality and dedicated service',
   phones: ['+91 83830 36046', '+91 89015 84802'],
-  email: 'info@fleetindustries.co.in',
-  supportEmail: 'support@fleetindustries.co.in',
+  email: 'fleetindustries2@gmail.com',
   hours: '[Business hours]',
   // Create a form at formspree.io and paste its endpoint here.
   formAction: 'https://formspree.io/f/YOUR_FORM_ID',

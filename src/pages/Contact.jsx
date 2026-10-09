@@ -34,7 +34,8 @@ export default function Contact() {
           <aside className="info-box">
             <h3>{company.legalName}</h3>
             <dl>
-              <dt>Address</dt><dd>{company.address}</dd>
+              <dt>Address</dt>
+              <dd>{company.addresses.map((a) => <span className="addr" key={a.label}><b>{a.label}</b>{a.text}</span>)}</dd>
               <dt>Call / Chat</dt>
               <dd>{company.phones.map((ph) => (
                 <span className="phone-row" key={ph}>
@@ -45,7 +46,6 @@ export default function Contact() {
               <dt>Email</dt>
               <dd>
                 <a href={`mailto:${company.email}`}>{company.email}</a>
-                <a href={`mailto:${company.supportEmail}`}>{company.supportEmail}</a>
               </dd>
               <dt>Hours</dt><dd>{company.hours}</dd>
             </dl>

@@ -61,6 +61,224 @@ const B = 'butt-jointing-machine'
 const S = 'spare-parts'
 
 export const products = [
+  make(R, 'fl9a-roll-grooving-machine', 'FL9A Electric Hydraulic Roll Grooving Machine (1"–8")', [I('roll-grooving/fl9a.jpg'), I('roll-grooving/fl9a-poster.jpg')], 'Electric hydraulic roll grooving machine for 1"–8" steel pipe.', {
+  description: 'An electric hydraulic roll grooving machine for steel pipe from 1" to 8". It is supplied with a pipe support stand, knurling wheels and pinch rollers for the full size range.',
+  features: ['Grooves 1"–8" Sch.10/40 steel pipe', '750 W motor with hydraulic feed', 'Pipe support stand included', 'Knurling wheels and pinch rollers for each size range'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL9A (1" – 8")'],
+    ['Fabrication capacity', '1" – 8" (DN25–DN200, Ø33–Ø219) Sch.10/40 steel pipe'],
+    ['Max. wall thickness', '8 mm'],
+    ['Output speed', '23 RPM'],
+    ['Motor power', '750 W'],
+    ['Voltage', '250 V'],
+    ['Frequency', '50/60 Hz'],
+    ['Gross weight', '98 kg'],
+    ['Packing size', '73 × 40 × 77 cm'],
+    ['Standard accessories', 'Pipe support stand; knurling wheels 1"–1½", 2"–3", 3"–6", 8"; pinch rollers 1"–1½", 2"–6", 8"'],
+  ] }),
+  make(R, 'fl9a1-roll-grooving-machine', 'FL9A1 Electric Hydraulic Roll Grooving Machine (1"–8")', [I('roll-grooving/fl9a1.jpg')], 'Electric hydraulic roll grooving machine for 1"–8" steel pipe.', {
+  description: 'An electric hydraulic roll grooving machine for steel pipe from 1" to 8", with a hydraulic feeding pump, foot switch and pipe stand for efficient grooving on site or in the workshop.',
+  features: ['Grooves 1"–8" Sch.10/40 steel pipe', '800 W drive unit with hydraulic feeding pump', 'Foot switch and pipe stand', 'Drive and groove rollers for each size range'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL9A1 (1" – 8")'],
+    ['Fabrication capacity', '1" – 8" (DN25–DN200, Ø33–Ø219) Sch.10/40 steel pipe'],
+    ['Max. wall thickness', '8 mm'],
+    ['Output speed', '23 RPM'],
+    ['Drive unit', '800 W, 220 V, 50/60 Hz, single phase'],
+    ['Gross weight', '98 kg'],
+    ['Packing size', '73 × 40 × 77 cm'],
+    ['Standard accessories', 'Drive rollers 1"–1½", 2"–6", 8"; groove rollers 1"–1½", 2"–6", 8"; pipe stand for 1"–8"'],
+    ['Optional accessories', 'Foot switch'],
+  ] }),
+  make(R, 'fl12a-roll-grooving-machine', 'FL12A Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a.jpg'), I('roll-grooving/fl12a-poster.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
+  description: 'An electric hydraulic roll grooving machine for fast, accurate grooving of steel pipe from 2" to 12". It is supplied with a pipe support stand, upper rollers and knurling wheels.',
+  features: ['Grooves 2"–12" steel pipe', '1100 W motor', 'Pipe support stand included', 'Upper rollers and knurling wheels for each size range'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL12A (2" – 12")'],
+    ['Capacity', '2"–6" for schedule 40; 8"–12" for schedule 10'],
+    ['Motor', '1100 W'],
+    ['Voltage', '220–240 V, 50 Hz'],
+    ['Speed', '24 RPM'],
+    ['Standard accessories', 'Pipe support stand; upper rollers 2"–6", 8"–12"; knurling wheels 2"–3", 4"–6", 8"–12"'],
+  ] }),
+  make(R, 'fl12a1-roll-grooving-machine', 'FL12A1 Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a1.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
+  description: 'An electric hydraulic roll grooving machine for steel pipe from 2" to 12", supplied with a foot switch, pipe support stand, and knurling and pinch rollers.',
+  features: ['Grooves 2"–12" steel pipe', '1100 W motor', 'Foot switch and pipe support stand', 'Knurling and pinch rollers for each size range'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL12A1 (2" – 12")'],
+    ['Size', '2" – 12"'],
+    ['Power', '1100 W'],
+    ['Voltage', '220 V'],
+    ['Weight', '115 / 125 kg'],
+    ['Packing size', '81 × 41 × 80 cm'],
+    ['Accessories', 'Knurling roller 60–76 mm / 89–165 mm / 219–325 mm; pinch roller 60–76 mm / 89–165 mm / 219–325 mm'],
+  ] }),
+  make(R, 'fl12p-roll-grooving-machine', 'FL12P Premium Electric Hydraulic Roll Grooving Machine (1"–12")', [I('roll-grooving/fl12p.jpg')], 'Premium electric hydraulic roll grooving machine for 1"–12" steel pipe.', {
+  description: 'A light-weight electric hydraulic roll grooving machine for steel pipe from 1" to 12", suited to municipal piping and fire protection systems. A hydraulic feeding pump and groove depth lock keep grooves consistent.',
+  features: ['Grooves 1"–12" steel pipe', '1100 W drive unit with hydraulic feeding pump', 'Groove depth lock for consistent grooves', 'Pipe stand and foot switch supplied'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL12P (1" – 12")'],
+    ['Fabrication capacity', '1" – 8" (DN25–DN200, Ø33–Ø219) Sch.10/40 steel pipe; 10" – 12" (DN250–DN300, Ø254–Ø325) Sch.10/20 steel pipe'],
+    ['Max. wall thickness', '8 mm'],
+    ['Output speed', '23 RPM'],
+    ['Drive unit', '1100 W, 220 V (110 V available), 50/60 Hz, single phase'],
+    ['Gross weight', '118 kg'],
+    ['Packing size', '75 × 40 × 70 cm'],
+    ['Standard accessories', 'Drive rollers 1"–1½", 2"–3", 3½"–6", 8"–12"; groove rollers 1"–1½", 2"–6", 8"–12"; pipe stand for 1"–12"; foot switch'],
+  ] }),
+  make(R, 'fl24a-roll-grooving-machine', 'FL24A Premium Electric Hydraulic Roll Grooving Machine (8"–24")', [I('roll-grooving/fl24a.jpg')], 'Premium electric hydraulic roll grooving machine for 8"–24" steel pipe.', {
+  description: 'A heavy-duty electric hydraulic roll grooving machine for large-diameter steel pipe from 8" to 24". It is supplied with a hydraulic pipe support stand, knurl wheels, pinch rollers and a groove measuring tape.',
+  features: ['Grooves 8"–24" Sch.40 steel pipe', 'Up to 13 mm wall thickness', 'Hydraulic pipe support stand included', 'Three-phase 380–415 V supply'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL24A (8" – 24")'],
+    ['Capacity', '8" – 24" (Ø219 – Ø630) Sch.40 pipe'],
+    ['Max. wall thickness', '13 mm'],
+    ['Voltage', '380–415 V, 50 Hz'],
+    ['Speed', '15 RPM'],
+    ['Gross weight', '340 kg'],
+    ['Standard accessories', 'Hydraulic pipe support stand; knurl wheel Ø219–Ø325, Ø377–Ø426, Ø480–Ø630 (one each); pinch roller Ø219–Ø530 and Ø630 (one each); groove measuring tape'],
+    ['Packaging size', '102 × 75 × 147 cm'],
+  ] }),
+  make(H, 'fl-114a-hole-saw-cutting-machine', 'FL-114A Hole Saw Cutting Machine', [I('hole-saw/fl-114a.jpg')], 'Portable hole cutting machine, 1500 W, up to 114 mm.', {
+  description: 'A portable 1500 W hole cutting machine for making round openings up to 114 mm in pipe, with a chain mounting for pipe from 30 to 220 mm.',
+  features: ['Cuts openings up to 114 mm', '1500 W power input', 'Mounts on pipe from 30 to 220 mm', 'Drill chuck 3–16 mm'],
+  applications: ['Branch and tee connections', 'Pipe and tube fabrication', 'Plant maintenance', 'Installation work'],
+  specifications: [
+    ['Power input', '1500 W'],
+    ['Voltage', '230 V, 50 Hz'],
+    ['Max. wall thickness', '10 mm'],
+    ['Max. cutting capacity', '114 mm'],
+    ['Pipe mounting capacity', '30 mm – 220 mm'],
+    ['Drill chuck capacity', '3 mm – 16 mm'],
+    ['Overall dimensions (L × W × H)', '26 × 24.8 × 51.3 cm'],
+    ['Net weight', '16 kg'],
+  ] }),
+  make(H, 'fl-150a-hole-saw-cutting-machine', 'FL-150A Hole Saw Cutting Machine', [], 'Portable hole cutting machine, 1500 W, up to 152 mm.', {
+  description: 'A portable 1500 W hole cutting machine for making round openings up to 152 mm in pipe, with a chain mounting for pipe from 42 to 323 mm.',
+  features: ['Cuts openings up to 152 mm', '1500 W power input', 'Mounts on pipe from 42 to 323 mm', 'Drill chuck 3–16 mm'],
+  applications: ['Branch and tee connections', 'Pipe and tube fabrication', 'Plant maintenance', 'Installation work'],
+  specifications: [
+    ['Power input', '1500 W'],
+    ['Voltage', '230 V, 50 Hz'],
+    ['Speed', '110 RPM'],
+    ['Max. wall thickness', '10 mm'],
+    ['Max. cutting capacity', '152 mm'],
+    ['Pipe mounting capacity', '42 mm – 323 mm'],
+    ['Drill chuck capacity', '3 mm – 16 mm'],
+    ['Overall dimensions (L × W × H)', '40 × 30 × 35 cm'],
+    ['Net weight', '20 kg'],
+  ] }),
+  make(C, 'chm1-pipe-cutting-machine', 'CHM1 Pipe Cutting Machine (2"–8")', [], 'Pipe cutting machine for 2" – 8" pipe, 750 W.', {
+  description: 'A 750 W single-phase pipe cutting machine for 2" – 8" pipe, for clean, accurate cuts in the workshop or on site.',
+  features: ['Cuts 2" – 8" pipe', '750 W single-phase motor', 'Up to 10 mm wall thickness', '23 RPM cutting speed'],
+  applications: ['Pipe fabrication', 'Construction and plant maintenance', 'Pipeline installation', 'Workshop production'],
+  specifications: [
+    ['Model', 'CHM1'],
+    ['Capacity', '2"–8"'],
+    ['Max. wall thickness', '10 mm'],
+    ['Speed', '23 RPM'],
+    ['Motor', '750 W, 220 V, 50 Hz, single phase'],
+  ] }),
+  make(C, 'chm2-pipe-cutting-machine', 'CHM2 Pipe Cutting Machine (2"–12")', [], 'Pipe cutting machine for 2" – 12" pipe, 750 W.', {
+  description: 'A 750 W single-phase pipe cutting machine for 2" – 12" pipe, for clean, accurate cuts in the workshop or on site.',
+  features: ['Cuts 2" – 12" pipe', '750 W single-phase motor', 'Up to 10 mm wall thickness', '23 RPM cutting speed'],
+  applications: ['Pipe fabrication', 'Construction and plant maintenance', 'Pipeline installation', 'Workshop production'],
+  specifications: [
+    ['Model', 'CHM2'],
+    ['Capacity', '2"–12"'],
+    ['Max. wall thickness', '10 mm'],
+    ['Speed', '23 RPM'],
+    ['Motor', '750 W, 220 V, 50 Hz, single phase'],
+  ] }),
+  make('pipe-bending-machines', 'hb-50-hydraulic-pipe-bender', 'HB-50 Hydraulic Pipe Bender', [I('pipe-bending/hb-50.jpg')], 'Hydraulic pipe bender for ½"–2" pipe, supplied with six bending dies.', {
+  description: 'A hydraulic pipe bender for accurate, clean bends in pipe from ½" to 2". A heavy-duty steel frame and hydraulic power system make bending smooth and effortless, and six bending dies cover the full size range.',
+  features: ['Bends pipe from ½" to 2" (21.3–60 mm)', 'Hydraulic power system', 'Heavy-duty steel frame', 'Six bending dies: ½", ¾", 1", 1¼", 1½", 2"'],
+  applications: ['Plumbing and HVAC', 'Automotive', 'Industrial and mechanical works'],
+  specifications: [
+    ['Model', 'HB-50'],
+    ['Size', '½" – 2" (21.3 – 60 mm)'],
+    ['Max. pressure', '45 MPa'],
+    ['Max. stroke', '250 mm'],
+    ['Wall thickness', '2.75 – 4.5 mm'],
+    ['Bending dies', '½", ¾", 1", 1¼", 1½", 2"'],
+    ['Die ½"', 'A 115 mm · B 67.5 mm · min. bend radius 50.2 mm · D 22 mm · Sch.40 / Sch.80 wall 2.8 / 3.7 mm'],
+    ['Die ¾"', 'A 131 mm · B 84.5 mm · min. bend radius 66 mm · D 28 mm · Sch.40 / Sch.80 wall 2.9 / 3.9 mm'],
+    ['Die 1"', 'A 147 mm · B 96.5 mm · min. bend radius 75.4 mm · D 34 mm · Sch.40 / Sch.80 wall 3.4 / 4.5 mm'],
+    ['Die 1¼"', 'A 197 mm · B 134 mm · min. bend radius 108.7 mm · D 43 mm · Sch.40 wall 3.6 mm'],
+    ['Die 1½"', 'A 242 mm · B 162 mm · min. bend radius 133.5 mm · D 50 mm · Sch.40 wall 3.7 mm'],
+    ['Die 2"', 'A 297 mm · B 238 mm · min. bend radius 199.2 mm · D 62 mm · Sch.40 wall 3.9 mm'],
+  ] }),
+  make('pipe-bending-machines', 'portable-conduit-pipe-bender', 'Portable Conduit Pipe Bender', [], 'Portable bender for 20–32 mm conduit pipe.', {
+  description: 'A portable bender for making bends in conduit pipe from 20 to 32 mm in diameter, easy to carry to the job.',
+  features: ['Bends 20–32 mm conduit pipe', 'Portable'],
+  applications: ['Electrical conduit installation', 'Site work'],
+  specifications: [
+    ['Type', 'Portable conduit pipe bender'],
+    ['Capacity', '20 – 32 mm dia conduit pipe'],
+  ] }),
+  make('butt-jointing-machine', 'ls-160m-hdpe-butt-fusion-machine', 'LS-160M HDPE Butt Fusion Machine', [I('butt-jointing/ls-160m.jpg')], 'HDPE butt fusion machine.', {
+  description: 'LS-160M butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'LS-160M'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make('butt-jointing-machine', 'ls-200m-hdpe-butt-fusion-machine', 'LS-200M HDPE Butt Fusion Machine', [I('butt-jointing/ls-200m.jpg')], 'HDPE butt fusion machine.', {
+  description: 'LS-200M butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'LS-200M'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make('butt-jointing-machine', 'ls-250m-hdpe-butt-fusion-machine', 'LS-250M HDPE Butt Fusion Machine', [I('butt-jointing/ls-250m.jpg')], 'HDPE butt fusion machine.', {
+  description: 'LS-250M butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'LS-250M'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make('butt-jointing-machine', 'ls-315h-hdpe-butt-fusion-machine', 'LS-315H HDPE Butt Fusion Machine', [I('butt-jointing/ls-315h.jpg')], 'HDPE butt fusion machine.', {
+  description: 'LS-315H butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'LS-315H'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make('butt-jointing-machine', 'ls-355h-hdpe-butt-fusion-machine', 'LS-355H HDPE Butt Fusion Machine', [I('butt-jointing/ls-355h.jpg')], 'HDPE butt fusion machine.', {
+  description: 'LS-355H butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'LS-355H'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make('butt-jointing-machine', 'ls-450h-hdpe-butt-fusion-machine', 'LS-450H HDPE Butt Fusion Machine', [I('butt-jointing/ls-450h.jpg')], 'HDPE butt fusion machine.', {
+  description: 'LS-450H butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'LS-450H'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make(S, 'pipe-threading-oil', 'Pipe Threading Oil', [I('spare-parts/pipe-threading-oil.jpg')], 'Thread cutting oil for smooth threads and longer machine life. Packs of 5, 10 and 20 litres.', {
+  description: 'FLEET pipe threading oil is a thread cutting oil for pipe threading machines, giving smooth thread finish and longer machine life. Available in 5 litre, 10 litre and 20 litre packs.',
+  features: ['Smooth thread finish', 'Helps extend threading machine life', 'Available in 5, 10 and 20 litre packs'],
+  applications: ['Pipe threading machines', 'Threading dies and die heads'],
+  specifications: [
+    ['Product', 'Pipe threading oil'],
+    ['Packing sizes', '5 L, 10 L, 20 L'],
+  ] }),
+
   // Products with photos from the supplier image folders — only the model code is known, so specifications stay "on request".
   make(R, 'lsg-219-roll-grooving-machine', 'LSG-219 Roll Grooving Machine', [I('roll-grooving/lsg-219.jpg')], 'Stand-mounted roll grooving machine for steel pipe.', { model: 'LSG-219', specifications: [['Model', 'LSG-219'], ['Other specifications', 'Available on request']] }),
   make(R, 'lsg-325-roll-grooving-machine', 'LSG-325 Roll Grooving Machine', [I('roll-grooving/lsg-325.jpg')], 'Stand-mounted roll grooving machine for steel pipe.', { model: 'LSG-325', specifications: [['Model', 'LSG-325'], ['Other specifications', 'Available on request']] }),
@@ -183,6 +401,12 @@ export const products = [
     ['Weight', '20 kg'],
     ['Standard accessories', 'Die heads (½", ¾", 1½", 2"), oil gun, gloves, L key, screwdriver, fix holder, cleaning brush'],
   ] }),
+
+  make(T, 'z1t-50a-pipe-threading-machine', 'Z1T-50A Pipe Threading Machine', [I('pipe-threading/z1t-50a.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'Z1T-50A', specifications: [['Model', 'Z1T-50A'], ['Other specifications', 'Available on request']] }),
+  make(T, 'z1t-r4-pipe-threading-machine', 'Z1T-R4 Pipe Threading Machine', [I('pipe-threading/z1t-r4.jpg'), I('pipe-threading/z1t-r4-photo.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'Z1T-R4', specifications: [['Model', 'Z1T-R4'], ['Other specifications', 'Available on request']] }),
+  make(T, 'z1t-r65-pipe-threading-machine', 'Z1T-R65 Pipe Threading Machine', [I('pipe-threading/z1t-r65.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'Z1T-R65', specifications: [['Model', 'Z1T-R65'], ['Other specifications', 'Available on request']] }),
+  make(T, 'gmte-02-portable-pipe-threader', 'GMTE-02 Portable Pipe Threader', [I('pipe-threading/gmte-02.jpg'), I('pipe-threading/gmte-02-case.jpg')], 'Portable electric pipe threader supplied in a carry case with die heads.', { model: 'GMTE-02', specifications: [['Model', 'GMTE-02'], ['Other specifications', 'Available on request']] }),
+  make(T, 'gmte-03-portable-pipe-threader', 'GMTE-03 Portable Pipe Threader', [I('pipe-threading/gmte-03.jpg'), I('pipe-threading/gmte-03-case.jpg')], 'Portable electric pipe threader supplied in a carry case with die heads.', { model: 'GMTE-03', specifications: [['Model', 'GMTE-03'], ['Other specifications', 'Available on request']] }),
 
   // Roll grooving
   make(R, 'rg150-roll-grooving-machine', 'RG-150 / RG-150A Roll Grooving Machine', [I('roll-grooving/rg150.jpg')], 'Hydraulic roll grooving machine for 1"–16" pipe, hand or auto pump.', {
