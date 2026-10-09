@@ -1,13 +1,13 @@
-:root{--navy:#14264A;--navy-d:#0C1830;--blue:#2F6FDE;--amber:#F5A524;--bg:#fff;--soft:#F5F7FA;--line:#E4E8EF;--text:#1B2433;--muted:#5B677A;--shadow:0 1px 2px rgba(20,38,74,.06),0 8px 24px rgba(20,38,74,.07);--shadow-h:0 2px 4px rgba(20,38,74,.08),0 18px 40px rgba(20,38,74,.14)}
+:root{--teal:#0FA3A3;--coral:#EF5B5B;--navy:#14264A;--navy-d:#0C1830;--blue:#2F6FDE;--amber:#F5A524;--bg:#fff;--soft:#F5F7FA;--line:#E4E8EF;--text:#1B2433;--muted:#5B677A;--shadow:0 1px 2px rgba(20,38,74,.06),0 8px 24px rgba(20,38,74,.07);--shadow-h:0 2px 4px rgba(20,38,74,.08),0 18px 40px rgba(20,38,74,.14)}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:Barlow,Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
-h1,h2,h3,h4{color:var(--navy);line-height:1.15;margin:0 0 .6em;letter-spacing:-.02em}
-h1{font-size:clamp(2.2rem,5vw,3.9rem);font-weight:800}
-h2{font-size:clamp(1.6rem,3vw,2.3rem);font-weight:800}
-h3{font-size:1.15rem;font-weight:700}
+h1,h2,h3,h4{font-family:"Barlow Condensed",Barlow,system-ui,sans-serif;color:var(--navy);line-height:1.05;margin:0 0 .5em;letter-spacing:.005em}
+h1{font-size:clamp(2.6rem,5.6vw,4.4rem);font-weight:800}
+h2{font-size:clamp(2rem,3.6vw,2.9rem);font-weight:800}
+h3{font-size:1.4rem;font-weight:700}
 p{margin:0 0 1em}
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
 .section{padding:88px 0}.section.tight{padding:48px 0}.alt{background:var(--soft)}
@@ -389,3 +389,53 @@ html{overflow-x:hidden}body{overflow-x:hidden;overflow-x:clip}
 }
 @media(max-width:380px){.hs-cap{font-size:.66rem}}
 @media(prefers-reduced-motion:reduce){.hs-track{transition:none}.hs-half img,.hs-cap,.hs-copy,.hs-info p,.hs-info .actions{transition:none;opacity:1;transform:none}.hs-prog button.on i{animation:none;width:100%}}
+
+/* clients + testimonials */
+.clients{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.client{flex:0 0 calc(25% - 15px);height:120px;display:flex;align-items:center;justify-content:center;padding:20px 24px;background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:var(--shadow);transition:.25s}
+.client:hover{box-shadow:var(--shadow-h);transform:translateY(-3px)}
+.client img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+.quote{margin:0;height:100%;display:flex;flex-direction:column;gap:22px;padding:28px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--amber);box-shadow:var(--shadow)}
+.quote blockquote{margin:0;flex:1;color:var(--text);font-size:1rem;line-height:1.7}
+.quote blockquote::before{content:"\201C";display:block;font-size:3rem;line-height:.8;font-weight:800;color:var(--blue);margin-bottom:6px}
+.quote figcaption{display:flex;align-items:center;gap:12px}
+.quote-av{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+.quote figcaption strong{display:block;color:var(--navy);line-height:1.2}
+.quote figcaption small{color:var(--muted);font-size:.85rem}
+.reveal>.quote{height:100%}
+@media(max-width:1024px){.client{flex-basis:calc(33.333% - 14px)}}
+@media(max-width:560px){.client{flex-basis:calc(50% - 10px);height:96px;padding:14px}.clients{gap:14px}}
+
+/* home colour treatments */
+.tint-blue{background:linear-gradient(180deg,#EAF1FD 0%,#F6F9FE 100%)}
+.tint-warm{background:linear-gradient(180deg,#FFF6E4 0%,#FFFBF2 100%)}
+.dark{background:radial-gradient(900px 400px at 85% 0,rgba(47,111,222,.35),transparent 70%),linear-gradient(135deg,var(--navy-d),var(--navy))}
+.dark h2{color:#fff}.dark .eyebrow{color:#8DB4FF}
+.dark .why{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-top:3px solid var(--amber);box-shadow:none;transition:.25s}
+.dark .why:hover{background:rgba(255,255,255,.12);transform:translateY(-4px)}
+.dark .why h3{color:#fff}.dark .why p{color:#c5cfe3}
+.card{border-top:3px solid var(--blue)}.card:hover{border-top-color:var(--amber)}
+.tint-warm .client{border-bottom:3px solid var(--amber)}
+.tint-blue .quote{border-top-color:var(--blue)}
+.quote-av{background:linear-gradient(135deg,var(--blue),var(--navy))}
+
+/* more colour: accent cycles through the palette */
+.grid>:nth-child(4n+1),.clients>:nth-child(4n+1){--ac:var(--blue)}
+.grid>:nth-child(4n+2),.clients>:nth-child(4n+2){--ac:var(--amber)}
+.grid>:nth-child(4n+3),.clients>:nth-child(4n+3){--ac:var(--teal)}
+.grid>:nth-child(4n),.clients>:nth-child(4n){--ac:var(--coral)}
+.card{border-top-color:var(--ac,var(--blue))}.card:hover{border-top-color:var(--ac,var(--amber))}
+.card-body .eyebrow{color:var(--ac,var(--blue))}.card-body .eyebrow::before{background:var(--ac,var(--amber))}
+.card .link-arrow span{color:var(--ac,var(--amber))}
+.tint-teal{background:linear-gradient(180deg,#E3F6F5 0%,#F3FBFB 100%)}
+.tint-rose{background:linear-gradient(180deg,#FFEDED 0%,#FFF8F8 100%)}
+.sec-head h2::after{content:"";display:block;width:64px;height:4px;margin-top:12px;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--teal),var(--amber))}
+.dark .sec-head h2::after{background:linear-gradient(90deg,var(--amber),var(--coral))}
+.why{border-top-color:var(--ac,var(--navy))}.why-n{color:var(--ac,var(--amber))}
+.dark .why{border-top-color:var(--ac,var(--amber))}
+.tint-warm .client{border-bottom-color:var(--ac,var(--amber))}
+.quote,.tint-blue .quote,.tint-rose .quote{border-top-color:var(--ac,var(--blue))}
+.quote-av{background:var(--ac,var(--blue))}
+.cta{background:radial-gradient(700px 320px at 15% 0,rgba(15,163,163,.35),transparent 70%),radial-gradient(700px 320px at 90% 100%,rgba(239,91,91,.28),transparent 70%),linear-gradient(135deg,var(--navy-d),var(--navy))}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--navy))}
+.hs-eyebrow,.eyebrow{font-family:Barlow,system-ui,sans-serif}

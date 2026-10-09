@@ -7,6 +7,8 @@ import ProductCard from '../components/ProductCard.jsx'
 import { categories } from '../data/categories.js'
 import { featuredProducts } from '../data/products.js'
 import { company } from '../data/company.js'
+import { clients, testimonials } from '../data/clients.js'
+import Img from '../components/Img.jsx'
 
 const why = [
   ['Reliable Engineering', 'Machines designed for dependable day-to-day performance.'],
@@ -21,7 +23,7 @@ export default function Home() {
       <SEO />
       <Hero />
 
-      <section className="section">
+      <section className="section tint-blue">
         <div className="container">
           <Reveal className="sec-head"><span className="eyebrow">Product range</span><h2>Product Categories</h2></Reveal>
           <div className="grid grid-4">
@@ -30,7 +32,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="section tint-teal">
         <div className="container">
           <Reveal className="sec-head"><span className="eyebrow">Selected machines</span><h2>Featured Products</h2></Reveal>
           <div className="grid grid-3">
@@ -39,7 +41,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section dark">
         <div className="container">
           <Reveal className="sec-head"><span className="eyebrow">Our approach</span><h2>Why Choose Us</h2></Reveal>
           <div className="grid grid-4">
@@ -50,7 +52,34 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section alt">
+      <section className="section tint-warm">
+        <div className="container">
+          <Reveal className="sec-head"><span className="eyebrow">Trusted by</span><h2>Our Clients</h2></Reveal>
+          <div className="clients">
+            {clients.map((c, i) => (
+              <Reveal className="client" key={c.name} delay={(i % 4) * 80} title={c.name}><Img src={c.logo} alt={c.name} /></Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section tint-rose">
+        <div className="container">
+          <Reveal className="sec-head"><span className="eyebrow">Testimonials</span><h2>What Our Customers Say</h2></Reveal>
+          <div className="grid grid-3">
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={i * 100}>
+                <figure className="quote">
+                  <blockquote>{t.quote}</blockquote>
+                  <figcaption><span className="quote-av" aria-hidden="true">{t.name[0]}</span><span><strong>{t.name}</strong><small>{t.role}</small></span></figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="container about">
           <Reveal>
             <span className="eyebrow">About {company.legalName}</span>
