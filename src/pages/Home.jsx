@@ -86,7 +86,7 @@ export default function Home() {
             <h2>{company.tagline}</h2>
           </Reveal>
           <Reveal delay={120}>
-            <p>[Company introduction — replace with a short description of the company, its products and the industries it serves.]</p>
+            <p>We bring together technology and engineering to provide innovative pipe machinery — threading, grooving, cutting, hole saw, butt fusion and pressure testing equipment — designed to make your job easy, with on-time delivery to your destination.</p>
             <Link to="/about" className="link-arrow">Learn more about us <span>→</span></Link>
           </Reveal>
         </div>

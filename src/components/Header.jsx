@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { categories } from '../data/categories.js'
 import { company, dial, waLink } from '../data/company.js'
+import WhatsAppIcon from './WhatsAppIcon.jsx'
 
 export default function Header() {
   const [open, setOpen] = useState(false)
@@ -34,10 +35,11 @@ export default function Header() {
           <div className="head-contact">
             <p>
               <svg className="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" /></svg>
-              <b className="lbl">Call / WhatsApp</b>
+              <b className="lbl">Call</b>
               <span className="phones">
                 <a href={`tel:${dial(phone1)}`}>{phone1}</a><i>/</i><a href={`tel:${dial(phone2)}`}>{phone2}</a>
               </span>
+              <a className="wa-btn" href={waLink(phone1)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><WhatsAppIcon /></a>
             </p>
             <p>
               <svg className="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.6L12 13l7.5-5.4V7z" /></svg>
@@ -76,7 +78,7 @@ export default function Header() {
           </button>
           <div className="nav-quick">
             <a href={`tel:${dial(phone1)}`}>Call</a>
-            <a href={waLink(phone1)} target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a className="wa-quick" href={waLink(phone1)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /></a>
           </div>
         </div>
 

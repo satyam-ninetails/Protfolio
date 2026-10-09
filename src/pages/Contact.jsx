@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom'
 import SEO from '../components/SEO.jsx'
-import { company, dial } from '../data/company.js'
+import { company, dial, waLink } from '../data/company.js'
+import WhatsAppIcon from '../components/WhatsAppIcon.jsx'
 
 export default function Contact() {
   const [q] = useSearchParams()
@@ -34,8 +35,13 @@ export default function Contact() {
             <h3>{company.legalName}</h3>
             <dl>
               <dt>Address</dt><dd>{company.address}</dd>
-              <dt>Call / WhatsApp</dt>
-              <dd>{company.phones.map((ph) => <a key={ph} href={`tel:${dial(ph)}`}>{ph}</a>)}</dd>
+              <dt>Call / Chat</dt>
+              <dd>{company.phones.map((ph) => (
+                <span className="phone-row" key={ph}>
+                  <a href={`tel:${dial(ph)}`}>{ph}</a>
+                  <a className="wa-btn" href={waLink(ph)} target="_blank" rel="noopener noreferrer" aria-label={`Chat on WhatsApp ${ph}`} title="Chat on WhatsApp"><WhatsAppIcon /></a>
+                </span>
+              ))}</dd>
               <dt>Email</dt>
               <dd>
                 <a href={`mailto:${company.email}`}>{company.email}</a>
