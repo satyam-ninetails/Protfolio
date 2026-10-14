@@ -7,6 +7,7 @@ export const clients = [
   { name: 'Ahluwalia Contracts (India) Limited', logo: '/images/clients/acil.png' },
   { name: 'Larsen & Toubro', logo: '/images/clients/lt.svg' },
   { name: 'Sterling & Wilson', logo: '/images/clients/sterling-wilson.png' },
+  { name: 'Delhi Metro Rail Corporation (DMRC)', logo: '/images/clients/dmrc.svg' },
 ]
 
 // PLACEHOLDER reviews — sample text and names, NOT real customer feedback.
