@@ -131,20 +131,6 @@ export const products = [
     ['Packing size', '75 × 40 × 70 cm'],
     ['Standard accessories', 'Drive rollers 1"–1½", 2"–3", 3½"–6", 8"–12"; groove rollers 1"–1½", 2"–6", 8"–12"; pipe stand for 1"–12"; foot switch'],
   ] }),
-  make(R, 'fl24a-roll-grooving-machine', 'FL24A Premium Electric Hydraulic Roll Grooving Machine (8"–24")', [I('roll-grooving/fl24a.jpg')], 'Premium electric hydraulic roll grooving machine for 8"–24" steel pipe.', {
-  description: 'A heavy-duty electric hydraulic roll grooving machine for large-diameter steel pipe from 8" to 24". It is supplied with a hydraulic pipe support stand, knurl wheels, pinch rollers and a groove measuring tape.',
-  features: ['Grooves 8"–24" Sch.40 steel pipe', 'Up to 13 mm wall thickness', 'Hydraulic pipe support stand included', 'Three-phase 380–415 V supply'],
-  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
-  specifications: [
-    ['Model', 'FL24A (8" – 24")'],
-    ['Capacity', '8" – 24" (Ø219 – Ø630) Sch.40 pipe'],
-    ['Max. wall thickness', '13 mm'],
-    ['Voltage', '380–415 V, 50 Hz'],
-    ['Speed', '15 RPM'],
-    ['Gross weight', '340 kg'],
-    ['Standard accessories', 'Hydraulic pipe support stand; knurl wheel Ø219–Ø325, Ø377–Ø426, Ø480–Ø630 (one each); pinch roller Ø219–Ø530 and Ø630 (one each); groove measuring tape'],
-    ['Packaging size', '102 × 75 × 147 cm'],
-  ] }),
   make(H, 'fl-114a-hole-saw-cutting-machine', 'FL-114A Hole Saw Cutting Machine', [I('hole-saw/fl-114a.jpg')], 'Portable hole cutting machine, 1500 W, up to 114 mm.', {
   description: 'A portable 1500 W hole cutting machine for making round openings up to 114 mm in pipe, with a chain mounting for pipe from 30 to 220 mm.',
   features: ['Cuts openings up to 114 mm', '1500 W power input', 'Mounts on pipe from 30 to 220 mm', 'Drill chuck 3–16 mm'],

@@ -36,7 +36,6 @@ export const gallery = [
   g('fl12a', 'jpg', 'FL12A Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12a-roll-grooving-machine', 635, 640),
   g('fl12a1', 'jpg', 'FL12A1 Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12a1-roll-grooving-machine', 541, 640),
   g('fl12p', 'jpg', 'FL12P Premium Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12p-roll-grooving-machine', 512, 640),
-  g('fl24a', 'jpg', 'FL24A Premium Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl24a-roll-grooving-machine', 495, 640),
   g('fl-114a', 'jpg', 'FL-114A Hole Saw Cutting Machine', 'hole-saw-cutting-machines', 'fl-114a-hole-saw-cutting-machine', 483, 640),
   g('hb-50', 'jpg', 'HB-50 Hydraulic Pipe Bender', 'pipe-bending-machines', 'hb-50-hydraulic-pipe-bender', 345, 640),
   g('pipe-threading-oil', 'jpg', 'Pipe Threading Oil', 'spare-parts', 'pipe-threading-oil', 450, 640),
