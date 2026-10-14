@@ -44,7 +44,9 @@ export default function Header() {
             <p>
               <svg className="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.6L12 13l7.5-5.4V7z" /></svg>
               <b className="lbl">Email</b>
-              <a href={`mailto:${company.email}`}>{company.email}</a>
+              <span className="phones">
+                {company.emails.map((e, i) => <span key={e.address}><a href={`mailto:${e.address}`}>{e.address}</a>{i < company.emails.length - 1 && <i> /</i>}</span>)}
+              </span>
             </p>
           </div>
         </div>

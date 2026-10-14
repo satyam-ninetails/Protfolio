@@ -45,7 +45,7 @@ export default function Contact() {
               ))}</dd>
               <dt>Email</dt>
               <dd>
-                <a href={`mailto:${company.email}`}>{company.email}</a>
+                {company.emails.map((e) => <a key={e.address} href={`mailto:${e.address}`}>{e.address}</a>)}
               </dd>
               <dt>Hours</dt><dd>{company.hours}</dd>
             </dl>
