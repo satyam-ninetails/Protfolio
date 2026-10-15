@@ -4,8 +4,8 @@ export const company = {
   legalName: 'FLEET INDUSTRIES PRIVATE LIMITED',
   tagline: 'Building the Future Together',
   addresses: [
-    { label: 'Corporate Office / Warehouse', text: 'GF KH. NO. 91/3/2, Phirni Road, Bijwasan, New Delhi – 110061' },
-    { label: 'Bangalore Office / Warehouse', text: 'No 11, 2nd Cross, Dayanandanagar, Srirampura, Bangalore – 560021, Karnataka' },
+    { label: 'Corporate Office / Warehouse', text: 'GF KH. NO. 91/3/2, Phirni Road, Bijwasan, New Delhi – 110061', street: 'GF KH. NO. 91/3/2, Phirni Road, Bijwasan', city: 'New Delhi', region: 'Delhi', postalCode: '110061' },
+    { label: 'Bangalore Office / Warehouse', text: 'No 11, 2nd Cross, Dayanandanagar, Srirampura, Bangalore – 560021, Karnataka', street: 'No 11, 2nd Cross, Dayanandanagar, Srirampura', city: 'Bangalore', region: 'Karnataka', postalCode: '560021' },
   ],
   strapline: 'Building the future together – with unmatched quality and dedicated service',
   phones: ['+91 83830 36046', '+91 89015 84802'],
