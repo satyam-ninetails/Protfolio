@@ -13,7 +13,7 @@ export const categories = [
     description: 'Pumps for dependable hydrostatic pressure testing of pipes and systems.' },
   { slug: 'butt-jointing-machine', name: 'Butt Jointing Machine', image: img('butt-jointing/fl-315h.jpg'),
     description: 'Butt jointing machines for strong, uniform pipe joints.' },
-  { slug: 'pipe-bending-machines', name: 'Pipe Bending Machines', image: img('pipe-bending/bender-2in.jpg'),
+  { slug: 'pipe-bending-machines', name: 'Pipe Bending Machines', image: img('pipe-bending/hb-50.jpg'),
     description: 'Bending machines for accurate, repeatable pipe bends.' },
   { slug: 'spare-parts', name: 'Spare Parts', image: img('spare-parts/pipe-threading-oil.jpg'),
     description: 'Pipe threading oil and other consumables for your machines.' },

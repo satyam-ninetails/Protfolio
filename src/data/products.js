@@ -131,6 +131,20 @@ export const products = [
     ['Packing size', '75 × 40 × 70 cm'],
     ['Standard accessories', 'Drive rollers 1"–1½", 2"–3", 3½"–6", 8"–12"; groove rollers 1"–1½", 2"–6", 8"–12"; pipe stand for 1"–12"; foot switch'],
   ] }),
+  make(R, 'fl-24-roll-grooving-machine', 'FL-24 Roll Grooving Machine (8"–24")', [], 'Roll grooving machine for 8"–24" Sch.40 steel pipe.', {
+  description: 'A heavy-duty roll grooving machine for large-diameter steel pipe from 8" to 24" (Ø219–Ø630) SCH40, supplied with a hydraulic pipe support stand, knurl wheels, pinch rollers and a groove measuring tape.',
+  features: ['Grooves 8"–24" (Ø219–Ø630) SCH40 pipe', 'Up to 13 mm wall thickness', 'Hydraulic pipe support stand included', '380–415 V supply'],
+  applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
+  specifications: [
+    ['Model', 'FL-24'],
+    ['Capacity', '8" – 24" (Ø219 – Ø630) SCH40 pipe'],
+    ['Max. wall thickness', '13 mm'],
+    ['Voltage', '380V–415V, 50Hz'],
+    ['Speed', '15 RPM'],
+    ['G.W.', '340 kg'],
+    ['Standard accessories', 'Hydraulic pipe support stand; knurl wheel Ø219–Ø325, Ø377–Ø426 and Ø480–Ø630 (one pc each); pinch roller Ø219–Ø530 and Ø630 (one pc each); groove measuring tape (one pc)'],
+    ['Packaging size', '102 × 75 × 147 cm'],
+  ] }),
   make(H, 'fl-114a-hole-saw-cutting-machine', 'FL-114A Hole Saw Cutting Machine', [I('hole-saw/fl-114a.jpg')], 'Portable hole cutting machine, 1500 W, up to 114 mm.', {
   description: 'A portable 1500 W hole cutting machine for making round openings up to 114 mm in pipe, with a chain mounting for pipe from 30 to 220 mm.',
   features: ['Cuts openings up to 114 mm', '1500 W power input', 'Mounts on pipe from 30 to 220 mm', 'Drill chuck 3–16 mm'],
@@ -182,6 +196,25 @@ export const products = [
     ['Speed', '23 RPM'],
     ['Motor', '750 W, 220 V, 50 Hz, single phase'],
   ] }),
+  make(C, 'fl-j40-250-pipe-cutting-machine', 'FL-J40/250 Pipe Cutting Machine (40–250 mm)', [I('pipe-cutting/fl-j40-250.jpg'), I('pipe-cutting/fl-j40-250-2.jpg'), I('pipe-cutting/fl-j40-250-3.jpg')], 'Pipe cutting machine for 40–250 mm HDPE/PPR pipes.', {
+  description: 'A pipe cutting machine for cutting HDPE and PPR pipes from 40 mm to 250 mm in diameter.',
+  features: ['Cuts pipe from 40 mm to 250 mm', 'For HDPE / PPR pipes'],
+  applications: ['Cutting HDPE / PPR pipes', 'Pipe fabrication', 'Pipeline installation', 'Workshop production'],
+  specifications: [
+    ['Model', 'FL-J40/250'],
+    ['Cutting range', '40 – 250 mm'],
+    ['Application', 'Cutting HDPE / PPR pipes'],
+  ] }),
+  make(C, 'fl-j160-400-pipe-cutting-machine', 'FL-J160/400 Electric Pipe Cutting Machine (160–400 mm)', [I('pipe-cutting/fl-j160-400.jpg'), I('pipe-cutting/fl-j160-400-2.jpg')], 'Electric pipe cutting machine for 160–400 mm HDPE/PPR pipes, 1800 W.', {
+  description: 'An electric pipe cutting machine for cutting HDPE and PPR pipes from 160 mm to 400 mm in diameter.',
+  features: ['Cuts pipe from 160 mm to 400 mm', '1800 W electric drive', 'For HDPE / PPR pipes'],
+  applications: ['Cutting HDPE / PPR pipes', 'Pipe fabrication', 'Pipeline installation', 'Workshop production'],
+  specifications: [
+    ['Model', 'FL-J160/400'],
+    ['Cutting range', '160 – 400 mm'],
+    ['Power', '1800 W'],
+    ['Application', 'Cutting HDPE / PPR pipes'],
+  ] }),
   make('pipe-bending-machines', 'hb-50-hydraulic-pipe-bender', 'HB-50 Hydraulic Pipe Bender', [I('pipe-bending/hb-50.jpg')], 'Hydraulic pipe bender for ½"–2" pipe, supplied with six bending dies.', {
   description: 'A hydraulic pipe bender for accurate, clean bends in pipe from ½" to 2". A heavy-duty steel frame and hydraulic power system make bending smooth and effortless, and six bending dies cover the full size range.',
   features: ['Bends pipe from ½" to 2" (21.3–60 mm)', 'Hydraulic power system', 'Heavy-duty steel frame', 'Six bending dies: ½", ¾", 1", 1¼", 1½", 2"'],
@@ -209,74 +242,459 @@ export const products = [
     ['Capacity', '20 – 32 mm dia conduit pipe'],
     ['Weight', '32 kg'],
   ] }),
-  make('butt-jointing-machine', 'fl-160m-hdpe-butt-fusion-machine', 'FL-160M HDPE Butt Fusion Machine', [I('butt-jointing/fl-160m.jpg')], 'HDPE butt fusion machine.', {
-  description: 'FL-160M butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  make('butt-jointing-machine', 'fl-160m4-hdpe-butt-fusion-machine', 'FL-160M4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-160m.jpg')], 'Manual butt welding machine, 63–160 mm.', {
+  description: 'FL-160M4 butt fusion welding machine for jointing HDPE pipe.',
   features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
   applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
   specifications: [
-    ['Model', 'FL-160M'],
-    ['Other specifications', 'Available on request'],
+    ['Model', 'FL-160M4'],
+    ['Welding range (mm)', '63, 75, 90, 110, 125, 140, 160'],
+    ['Power', '1.7 kW'],
+    ['Voltage', '220 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Dimensions', '65 × 44 × 49 cm'],
+    ['Weight', '40 kg'],
   ] }),
-  make('butt-jointing-machine', 'fl-200m-hdpe-butt-fusion-machine', 'FL-200M HDPE Butt Fusion Machine', [I('butt-jointing/fl-200m.jpg')], 'HDPE butt fusion machine.', {
-  description: 'FL-200M butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  make('butt-jointing-machine', 'fl-200m4-hdpe-butt-fusion-machine', 'FL-200M4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-200m.jpg')], 'Manual butt welding machine, 63–200 mm.', {
+  description: 'FL-200M4 butt fusion welding machine for jointing HDPE pipe.',
   features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
   applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
   specifications: [
-    ['Model', 'FL-200M'],
-    ['Other specifications', 'Available on request'],
+    ['Model', 'FL-200M4'],
+    ['Welding range (mm)', '63, 75, 90, 110, 125, 140, 160, 180, 200'],
+    ['Power', '2.31 kW'],
+    ['Voltage', '220 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Dimensions', '65 × 44 × 49 cm'],
+    ['Weight', '45 kg'],
   ] }),
-  make('butt-jointing-machine', 'fl-250m-hdpe-butt-fusion-machine', 'FL-250M HDPE Butt Fusion Machine', [I('butt-jointing/fl-250m.jpg')], 'HDPE butt fusion machine.', {
-  description: 'FL-250M butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  make('butt-jointing-machine', 'fl-250m4-hdpe-butt-fusion-machine', 'FL-250M4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-250m.jpg')], 'Manual butt welding machine, 90–250 mm.', {
+  description: 'FL-250M4 butt fusion welding machine for jointing HDPE pipe.',
   features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
   applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
   specifications: [
-    ['Model', 'FL-250M'],
-    ['Other specifications', 'Available on request'],
+    ['Model', 'FL-250M4'],
+    ['Welding range (mm)', '90, 110, 125, 140, 160, 180, 200, 225, 250'],
+    ['Power', '3.15 kW'],
+    ['Voltage', '220 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Dimensions', '75 × 60 × 61 cm'],
+    ['Weight', '80 kg'],
   ] }),
-  make('butt-jointing-machine', 'fl-315h-hdpe-butt-fusion-machine', 'FL-315H HDPE Butt Fusion Machine', [I('butt-jointing/fl-315h.jpg')], 'HDPE butt fusion machine.', {
-  description: 'FL-315H butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  make('butt-jointing-machine', 'fl-315h4-hdpe-butt-fusion-machine', 'FL-315H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-315h.jpg')], 'Hydraulic butt fusion welding machine, 63–315 mm.', {
+  description: 'FL-315H4 butt fusion welding machine for jointing HDPE pipe.',
   features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
   applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
   specifications: [
-    ['Model', 'FL-315H'],
-    ['Other specifications', 'Available on request'],
+    ['Model', 'FL-315H4'],
+    ['Welding range (mm)', '63, 75, 90, 110, 140, 160, 180, 200, 225, 250, 280, 315'],
+    ['Power', '5.35 kW'],
+    ['Voltage', '220 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Dimensions', '100 × 72 × 68 cm / 68 × 54 × 56 cm'],
+    ['Weight', '200 kg'],
   ] }),
-  make('butt-jointing-machine', 'fl-355h-hdpe-butt-fusion-machine', 'FL-355H HDPE Butt Fusion Machine', [I('butt-jointing/fl-355h.jpg')], 'HDPE butt fusion machine.', {
-  description: 'FL-355H butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  make('butt-jointing-machine', 'fl-355h4-hdpe-butt-fusion-machine', 'FL-355H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-355h.jpg')], 'Hydraulic butt fusion welding machine, 160–355 mm.', {
+  description: 'FL-355H4 butt fusion welding machine for jointing HDPE pipe.',
   features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
   applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
   specifications: [
-    ['Model', 'FL-355H'],
-    ['Other specifications', 'Available on request'],
+    ['Model', 'FL-355H4'],
+    ['Welding range (mm)', '160, 180, 200, 225, 250, 280, 315, 355'],
+    ['Power', '5.45 kW'],
+    ['Voltage', '220 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Dimensions', '100 × 72 × 73 cm / 75 × 64 × 62 cm'],
+    ['Weight', '230 kg'],
   ] }),
-  make('butt-jointing-machine', 'fl-450h-hdpe-butt-fusion-machine', 'FL-450H HDPE Butt Fusion Machine', [I('butt-jointing/fl-450h.jpg')], 'HDPE butt fusion machine.', {
-  description: 'FL-450H butt fusion machine for jointing HDPE pipe. Contact us for the pipe sizes and configuration available.',
+  make('butt-jointing-machine', 'fl-450h4-hdpe-butt-fusion-machine', 'FL-450H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-450h.jpg')], 'Hydraulic butt fusion welding machine, 280–450 mm.', {
+  description: 'FL-450H4 butt fusion welding machine for jointing HDPE pipe.',
   features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
   applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
   specifications: [
-    ['Model', 'FL-450H'],
-    ['Other specifications', 'Available on request'],
+    ['Model', 'FL-450H4'],
+    ['Welding range (mm)', '280, 315, 355, 400, 450'],
+    ['Power', '7.2 kW'],
+    ['Voltage', '380 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Packing size', '110 × 93 × 87 cm / 115 × 85 × 67 cm / 65 × 52 × 50 cm'],
+    ['Weight', '370 kg'],
   ] }),
-  make(S, 'pipe-threading-oil', 'Pipe Threading Oil', [I('spare-parts/pipe-threading-oil.jpg')], 'Thread cutting oil for smooth threads and longer machine life. Packs of 5, 10 and 20 litres.', {
-  description: 'FLEET pipe threading oil is a thread cutting oil for pipe threading machines, giving smooth thread finish and longer machine life. Available in 5 litre, 10 litre and 20 litre packs.',
-  features: ['Smooth thread finish', 'Helps extend threading machine life', 'Available in 5, 10 and 20 litre packs'],
+  make('butt-jointing-machine', 'fl-630h4-hdpe-butt-fusion-machine', 'FL-630H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-630h4.jpg')], 'Hydraulic butt fusion welding machine, 400–630 mm.', {
+  description: 'FL-630H4 butt fusion welding machine for jointing HDPE pipe.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'FL-630H4'],
+    ['Welding range (mm)', '400, 450, 500, 560, 630'],
+    ['Power', '10.6 kW'],
+    ['Voltage', '380 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Packing size', '140 × 105 × 107 cm / 125 × 110 × 83 cm / 65 × 52 × 50 cm'],
+    ['Weight', '600 kg'],
+  ] }),
+  make('butt-jointing-machine', 'fl-800h4-hdpe-butt-fusion-machine', 'FL-800H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-800h4.jpg')], 'Hydraulic butt fusion welding machine, 630–800 mm.', {
+  description: 'FL-800H4 butt fusion welding machine for jointing HDPE pipe.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'FL-800H4'],
+    ['Welding range (mm)', '630, 710, 800'],
+    ['Power', '18.2 kW'],
+    ['Voltage', '380 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Packing size', '215 × 135 × 125 cm / 122 × 92 × 182 cm / 75 × 54 × 50 cm'],
+    ['Weight', '1200 kg'],
+  ] }),
+  make('butt-jointing-machine', 'fl-1000h4-hdpe-butt-fusion-machine', 'FL-1000H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-800h4.jpg')], 'Hydraulic butt fusion welding machine, 800–1000 mm.', {
+  description: 'FL-1000H4 butt fusion welding machine for jointing HDPE pipe.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'FL-1000H4'],
+    ['Welding range (mm)', '800, 900, 1000'],
+    ['Power', '24 kW'],
+    ['Voltage', '380 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Packing size', '215 × 150 × 104 cm / 265 × 165 × 153 cm / 84 × 58 × 52 cm'],
+    ['Weight', '2100 kg'],
+  ] }),
+  make('butt-jointing-machine', 'fl-1200h4-hdpe-butt-fusion-machine', 'FL-1200H4 HDPE Butt Fusion Machine', [I('butt-jointing/fl-800h4.jpg')], 'Hydraulic butt fusion welding machine, 1000–1200 mm.', {
+  description: 'FL-1200H4 butt fusion welding machine for jointing HDPE pipe.',
+  features: ['HDPE pipe butt fusion', 'Accurate pipe alignment', 'Technical support available'],
+  applications: ['Water and gas distribution', 'Pipeline construction', 'Industrial piping'],
+  specifications: [
+    ['Model', 'FL-1200H4'],
+    ['Welding range (mm)', '1000, 1200'],
+    ['Power', '30.5 kW'],
+    ['Voltage', '380 V'],
+    ['Working temp.', '270°C ± 10%'],
+    ['Packing size', '252 × 195 × 200 cm / 175 × 129 × 224 cm / 92.5 × 82 × 105 cm'],
+    ['Weight', '3370 kg'],
+  ] }),
+  make(S, 'pipe-threading-oil', 'Pipe Threading Oil', [I('spare-parts/pipe-threading-oil.jpg')], 'Premium quality threading oil, available in 5 Ltr, 10 Ltr and 20 Ltr packing sizes.', {
+  description: 'Premium quality threading oil is available in 5 Ltr, 10 Ltr and 20 Ltr packing sizes.',
+  features: ['Premium quality threading oil', 'Available in 5, 10 and 20 litre packs'],
   applications: ['Pipe threading machines', 'Threading dies and die heads'],
   specifications: [
     ['Product', 'Pipe threading oil'],
-    ['Packing sizes', '5 L, 10 L, 20 L'],
+    ['Packing sizes', '5 Ltr, 10 Ltr, 20 Ltr'],
+  ] }),
+  make(S, 'dies-set', 'Threading Dies Set', [I('spare-parts/threading-dies-1.jpg'), I('spare-parts/threading-dies-2.jpg'), I('spare-parts/threading-dies-3.jpg'), I('spare-parts/threading-dies-4.jpg'), I('spare-parts/threading-dies-5.jpg'), I('spare-parts/threading-dies-6.jpg')], 'Dies set for all types of threading machines and pipes, in SS and alloy material.', {
+  description: 'Dies set available for all types of threading machines and pipes. Available in SS and Alloy material.',
+  features: ['For all types of threading machines and pipes', 'Available in SS and Alloy material'],
+  applications: ['Pipe threading machines'],
+  specifications: [
+    ['Product', 'Threading dies set'],
+    ['Material', 'SS and Alloy'],
+    ['Compatibility', 'All types of threading machines and pipes'],
+  ] }),
+  make(S, 'spare-part-curve-plate', 'Curve Plate', [I('spare-parts/part-curve-plate.jpg')], 'Curve Plate — spare part for FLEET machines.', {
+  description: 'Curve Plate, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Curve Plate'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-cutting-wheel', 'Cutting Wheel', [I('spare-parts/part-cutting-wheel.jpg')], 'Cutting Wheel — spare part for FLEET machines.', {
+  description: 'Cutting Wheel, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Cutting Wheel'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-oil-pump-assembly', 'Oil Pump Assembly', [I('spare-parts/part-oil-pump-assembly.jpg')], 'Oil Pump Assembly — spare part for FLEET machines.', {
+  description: 'Oil Pump Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Oil Pump Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-index', 'Index', [I('spare-parts/part-index.jpg')], 'Index — spare part for FLEET machines.', {
+  description: 'Index, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Index'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-pellet', 'Pellet', [I('spare-parts/part-pellet.jpg')], 'Pellet — spare part for FLEET machines.', {
+  description: 'Pellet, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Pellet'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-on-off-switch', 'On Off Switch', [I('spare-parts/part-on-off-switch.jpg')], 'On Off Switch — spare part for FLEET machines.', {
+  description: 'On Off Switch, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'On Off Switch'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-jaw-insert', 'Jaw Insert', [I('spare-parts/part-jaw-insert.jpg')], 'Jaw Insert — spare part for FLEET machines.', {
+  description: 'Jaw Insert, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Jaw Insert'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-front-chuck-jaw', 'Front Chuck Jaw', [I('spare-parts/part-front-chuck-jaw.jpg')], 'Front Chuck Jaw — spare part for FLEET machines.', {
+  description: 'Front Chuck Jaw, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Front Chuck Jaw'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-filter', 'Filter', [I('spare-parts/part-filter.jpg')], 'Filter — spare part for FLEET machines.', {
+  description: 'Filter, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Filter'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-screw-plate', 'Screw Plate', [I('spare-parts/part-screw-plate.jpg')], 'Screw Plate — spare part for FLEET machines.', {
+  description: 'Screw Plate, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Screw Plate'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-auto-cut-die-head-assembly', 'Auto Cut Die Head Assembly', [I('spare-parts/part-auto-cut-die-head-assembly.jpg')], 'Auto Cut Die Head Assembly — spare part for FLEET machines.', {
+  description: 'Auto Cut Die Head Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Auto Cut Die Head Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-lever-type-die-head-assembly', 'Lever type Die Head Assembly', [I('spare-parts/part-lever-type-die-head-assembly.jpg')], 'Lever type Die Head Assembly — spare part for FLEET machines.', {
+  description: 'Lever type Die Head Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Lever type Die Head Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-remmer', 'Remmer', [I('spare-parts/part-remmer.jpg')], 'Remmer — spare part for FLEET machines.', {
+  description: 'Remmer, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Remmer'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-hammer-chuck-body', 'Hammer Chuck Body', [I('spare-parts/part-hammer-chuck-body.jpg')], 'Hammer Chuck Body — spare part for FLEET machines.', {
+  description: 'Hammer Chuck Body, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Hammer Chuck Body'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-motor-with-gear-assembly', 'Motor With Gear Assembly', [I('spare-parts/part-motor-with-gear-assembly.jpg')], 'Motor With Gear Assembly — spare part for FLEET machines.', {
+  description: 'Motor With Gear Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Motor With Gear Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-shaft-bracket', 'Shaft Bracket', [I('spare-parts/part-shaft-bracket.jpg')], 'Shaft Bracket — spare part for FLEET machines.', {
+  description: 'Shaft Bracket, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Shaft Bracket'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-cutting-handle', 'Cutting Handle', [I('spare-parts/part-cutting-handle.jpg')], 'Cutting Handle — spare part for FLEET machines.', {
+  description: 'Cutting Handle, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Cutting Handle'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-main-drive-shaft', 'Main Drive Shaft', [I('spare-parts/part-main-drive-shaft.jpg')], 'Main Drive Shaft — spare part for FLEET machines.', {
+  description: 'Main Drive Shaft, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Main Drive Shaft'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-fork-chuck-assembly', 'Fork Chuck Assembly', [I('spare-parts/part-fork-chuck-assembly.jpg')], 'Fork Chuck Assembly — spare part for FLEET machines.', {
+  description: 'Fork Chuck Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Fork Chuck Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-length-change-assembly', 'Length Change Assembly', [I('spare-parts/part-length-change-assembly.jpg')], 'Length Change Assembly — spare part for FLEET machines.', {
+  description: 'Length Change Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Length Change Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-rear-hammer-chuck-body', 'Rear Hammer Chuck Body', [I('spare-parts/part-rear-hammer-chuck-body.jpg')], 'Rear Hammer Chuck Body — spare part for FLEET machines.', {
+  description: 'Rear Hammer Chuck Body, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Rear Hammer Chuck Body'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-clutch-plate', 'Clutch Plate', [I('spare-parts/part-clutch-plate.jpg')], 'Clutch Plate — spare part for FLEET machines.', {
+  description: 'Clutch Plate, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Clutch Plate'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-capacitor', 'Capacitor', [I('spare-parts/part-capacitor.jpg')], 'Capacitor — spare part for FLEET machines.', {
+  description: 'Capacitor, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Capacitor'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-lock-assembly', 'Lock Assembly', [I('spare-parts/part-lock-assembly.jpg')], 'Lock Assembly — spare part for FLEET machines.', {
+  description: 'Lock Assembly, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Lock Assembly'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-export-shaft-gear', 'Export Shaft Gear', [I('spare-parts/part-export-shaft-gear.jpg')], 'Export Shaft Gear — spare part for FLEET machines.', {
+  description: 'Export Shaft Gear, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Export Shaft Gear'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-hand-wheel-gear', 'Hand Wheel Gear', [I('spare-parts/part-hand-wheel-gear.jpg')], 'Hand Wheel Gear — spare part for FLEET machines.', {
+  description: 'Hand Wheel Gear, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Hand Wheel Gear'],
+    ['Compatibility', 'Contact us with your machine model'],
+  ] }),
+  make(S, 'spare-part-oil-pipe', 'Oil Pipe', [I('spare-parts/part-oil-pipe.jpg')], 'Oil Pipe — spare part for FLEET machines.', {
+  description: 'Oil Pipe, available as a spare part. Contact us to confirm the right part for your machine.',
+  features: ['Spare part', 'Available on enquiry'],
+  applications: ['Routine machine maintenance', 'Replacement of worn components'],
+  specifications: [
+    ['Part', 'Oil Pipe'],
+    ['Compatibility', 'Contact us with your machine model'],
   ] }),
 
   // Products with photos from the supplier image folders — only the model code is known, so specifications stay "on request".
   make(R, 'lsg-219-roll-grooving-machine', 'LSG-219 Roll Grooving Machine', [I('roll-grooving/lsg-219.jpg')], 'Stand-mounted roll grooving machine for steel pipe.', { model: 'LSG-219', specifications: [['Model', 'LSG-219'], ['Other specifications', 'Available on request']] }),
   make(R, 'lsg-325-roll-grooving-machine', 'LSG-325 Roll Grooving Machine', [I('roll-grooving/lsg-325.jpg')], 'Stand-mounted roll grooving machine for steel pipe.', { model: 'LSG-325', specifications: [['Model', 'LSG-325'], ['Other specifications', 'Available on request']] }),
-  make(H, 'k-114-hole-saw-cutting-machine', 'K-114 Hole Saw Cutting Machine', [I('hole-saw/k-114.jpg'), I('hole-saw/k-114-green.jpg')], 'Portable hole cutting machine with chain mounting for pipe.', { model: 'K-114', specifications: [['Model', 'K-114'], ['Other specifications', 'Available on request']] }),
-  make('pressure-test-pumps', 'tp-50-pressure-test-pump', 'TP-50 Manual Pressure Test Pump', [I('pressure-test/tp-50.jpg')], 'Hand-operated pressure test pump with built-in water tank.', { model: 'TP-50', specifications: [['Model', 'TP-50'], ['Other specifications', 'Available on request']] }),
-  make('pressure-test-pumps', 'zd-50-pressure-test-pump', 'ZD-50 Manual Pressure Test Pump', [I('pressure-test/zd-50.jpg')], 'Hand-operated pressure test pump with pressure gauge.', { model: 'ZD-50', specifications: [['Model', 'ZD-50'], ['Other specifications', 'Available on request']] }),
+  make(H, 'k-114-hole-saw-cutting-machine', 'K-114 Hole Saw Cutting Machine', [I('hole-saw/k-114.jpg'), I('hole-saw/k-114-green.jpg')], 'Portable hole cutting machine with chain mounting for pipe.', {
+  description: 'A portable hole cutting machine for making round openings in pipe from 25 mm to 114 mm, with a chain mounting for fixing it to the pipe.',
+  features: ['Cuts openings from 25 mm to 114 mm', '650 W motor, 120 RPM no-load speed', 'Chain mounting for pipe'],
+  applications: ['Branch and tee connections', 'Pipe and tube fabrication', 'Plant maintenance', 'Installation work'],
+  specifications: [
+    ['Model', 'K-114'],
+    ['No-load speed', '120 RPM'],
+    ['Power', '650 W'],
+    ['Voltage', '220 V'],
+    ['Frequency', '50–60 Hz'],
+    ['Cutting size', '25 mm – 114 mm'],
+  ] }),
+  make(H, 'bi-metal-hole-saw-cutters', 'Bi-Metal Hole Saw Cutters', [I('hole-saw/bi-metal-hole-saw-cutters.jpg')], 'Bi-metal hole saw cutters in a range of sizes.', {
+  description: 'Bi-metal hole saw cutters for making round openings. Available in a range of sizes — contact us for the sizes you need.',
+  features: ['Bi-metal construction', 'Range of sizes available'],
+  applications: ['Branch and tee connections', 'Pipe and tube fabrication', 'Installation work'],
+  specifications: [
+    ['Type', 'Hole saw cutters (Bi-Metal)'],
+    ['Sizes', 'Available on request'],
+  ] }),
+  make(H, 'tct-hole-saw-cutters', 'TCT Hole Saw Cutters', [I('hole-saw/tct-hole-saw-cutters.jpg')], 'TCT (tungsten carbide tipped) hole saw cutters.', {
+  description: 'TCT hole saw cutters for clean, accurate openings. Supplied with a pilot drill and key — contact us for the sizes you need.',
+  features: ['Tungsten carbide tipped (TCT) teeth', 'Supplied with pilot drill and key'],
+  applications: ['Branch and tee connections', 'Pipe and tube fabrication', 'Installation work'],
+  specifications: [
+    ['Type', 'TCT hole saw cutters'],
+    ['Sizes', 'Available on request'],
+  ] }),
+  make('pressure-test-pumps', 'zd-40-pressure-test-pump', 'ZD-40 Manual Pressure Test Pump', [I('pressure-test/zd-40.jpg'), I('pressure-test/hand-pump-poster.jpg')], 'Hand-operated pressure test pump, 0–50 bar.', {
+  description: 'FLEET hand pressure test pumps are designed for quick and reliable testing of piping systems, vessels and equipment. The ZD-40 is a manual pump with a 100 cm hose.',
+  features: ['Working pressure 0–50 bar', 'Piston volume 30 ml per stroke', '100 cm hose', 'Compact and portable, only 4 kg'],
+  applications: ['Pressure testing of pipes and systems', 'Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Maintenance and repair'],
+  specifications: [
+    ['Model', 'ZD-40'],
+    ['Working pressure', '0–50 bar'],
+    ['Piston volume', '30 ml/time'],
+    ['Hose length', '100 cm'],
+    ['Weight', '4 kg'],
+    ['Dimensions (L × W × H)', '36 × 18 × 27 cm'],
+  ] }),
+  make('pressure-test-pumps', 'tp-50-pressure-test-pump', 'TP-50 Manual Pressure Test Pump', [I('pressure-test/tp-50.jpg'), I('pressure-test/hand-pump-poster.jpg')], 'Hand-operated pressure test pump, 0–50 bar.', {
+  description: 'FLEET hand pressure test pumps are designed for quick and reliable testing of piping systems, vessels and equipment. The TP-50 is a manual pump with a 150 cm hose.',
+  features: ['Working pressure 0–50 bar', 'Piston volume 40 ml per stroke', '150 cm hose', 'Built-in water tank'],
+  applications: ['Pressure testing of pipes and systems', 'Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Maintenance and repair'],
+  specifications: [
+    ['Model', 'TP-50'],
+    ['Working pressure', '0–50 bar'],
+    ['Piston volume', '40 ml/time'],
+    ['Hose length', '150 cm'],
+    ['Weight', '8.5 kg'],
+    ['Dimensions (L × W × H)', '51 × 19 × 29 cm'],
+  ] }),
+  make('pressure-test-pumps', 'fl-40a-electric-pressure-test-pump', 'FL-40A Electric Pressure Test Pump', [I('pressure-test/fl-40a.jpg'), I('pressure-test/fl-40a-poster.jpg')], 'Electric pressure test pump, up to 40 bar, 30 L/min.', {
+  description: 'The FL-40A is an electric pressure test pump with three cylinders and a Crompton copper 2 HP motor. It tests up to 40 bar at a flow rate of 30 L/min for fast, efficient testing.',
+  features: ['Test up to 40 bar', 'High flow rate: 30 L/min', 'Powerful Crompton copper 2 HP motor', 'Durable and reliable, built for long life and heavy-duty usage'],
+  applications: ['Pipeline testing', 'Industrial and site use', 'Pressure testing of pipes and systems'],
+  specifications: [
+    ['Model', 'FL-40A'],
+    ['No. of cylinders', '3'],
+    ['Max pressure', '40 bar'],
+    ['Flow rate', '30 L/min'],
+    ['Motor', 'Crompton copper 2 HP'],
+    ['RPM', '3600'],
+    ['Oil required', '1 ltr'],
+    ['Gross weight', '20 kg'],
+  ] }),
   make('butt-jointing-machine', '63b-2-socket-welding-machine', '63B-2 Socket Welding Machine', [I('butt-jointing/63b-2.jpg')], 'Socket fusion welding machine supplied in a metal carry case.', { model: '63B-2', specifications: [['Model', '63B-2'], ['Other specifications', 'Available on request']] }),
   make('butt-jointing-machine', '110a-socket-welding-machine', '110A Socket Welding Machine', [I('butt-jointing/110a.jpg')], 'Socket fusion welding machine supplied in a metal carry case.', { model: '110A', specifications: [['Model', '110A'], ['Other specifications', 'Available on request']] }),
-  make('pipe-bending-machines', '2-inch-pipe-bender', '2" Pipe Bender', [I('pipe-bending/bender-2in.jpg')], 'Pipe bender supplied with a set of bending dies.', { model: '2" Pipe Bender', specifications: [['Model', '2" Pipe Bender'], ['Other specifications', 'Available on request']] }),
-  make('pipe-bending-machines', '3-inch-pipe-bender', '3" Pipe Bender', [I('pipe-bending/bender-3in.jpg')], 'Pipe bender supplied with a set of bending dies.', { model: '3" Pipe Bender', specifications: [['Model', '3" Pipe Bender'], ['Other specifications', 'Available on request']] }),
-  make('pipe-bending-machines', '4-inch-pipe-bender', '4" Pipe Bender', [I('pipe-bending/bender-4in.jpg')], 'Pipe bender supplied with a set of bending dies.', { model: '4" Pipe Bender', specifications: [['Model', '4" Pipe Bender'], ['Other specifications', 'Available on request']] }),
+  make('pipe-bending-machines', 'hb-80-hydraulic-pipe-bender', 'HB-80 (1/2"-3") Hydraulic Pipe Bender', [I('pipe-bending/hb-80.jpg')], 'Hydraulic pipe bender for 1/2"–3" pipe, supplied with a set of bending dies.', {
+  description: 'A hydraulic pipe bender for bending pipe from 1/2" to 3", supplied with a set of bending dies.',
+  features: ['Bends pipe from 1/2" to 3"', 'Hydraulic operation', 'Supplied with a set of bending dies'],
+  applications: ['Plumbing and HVAC', 'Industrial and mechanical works'],
+  specifications: [
+    ['Model', 'HB-80'],
+    ['Size', '1/2" – 3"'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make('pipe-bending-machines', 'hb-100-hydraulic-pipe-bender', 'HB-100 (1/2"-4") Hydraulic Pipe Bender', [I('pipe-bending/hb-100.jpg')], 'Hydraulic pipe bender for 1/2"–4" pipe, supplied with a set of bending dies.', {
+  description: 'A hydraulic pipe bender for bending pipe from 1/2" to 4", supplied with a set of bending dies.',
+  features: ['Bends pipe from 1/2" to 4"', 'Hydraulic operation', 'Supplied with a set of bending dies'],
+  applications: ['Plumbing and HVAC', 'Industrial and mechanical works'],
+  specifications: [
+    ['Model', 'HB-100'],
+    ['Size', '1/2" – 4"'],
+    ['Other specifications', 'Available on request'],
+  ] }),
 
   // Threading
   make(T, 'fl50a-pipe-threading-machine', 'FL50A Heavy-Duty Pipe Threading Machine', [I('pipe-threading/fl50a.jpg')], 'Heavy-duty 2" threading machine with a 1000 W induction motor.', {
@@ -396,16 +814,16 @@ export const getProduct = (slug) => products.find((p) => p.slug === slug)
 export const productsByCategory = (slug) => products.filter((p) => p.category === slug)
 export const featuredProducts = [
   'fl100a1-pipe-threading-machine', 'fl12a-roll-grooving-machine', 'chm2-pipe-cutting-machine',
-  'fl-114a-hole-saw-cutting-machine', 'hb-50-hydraulic-pipe-bender', 'fl-315h-hdpe-butt-fusion-machine',
+  'fl-114a-hole-saw-cutting-machine', 'hb-50-hydraulic-pipe-bender', 'fl-315h4-hdpe-butt-fusion-machine',
 ].map(getProduct)
 
 // Home carousel: one slide per category, two products of that category shown stacked.
 export const heroSlides = [
   { category: 'pipe-threading-machines', products: ['fl100a1-pipe-threading-machine', 'fl150a-pipe-threading-machine'] },
   { category: 'roll-grooving-machine', products: ['fl12a-roll-grooving-machine', 'fl9a-roll-grooving-machine'] },
-  { category: 'pipe-cutting-machine', products: ['chm1-pipe-cutting-machine', 'chm2-pipe-cutting-machine'] },
+  { category: 'pipe-cutting-machine', products: ['fl-j40-250-pipe-cutting-machine', 'fl-j160-400-pipe-cutting-machine'] },
   { category: 'hole-saw-cutting-machines', products: ['fl-114a-hole-saw-cutting-machine', 'fl-150a-hole-saw-cutting-machine'] },
-  { category: 'pressure-test-pumps', products: ['tp-50-pressure-test-pump', 'zd-50-pressure-test-pump'] },
-  { category: 'butt-jointing-machine', products: ['fl-315h-hdpe-butt-fusion-machine', 'fl-450h-hdpe-butt-fusion-machine'] },
+  { category: 'pressure-test-pumps', products: ['zd-40-pressure-test-pump', 'fl-40a-electric-pressure-test-pump'] },
+  { category: 'butt-jointing-machine', products: ['fl-315h4-hdpe-butt-fusion-machine', 'fl-450h4-hdpe-butt-fusion-machine'] },
   { category: 'pipe-bending-machines', products: ['hb-50-hydraulic-pipe-bender', 'portable-conduit-pipe-bender'] },
 ].map((s) => ({ ...s, products: s.products.map(getProduct) }))
