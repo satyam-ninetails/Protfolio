@@ -34,9 +34,9 @@ export default function About() {
             <h2>Machinery for pipe processing and testing</h2>
           </Reveal>
           <Reveal delay={120}>
-            <p><strong>{company.legalName}</strong> brings together technology and engineering to provide innovative solutions for our customers in the range of pipe machinery. Our priority is to design, produce and deliver products and solutions that make your job easy.</p>
-            <p>Our company has grown to become one of the leading manufacturing companies, with many customers around the globe. Today, we are committed to helping our customers succeed and to building long-term value in the global market.</p>
-            <p>We use German cutting-edge technology in manufacturing pipe threading machines, pipe grooving machines, hole saw cutting machines, HDPE butt fusion machines, pipe cutting machines, pipe benders, pressure testing pumps and more.</p>
+            <p><strong>{company.legalName}</strong> brings together technology and engineering to provide innovative solutions for our customers in the range of pipe machinery. Our priority is to design and deliver products and solutions that make your job easy.</p>
+            <p>Our company has grown to become one of the leading companies, with many customers around the globe. Today, we are committed to helping our customers succeed and to building long-term value in the global market.</p>
+            <p>We use German cutting-edge technology in pipe threading machines, pipe grooving machines, hole saw cutting machines, HDPE butt fusion machines, pipe cutting machines, pipe benders, pressure testing pumps and more.</p>
             <p>Through our sound logistics facility, we ensure on-time delivery of orders to the client's destination.</p>
           </Reveal>
         </div>

@@ -3,7 +3,7 @@ const img = (p) => `/images/products/${p}`
 export const categories = [
   { slug: 'pipe-threading-machines', name: 'Pipe Threading Machines', image: img('pipe-threading/fl100a1.jpg'),
     description: 'Robust threading machines for cutting precise pipe threads on site or in the workshop.' },
-  { slug: 'roll-grooving-machine', name: 'Roll Grooving Machine', image: img('roll-grooving/lsg-219.jpg'),
+  { slug: 'roll-grooving-machine', name: 'Roll Grooving Machine', image: img('roll-grooving/fl9a.jpg'),
     description: 'Roll grooving equipment for fast, consistent grooves on steel pipe.' },
   { slug: 'pipe-cutting-machine', name: 'Pipe Cutting Machine', image: img('pipe-cutting/chm1.jpg'),
     description: 'Clean, accurate pipe cutting machines for demanding fabrication work.' },

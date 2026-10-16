@@ -92,7 +92,7 @@ export const products = [
     ['Packing size', '73 × 40 × 77 cm'],
     ['Standard accessories', 'Pipe support stand; knurling wheels 1"–1½", 2"–3", 3"–6", 8"; pinch rollers 1"–1½", 2"–6", 8"'],
   ] }),
-  make(R, 'fl12a-roll-grooving-machine', 'FL12A Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a.jpg'), I('roll-grooving/fl12a-poster.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
+  make(R, 'fl12a-roll-grooving-machine', 'FL12A Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a-gray.jpg'), I('roll-grooving/fl12a-poster.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
   description: 'An electric hydraulic roll grooving machine for fast, accurate grooving of steel pipe from 2" to 12". It is supplied with a pipe support stand, upper rollers and knurling wheels.',
   features: ['Grooves 2"–12" steel pipe', '1100 W motor', 'Pipe support stand included', 'Upper rollers and knurling wheels for each size range'],
   applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
@@ -104,7 +104,7 @@ export const products = [
     ['Speed', '24 RPM'],
     ['Standard accessories', 'Pipe support stand; upper rollers 2"–6", 8"–12"; knurling wheels 2"–3", 4"–6", 8"–12"'],
   ] }),
-  make(R, 'fl12a1-roll-grooving-machine', 'FL12A1 Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a1.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
+  make(R, 'fl12a1-roll-grooving-machine', 'FL12A1 Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a1-stand.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
   description: 'An electric hydraulic roll grooving machine for steel pipe from 2" to 12", supplied with a foot switch, pipe support stand, and knurling and pinch rollers.',
   features: ['Grooves 2"–12" steel pipe', '1100 W motor', 'Foot switch and pipe support stand', 'Knurling and pinch rollers for each size range'],
   applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
@@ -131,7 +131,7 @@ export const products = [
     ['Packing size', '75 × 40 × 70 cm'],
     ['Standard accessories', 'Drive rollers 1"–1½", 2"–3", 3½"–6", 8"–12"; groove rollers 1"–1½", 2"–6", 8"–12"; pipe stand for 1"–12"; foot switch'],
   ] }),
-  make(R, 'fl-24-roll-grooving-machine', 'FL-24 Roll Grooving Machine (8"–24")', [], 'Roll grooving machine for 8"–24" Sch.40 steel pipe.', {
+  make(R, 'fl-24-roll-grooving-machine', 'FL-24 Roll Grooving Machine (8"–24")', [I('roll-grooving/fl-24.jpg')], 'Roll grooving machine for 8"–24" Sch.40 steel pipe.', {
   description: 'A heavy-duty roll grooving machine for large-diameter steel pipe from 8" to 24" (Ø219–Ø630) SCH40, supplied with a hydraulic pipe support stand, knurl wheels, pinch rollers and a groove measuring tape.',
   features: ['Grooves 8"–24" (Ø219–Ø630) SCH40 pipe', 'Up to 13 mm wall thickness', 'Hydraulic pipe support stand included', '380–415 V supply'],
   applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
@@ -221,11 +221,17 @@ export const products = [
   applications: ['Plumbing and HVAC', 'Automotive', 'Industrial and mechanical works'],
   specifications: [
     ['Model', 'HB-50'],
-    ['Size', '½" – 2" (21.3 – 60 mm)'],
-    ['Max. pressure', '45 MPa'],
-    ['Max. stroke', '250 mm'],
+    ['Bending range', 'Φ21.3 – Φ60'],
+    ['Standard configuration', '6 pairs of molds'],
+    ['Sizes (mm)', '22, 28, 34, 42, 48, 60'],
+    ['Maximum working pressure', '45 MPa'],
+    ['Maximum working stroke', '250 mm'],
+    ['Bending angle', '90° ≤ a < 180°'],
+    ['Oil tank capacity (15# hydraulic oil)', '1.2 kg'],
+    ['Stroke', '250 mm'],
+    ['Gross weight', '50 kg'],
     ['Wall thickness', '2.75 – 4.5 mm'],
-    ['Bending dies', '½", ¾", 1", 1¼", 1½", 2"'],
+    ['Packing dimensions (cm)', '73 × 32 × 16.5'],
     ['Die ½"', 'A 115 mm · B 67.5 mm · min. bend radius 50.2 mm · D 22 mm · Sch.40 / Sch.80 wall 2.8 / 3.7 mm'],
     ['Die ¾"', 'A 131 mm · B 84.5 mm · min. bend radius 66 mm · D 28 mm · Sch.40 / Sch.80 wall 2.9 / 3.9 mm'],
     ['Die 1"', 'A 147 mm · B 96.5 mm · min. bend radius 75.4 mm · D 34 mm · Sch.40 / Sch.80 wall 3.4 / 4.5 mm'],
@@ -233,7 +239,7 @@ export const products = [
     ['Die 1½"', 'A 242 mm · B 162 mm · min. bend radius 133.5 mm · D 50 mm · Sch.40 wall 3.7 mm'],
     ['Die 2"', 'A 297 mm · B 238 mm · min. bend radius 199.2 mm · D 62 mm · Sch.40 wall 3.9 mm'],
   ] }),
-  make('pipe-bending-machines', 'portable-conduit-pipe-bender', 'Portable Conduit Pipe Bender with Vice', [I('pipe-bending/conduit-bender.jpg'), I('pipe-bending/conduit-bender-2.jpg'), I('pipe-bending/conduit-bender-3.jpg'), I('pipe-bending/conduit-bender-4.jpg'), I('pipe-bending/conduit-bender-plate.jpg')], 'Portable bender for 20–32 mm conduit pipe.', {
+  make('pipe-bending-machines', 'portable-conduit-pipe-bender', 'Portable Conduit Pipe Bender', [I('pipe-bending/conduit-bender.jpg')], 'Portable bender for 20–32 mm conduit pipe.', {
   description: 'A portable bender for making bends in conduit pipe from 20 to 32 mm in diameter, easy to carry to the job.',
   features: ['Bends 20–32 mm conduit pipe', 'Portable'],
   applications: ['Electrical conduit installation', 'Site work'],
@@ -607,8 +613,6 @@ export const products = [
   ] }),
 
   // Products with photos from the supplier image folders — only the model code is known, so specifications stay "on request".
-  make(R, 'lsg-219-roll-grooving-machine', 'LSG-219 Roll Grooving Machine', [I('roll-grooving/lsg-219.jpg')], 'Stand-mounted roll grooving machine for steel pipe.', { model: 'LSG-219', specifications: [['Model', 'LSG-219'], ['Other specifications', 'Available on request']] }),
-  make(R, 'lsg-325-roll-grooving-machine', 'LSG-325 Roll Grooving Machine', [I('roll-grooving/lsg-325.jpg')], 'Stand-mounted roll grooving machine for steel pipe.', { model: 'LSG-325', specifications: [['Model', 'LSG-325'], ['Other specifications', 'Available on request']] }),
   make(H, 'k-114-hole-saw-cutting-machine', 'K-114 Hole Saw Cutting Machine', [I('hole-saw/k-114.jpg'), I('hole-saw/k-114-green.jpg')], 'Portable hole cutting machine with chain mounting for pipe.', {
   description: 'A portable hole cutting machine for making round openings in pipe from 25 mm to 114 mm, with a chain mounting for fixing it to the pipe.',
   features: ['Cuts openings from 25 mm to 114 mm', '650 W motor, 120 RPM no-load speed', 'Chain mounting for pipe'],
@@ -640,7 +644,7 @@ export const products = [
   make('pressure-test-pumps', 'zd-40-pressure-test-pump', 'ZD-40 Manual Pressure Test Pump', [I('pressure-test/zd-40.jpg'), I('pressure-test/hand-pump-poster.jpg')], 'Hand-operated pressure test pump, 0–50 bar.', {
   description: 'FLEET hand pressure test pumps are designed for quick and reliable testing of piping systems, vessels and equipment. The ZD-40 is a manual pump with a 100 cm hose.',
   features: ['Working pressure 0–50 bar', 'Piston volume 30 ml per stroke', '100 cm hose', 'Compact and portable, only 4 kg'],
-  applications: ['Pressure testing of pipes and systems', 'Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Maintenance and repair'],
+  applications: ['Plumbing systems', 'Heating systems', 'Pipelines', 'Pressure vessels', 'Industrial use'],
   specifications: [
     ['Model', 'ZD-40'],
     ['Working pressure', '0–50 bar'],
@@ -652,7 +656,7 @@ export const products = [
   make('pressure-test-pumps', 'tp-50-pressure-test-pump', 'TP-50 Manual Pressure Test Pump', [I('pressure-test/tp-50.jpg'), I('pressure-test/hand-pump-poster.jpg')], 'Hand-operated pressure test pump, 0–50 bar.', {
   description: 'FLEET hand pressure test pumps are designed for quick and reliable testing of piping systems, vessels and equipment. The TP-50 is a manual pump with a 150 cm hose.',
   features: ['Working pressure 0–50 bar', 'Piston volume 40 ml per stroke', '150 cm hose', 'Built-in water tank'],
-  applications: ['Pressure testing of pipes and systems', 'Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Maintenance and repair'],
+  applications: ['Plumbing systems', 'Heating systems', 'Pipelines', 'Pressure vessels', 'Industrial use'],
   specifications: [
     ['Model', 'TP-50'],
     ['Working pressure', '0–50 bar'],
@@ -664,7 +668,7 @@ export const products = [
   make('pressure-test-pumps', 'fl-40a-electric-pressure-test-pump', 'FL-40A Electric Pressure Test Pump', [I('pressure-test/fl-40a.jpg'), I('pressure-test/fl-40a-poster.jpg')], 'Electric pressure test pump, up to 40 bar, 30 L/min.', {
   description: 'The FL-40A is an electric pressure test pump with three cylinders and a Crompton copper 2 HP motor. It tests up to 40 bar at a flow rate of 30 L/min for fast, efficient testing.',
   features: ['Test up to 40 bar', 'High flow rate: 30 L/min', 'Powerful Crompton copper 2 HP motor', 'Durable and reliable, built for long life and heavy-duty usage'],
-  applications: ['Pipeline testing', 'Industrial and site use', 'Pressure testing of pipes and systems'],
+  applications: ['Pipeline testing', 'Industrial and site use', 'Compact design, easy to operate and maintain'],
   specifications: [
     ['Model', 'FL-40A'],
     ['No. of cylinders', '3'],
@@ -683,8 +687,17 @@ export const products = [
   applications: ['Plumbing and HVAC', 'Industrial and mechanical works'],
   specifications: [
     ['Model', 'HB-80'],
-    ['Size', '1/2" – 3"'],
-    ['Other specifications', 'Available on request'],
+    ['Bending range', 'Φ21.3 – Φ89'],
+    ['Standard configuration', '8 pairs of molds'],
+    ['Sizes (mm)', '22, 28, 34, 42, 48, 60, 75.5, 89'],
+    ['Maximum working pressure', '50 MPa'],
+    ['Maximum working stroke', '320 mm'],
+    ['Bending angle', '90° ≤ a < 180°'],
+    ['Oil tank capacity (15# hydraulic oil)', '2.5 kg'],
+    ['Stroke', '320 mm'],
+    ['Gross weight', '97 kg'],
+    ['Wall thickness', '2.75 – 4.5 mm'],
+    ['Packing dimensions (cm)', '93 × 39 × 21'],
   ] }),
   make('pipe-bending-machines', 'hb-100-hydraulic-pipe-bender', 'HB-100 (1/2"-4") Hydraulic Pipe Bender', [I('pipe-bending/hb-100.jpg')], 'Hydraulic pipe bender for 1/2"–4" pipe, supplied with a set of bending dies.', {
   description: 'A hydraulic pipe bender for bending pipe from 1/2" to 4", supplied with a set of bending dies.',
@@ -692,7 +705,25 @@ export const products = [
   applications: ['Plumbing and HVAC', 'Industrial and mechanical works'],
   specifications: [
     ['Model', 'HB-100'],
-    ['Size', '1/2" – 4"'],
+    ['Bending range', 'Φ21.3 – Φ108'],
+    ['Standard configuration', '9 pairs of molds'],
+    ['Sizes (mm)', '22, 28, 34, 42, 48, 60, 75.5, 89, 108'],
+    ['Maximum working pressure', '63 MPa'],
+    ['Maximum working stroke', '415 mm'],
+    ['Bending angle', '90° ≤ a < 180°'],
+    ['Oil tank capacity (15# hydraulic oil)', '4 kg'],
+    ['Stroke', '380 mm'],
+    ['Gross weight', '135 kg'],
+    ['Wall thickness', '2.75 – 6 mm'],
+    ['Packing dimensions (cm)', '119 × 41 × 22.5'],
+  ] }),
+  make('pipe-bending-machines', 'ehb-50-electric-pipe-bender', 'EHB-50 Electric Pipe Bender', [I('pipe-bending/ehb-50.jpg')], 'Electric hydraulic pipe bender with a set of bending dies.', {
+  description: 'The EHB-50 is an electric hydraulic pipe bender supplied with a set of bending dies. Contact us for the full technical details.',
+  features: ['Electric hydraulic operation', 'Supplied with a set of bending dies'],
+  applications: ['Plumbing and HVAC', 'Industrial and mechanical works'],
+  specifications: [
+    ['Model', 'EHB-50'],
+    ['Type', 'Electric hydraulic pipe bender'],
     ['Other specifications', 'Available on request'],
   ] }),
 
@@ -723,7 +754,7 @@ export const products = [
     ['Weight', '53 kg'],
     ['Standard accessories', 'One set ½"–¾" alloy dies, one set 1"–2" SS dies, one ½"–2" die head, 2 L oil, stand'],
   ] }),
-  make(T, 'fl50b1-pipe-threading-machine', 'FL50B1 Heavy-Duty Auto-Cut Pipe Threading Machine', [I('pipe-threading/fl50b1.jpg')], 'Heavy-duty 2" auto-cut threading machine with a 1000 W induction motor.', {
+  make(T, 'fl50b1-pipe-threading-machine', 'FL50B1 Heavy-Duty Auto-Cut Pipe Threading Machine', [I('pipe-threading/fl50b1.jpg'), I('pipe-threading/fl50b1-2.jpg')], 'Heavy-duty 2" auto-cut threading machine with a 1000 W induction motor.', {
   description: 'An auto-cut heavy-duty threading machine for pipe from ½" to 2", driven by a 1000 W induction motor. It is supplied with stainless-steel dies, a die head, oil and a stand.',
   features: ['Threads pipe from ½" to 2"', 'Auto-cut', '1000 W induction motor', 'Supplied with SS dies, die head, oil and stand'],
   applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
@@ -747,7 +778,7 @@ export const products = [
     ['Voltage', '220–240 V, 50 Hz'],
     ['Speed', '30 / 14 RPM'],
     ['Weight', '130 kg'],
-    ['Standard accessories', 'One set ½"–¾" SS dies, one set 1"–2" SS dies, one set 2½"–4" alloy dies, one 2½"–4" die head, one ½"–2" die head, 2 L oil, stand'],
+    ['Standard accessories', 'One set ½"–¾" SS dies, one set 1"–2" SS dies, one set 2½"–4" SS dies, one 2½"–4" die head, one ½"–2" die head, 2 L oil, stand'],
   ] }),
   make(T, 'fl100a1-pipe-threading-machine', 'FL100A1 Pipe Threading Machine', [I('pipe-threading/fl100a1.jpg')], '4" threading machine with a 1100 W motor.', {
   description: 'A 4-inch threading machine covering pipe from ½" to 4" with a 1100 W motor. It is supplied with alloy dies and die heads for the full range, plus oil and a stand.',
@@ -775,7 +806,7 @@ export const products = [
     ['Weight', '230 kg'],
     ['Standard accessories', 'One set 2½"–4" dies, one set 5"–6" dies, one 2½"–4" die head, one 5"–6" die head, 2 L threading oil, 4-leg stand'],
   ] }),
-  make(T, 'fl-p20-portable-pipe-threader', 'FL-P20 Portable Pipe Threader', [I('pipe-threading/fl-p20.jpg')], 'Portable 2" pipe threader, 2000 W, supplied in a carry case.', {
+  make(T, 'fl-p20-portable-pipe-threader', 'FL-P20 Portable Pipe Threader', [I('pipe-threading/fl-p20.jpg'), I('pipe-threading/fl-p20-case.jpg')], 'Portable 2" pipe threader, 2000 W, supplied in a carry case.', {
   description: 'A portable 2000 W pipe threader for pipe from ½" to 2". It comes in a carry case with die heads from ½" to 2" and the tools needed to start threading.',
   features: ['Threads pipe from ½" to 2"', '2000 W motor', 'Portable at 20 kg', 'Supplied in a carry case with die heads'],
   applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
@@ -788,7 +819,7 @@ export const products = [
     ['Weight', '20 kg'],
     ['Standard accessories', 'Die heads (½", ¾", 1", 1¼", 1½", 2"), oil gun, gloves, L key, screwdriver, fix holder, carbon brush, cleaning brush'],
   ] }),
-  make(T, 'fl-p14-portable-pipe-threader', 'FL-P14 Portable Pipe Threader', [I('pipe-threading/fl-p14.jpg')], 'Portable pipe threader, 1400 W, for pipe up to 1¼".', {
+  make(T, 'fl-p14-portable-pipe-threader', 'FL-P14 Portable Pipe Threader', [I('pipe-threading/fl-p14.jpg'), I('pipe-threading/fl-p14-case.jpg')], 'Portable pipe threader, 1400 W, for pipe up to 1¼".', {
   description: 'A portable 1400 W pipe threader for pipe from ½" to 1¼". It is easy to carry to the job and is supplied with die heads and the tools needed to start threading.',
   features: ['Threads pipe from ½" to 1¼"', '1400 W motor', 'Portable at 20 kg', 'Supplied with die heads and tools'],
   applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
@@ -802,12 +833,34 @@ export const products = [
     ['Standard accessories', 'Die heads (½", ¾", 1½", 2"), oil gun, gloves, L key, screwdriver, fix holder, cleaning brush'],
   ] }),
 
-  make(T, 'z1t-50a-pipe-threading-machine', 'Z1T-50A Pipe Threading Machine', [I('pipe-threading/z1t-50a.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'Z1T-50A', specifications: [['Model', 'Z1T-50A'], ['Other specifications', 'Available on request']] }),
-  make(T, 'z1t-r4-pipe-threading-machine', 'Z1T-R4 Pipe Threading Machine', [I('pipe-threading/z1t-r4.jpg'), I('pipe-threading/z1t-r4-photo.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'Z1T-R4', specifications: [['Model', 'Z1T-R4'], ['Other specifications', 'Available on request']] }),
-  make(T, 'z1t-r65-pipe-threading-machine', 'Z1T-R65 Pipe Threading Machine', [I('pipe-threading/z1t-r65.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'Z1T-R65', specifications: [['Model', 'Z1T-R65'], ['Other specifications', 'Available on request']] }),
-  make(T, 'gmte-02-portable-pipe-threader', 'GMTE-02 Portable Pipe Threader', [I('pipe-threading/gmte-02.jpg'), I('pipe-threading/gmte-02-case.jpg')], 'Portable electric pipe threader supplied in a carry case with die heads.', { model: 'GMTE-02', specifications: [['Model', 'GMTE-02'], ['Other specifications', 'Available on request']] }),
-  make(T, 'gmte-03-portable-pipe-threader', 'GMTE-03 Portable Pipe Threader', [I('pipe-threading/gmte-03.jpg'), I('pipe-threading/gmte-03-case.jpg')], 'Portable electric pipe threader supplied in a carry case with die heads.', { model: 'GMTE-03', specifications: [['Model', 'GMTE-03'], ['Other specifications', 'Available on request']] }),
-
+  make(T, 'super-threader-50ap-pipe-threading-machine', 'Super Threader-50AP (1800 W) Pipe Threading Machine', [I('pipe-threading/super-threader-50ap.jpg')], 'Super Threader-50AP, 1800 W pipe threading machine.', {
+  description: 'The Super Threader-50AP is a 1800 W pipe threading machine. Contact us for the full technical details.',
+  features: ['1800 W'],
+  applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
+  specifications: [
+    ['Model', 'Super Threader-50AP'],
+    ['Power', '1800 W'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make(T, 'fl-r65-pipe-threading-machine', 'FL-R65 Pipe Threading Machine', [I('pipe-threading/fl-r65.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'FL-R65', specifications: [['Model', 'FL-R65'], ['Other specifications', 'Available on request']] }),
+  make(T, 'fl-r25-manual-ratchet-pipe-threader', 'FL-R25 Manual Ratchet Pipe Threader', [], 'Manual ratchet pipe threader.', {
+  description: 'A manual ratchet pipe threader for threading pipe by hand, without a power supply. Contact us for the full technical details.',
+  features: ['Manual ratchet operation', 'No power supply needed'],
+  applications: ['Plumbing repairs', 'Maintenance and service work', 'Tight or remote locations'],
+  specifications: [
+    ['Model', 'FL-R25'],
+    ['Type', 'Manual ratchet pipe threader'],
+    ['Other specifications', 'Available on request'],
+  ] }),
+  make(T, 'fl-r50-manual-ratchet-pipe-threader', 'FL-R50 Manual Ratchet Pipe Threader', [], 'Manual ratchet pipe threader.', {
+  description: 'A manual ratchet pipe threader for threading pipe by hand, without a power supply. Contact us for the full technical details.',
+  features: ['Manual ratchet operation', 'No power supply needed'],
+  applications: ['Plumbing repairs', 'Maintenance and service work', 'Tight or remote locations'],
+  specifications: [
+    ['Model', 'FL-R50'],
+    ['Type', 'Manual ratchet pipe threader'],
+    ['Other specifications', 'Available on request'],
+  ] }),
 ]
 
 export const getProduct = (slug) => products.find((p) => p.slug === slug)

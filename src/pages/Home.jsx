@@ -60,6 +60,7 @@ export default function Home() {
               <Reveal className="client" key={c.name} delay={(i % 4) * 80} title={c.name}><Img src={c.logo} alt={c.name} /></Reveal>
             ))}
           </div>
+          <Reveal as="p" className="clients-note">Above are some of our clients to whom we provided our products and services directly or through their Sub contractors.</Reveal>
         </div>
       </section>
 
