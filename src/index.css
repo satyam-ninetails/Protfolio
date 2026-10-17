@@ -490,3 +490,39 @@ html{overflow-x:hidden}body{overflow-x:hidden;overflow-x:clip}
 .form-msg.ok{background:#E3F6F5;color:#0B6B6B;border:1px solid #9ADAD7}
 .form-msg.err{background:#FFEDED;color:#A12B2B;border:1px solid #F2B4B4}
 .form .btn:disabled{opacity:.7;cursor:progress}
+
+/* ── mobile header v2: short, calm, catalogue button always visible ── */
+@media(max-width:860px){
+  .site-head::before{height:4px}
+  .header-in{flex-direction:row;align-items:center;padding-top:8px;padding-bottom:8px;gap:10px}
+  .head-contact{display:none}                      /* phones/emails move into the menu */
+  .brand{gap:10px}.brand img{height:50px}
+  .brand-text strong{font-size:.98rem;line-height:1.15}
+  .brand-text small{display:none}
+  .site-head.compact .brand img{height:38px}.site-head.compact .brand-text strong{font-size:.9rem}
+  .nav-in{min-height:50px;gap:8px}
+  .burger{margin-left:-10px;flex:none}
+  .nav-quick{display:flex;flex:1;justify-content:flex-end;gap:8px;align-items:center}
+  .nav-quick a{height:38px;border-radius:6px;font-weight:700;font-size:.84rem;white-space:nowrap}
+  .nav-quick a.qc-cat{flex:1 1 auto;max-width:230px;justify-content:center;gap:7px;padding:0 12px;background:linear-gradient(135deg,var(--amber),var(--coral));color:var(--navy-d)}
+  .nav-quick a.qc-cat svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .nav-quick a.qc-call{flex:none;width:40px;padding:0;justify-content:center;background:rgba(255,255,255,.14);color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+  .nav-quick a.qc-call svg{width:18px;height:18px;fill:currentColor}
+  .drawer-contact{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);display:grid;gap:2px}
+  .drawer-contact a{padding:9px 4px!important;border:0!important;font-weight:600;color:var(--navy);font-size:.95rem}
+  .drawer{max-height:calc(100dvh - 100px)}
+}
+@media(max-width:360px){.nav-quick a.qc-cat{font-size:.78rem;padding:0 9px;gap:5px}.brand-text strong{font-size:.88rem}}
+@media(max-width:860px){
+  .nav-quick{gap:7px}
+  .nav-quick a.wa-quick{flex:none;width:40px;height:38px;border-radius:6px;padding:0;justify-content:center;background:#25D366;color:#fff}
+  .nav-quick a.wa-quick .wa-ico{width:22px;height:22px}
+}
+@media(max-width:380px){
+  .nav-quick{gap:5px}
+  .nav-quick a.qc-cat{font-size:.74rem;padding:0 7px;gap:4px}
+  .nav-quick a.qc-cat svg{width:15px;height:15px}
+  .nav-quick a.wa-quick,.nav-quick a.qc-call{width:36px}
+  .burger{width:36px}
+}
+@media(max-width:860px){.drawer{max-height:calc(100vh - 134px);max-height:calc(100dvh - 134px)}}

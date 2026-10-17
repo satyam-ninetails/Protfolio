@@ -80,8 +80,14 @@ export default function Header() {
             <span /><span /><span />
           </button>
           <div className="nav-quick">
-            <a href={`tel:${dial(phone1)}`}>Call</a>
+            <a className="qc-cat" href={company.catalogue} download="FLEET-Catalogue.pdf">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4.5-4.5M12 14 7.5 9.5M5 17v2h14v-2" /></svg>
+              Download Catalogue
+            </a>
             <a className="wa-quick" href={waLink(company.whatsapp)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /></a>
+            <a className="qc-call" href={`tel:${dial(phone1)}`} aria-label={`Call ${phone1}`}>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" /></svg>
+            </a>
           </div>
         </div>
 
@@ -94,6 +100,10 @@ export default function Header() {
             <p className="drawer-label">Products</p>
             {categories.map((c) => <Link key={c.slug} to={`/products/${c.slug}`}>{c.name}</Link>)}
             <Link to="/contact" className="btn btn-primary">Contact Us</Link>
+            <div className="drawer-contact">
+              {company.phones.map((ph) => <a key={ph} href={`tel:${dial(ph)}`}>{ph}</a>)}
+              {company.emails.map((e) => <a key={e.address} href={`mailto:${e.address}`}>{e.address}</a>)}
+            </div>
           </nav>
         )}
       </div>
