@@ -9,6 +9,7 @@ import Contact from './pages/Contact.jsx'
 import About from './pages/About.jsx'
 import Gallery from './pages/Gallery.jsx'
 import SEO from './components/SEO.jsx'
+import WhatsAppFloat from './components/WhatsAppFloat.jsx'
 
 function ScrollTop() {
   const { pathname } = useLocation()
@@ -43,6 +44,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   )
 }

@@ -718,13 +718,29 @@ export const products = [
     ['Packing dimensions (cm)', '119 × 41 × 22.5'],
   ] }),
   make('pipe-bending-machines', 'ehb-50-electric-pipe-bender', 'EHB-50 Electric Pipe Bender', [I('pipe-bending/ehb-50.jpg')], 'Electric hydraulic pipe bender with a set of bending dies.', {
-  description: 'The EHB-50 is an electric hydraulic pipe bender supplied with a set of bending dies. Contact us for the full technical details.',
-  features: ['Electric hydraulic operation', 'Supplied with a set of bending dies'],
+  description: 'The EHB-50 is an electric hydraulic pipe bender supplied with a set of bending dies. It has a 750 W motor.',
+  features: ['Electric hydraulic operation, 750 W motor', 'Bends pipe from ½" to 2" (21.3–60 mm)', 'Supplied with a set of bending dies'],
   applications: ['Plumbing and HVAC', 'Industrial and mechanical works'],
   specifications: [
     ['Model', 'EHB-50'],
-    ['Type', 'Electric hydraulic pipe bender'],
-    ['Other specifications', 'Available on request'],
+    ['Motor', '750 W'],
+    ['Bending range', 'Φ21.3 – Φ60'],
+    ['Standard configuration', '6 pairs of molds'],
+    ['Sizes (mm)', '22, 28, 34, 42, 48, 60'],
+    ['Maximum working pressure', '45 MPa'],
+    ['Maximum working stroke', '250 mm'],
+    ['Bending angle', '90° ≤ a < 180°'],
+    ['Oil tank capacity (15# hydraulic oil)', '1.2 kg'],
+    ['Stroke', '250 mm'],
+    ['Gross weight', '50 kg'],
+    ['Wall thickness', '2.75 – 4.5 mm'],
+    ['Packing dimensions (cm)', '73 × 32 × 16.5'],
+    ['Die ½"', 'A 115 mm · B 67.5 mm · min. bend radius 50.2 mm · D 22 mm · Sch.40 / Sch.80 wall 2.8 / 3.7 mm'],
+    ['Die ¾"', 'A 131 mm · B 84.5 mm · min. bend radius 66 mm · D 28 mm · Sch.40 / Sch.80 wall 2.9 / 3.9 mm'],
+    ['Die 1"', 'A 147 mm · B 96.5 mm · min. bend radius 75.4 mm · D 34 mm · Sch.40 / Sch.80 wall 3.4 / 4.5 mm'],
+    ['Die 1¼"', 'A 197 mm · B 134 mm · min. bend radius 108.7 mm · D 43 mm · Sch.40 wall 3.6 mm'],
+    ['Die 1½"', 'A 242 mm · B 162 mm · min. bend radius 133.5 mm · D 50 mm · Sch.40 wall 3.7 mm'],
+    ['Die 2"', 'A 297 mm · B 238 mm · min. bend radius 199.2 mm · D 62 mm · Sch.40 wall 3.9 mm'],
   ] }),
 
   // Threading
@@ -752,7 +768,7 @@ export const products = [
     ['Voltage', '220–240 V, 50 Hz'],
     ['Speed', '28 RPM'],
     ['Weight', '53 kg'],
-    ['Standard accessories', 'One set ½"–¾" alloy dies, one set 1"–2" SS dies, one ½"–2" die head, 2 L oil, stand'],
+    ['Standard accessories', 'One set ½"–¾" alloy dies, one set 1"–2" alloy dies, one ½"–2" die head, 2 L oil, stand'],
   ] }),
   make(T, 'fl50b1-pipe-threading-machine', 'FL50B1 Heavy-Duty Auto-Cut Pipe Threading Machine', [I('pipe-threading/fl50b1.jpg'), I('pipe-threading/fl50b1-2.jpg')], 'Heavy-duty 2" auto-cut threading machine with a 1000 W induction motor.', {
   description: 'An auto-cut heavy-duty threading machine for pipe from ½" to 2", driven by a 1000 W induction motor. It is supplied with stainless-steel dies, a die head, oil and a stand.',
@@ -833,33 +849,54 @@ export const products = [
     ['Standard accessories', 'Die heads (½", ¾", 1½", 2"), oil gun, gloves, L key, screwdriver, fix holder, cleaning brush'],
   ] }),
 
-  make(T, 'super-threader-50ap-pipe-threading-machine', 'Super Threader-50AP (1800 W) Pipe Threading Machine', [I('pipe-threading/super-threader-50ap.jpg')], 'Super Threader-50AP, 1800 W pipe threading machine.', {
-  description: 'The Super Threader-50AP is a 1800 W pipe threading machine. Contact us for the full technical details.',
-  features: ['1800 W'],
+  make(T, 'super-threader-50ap-pipe-threading-machine', 'Super Threader-50AP (1800 W) Pipe Threading Machine', [I('pipe-threading/super-threader-50ap.jpg')], 'Pipe threading machine for ½"–2" pipe with a 1800 W universal motor and heavy-duty gearbox.', {
+  description: 'The Super Threader-50AP threads pipe from ½" to 2". It is driven by a 1800 W universal motor with a heavy-duty gearbox and has an ergonomic design for ease of handling.',
+  features: ['Threads pipe from ½" to 2"', '1800 W universal motor with heavy-duty gearbox', 'Ergonomic design for ease of handling', 'Die head and BSPT dies supplied'],
   applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
   specifications: [
     ['Model', 'Super Threader-50AP'],
-    ['Power', '1800 W'],
-    ['Other specifications', 'Available on request'],
+    ['HSN code', '8459'],
+    ['Size', '½" – 2"'],
+    ['Speed', '40 RPM'],
+    ['Motor', '1800 W'],
+    ['Gross weight', '81 kg'],
+    ['Standard equipment', 'Die head ½"–2" (1 set); dies ½"–¾" (1 set, BSPT) and 1"–2" (1 set, BSPT)'],
   ] }),
-  make(T, 'fl-r65-pipe-threading-machine', 'FL-R65 Pipe Threading Machine', [I('pipe-threading/fl-r65.jpg')], 'Stand-mounted electric pipe threading machine.', { model: 'FL-R65', specifications: [['Model', 'FL-R65'], ['Other specifications', 'Available on request']] }),
-  make(T, 'fl-r25-manual-ratchet-pipe-threader', 'FL-R25 Manual Ratchet Pipe Threader', [], 'Manual ratchet pipe threader.', {
-  description: 'A manual ratchet pipe threader for threading pipe by hand, without a power supply. Contact us for the full technical details.',
-  features: ['Manual ratchet operation', 'No power supply needed'],
+  make(T, 'fl-r65-pipe-threading-machine', 'FL-R65 Pipe Threading Machine', [I('pipe-threading/fl-r65.jpg')], 'Electric pipe threading machine, 1100 W, ½"–2½".', {
+  description: 'The FL-R65 is an electric pipe threading machine for pipe from ½" up to 2½", with a 1100 W motor. It is supplied with dies, a bottle of oil, a screwdriver and a three-leg stand.',
+  features: ['Threads pipe from ½" to 2½"', '1100 W motor, 220 V', 'Supplied with dies, oil, screwdriver and 3 legs'],
+  applications: ['Plumbing and fire-fighting pipework', 'Construction and installation sites', 'Pipe fabrication workshops', 'Maintenance and repair'],
+  specifications: [
+    ['Model', 'FL-R65'],
+    ['Size', '½" – 2" – 2½"'],
+    ['Power', '1100 W'],
+    ['Voltage', '220 V'],
+    ['Speed', '28 RPM'],
+    ['Weight', '70 / 80 kg'],
+    ['Packing size', '65 × 41 × 52 cm'],
+    ['Accessories', 'Dies ½"–¾", 1"–2" and 2½"; 1 bottle of oil; screwdriver; 3 legs'],
+  ] }),
+  make(T, 'fl-r25-manual-ratchet-pipe-threader', 'FL-R25 Manual Ratchet Pipe Threader', [I('pipe-threading/fl-r25.jpg'), I('pipe-threading/fl-r-ratchet.jpg')], 'Small portable manual ratchet pipe threader for ½"–1" pipe.', {
+  description: 'A small, portable solution for fast and accurate threading. The compact, lightweight design makes it effortless to use in tight spaces, and it comes in a carry case with die heads for ½", ¾" and 1" pipe.',
+  features: ['Compact and lightweight design', 'Effortless operation in tight spaces', 'Die heads ½", ¾" and 1" (BSPT / NPT)', 'Supplied in a carry case'],
   applications: ['Plumbing repairs', 'Maintenance and service work', 'Tight or remote locations'],
   specifications: [
     ['Model', 'FL-R25'],
     ['Type', 'Manual ratchet pipe threader'],
-    ['Other specifications', 'Available on request'],
+    ['Available sizes', '½", ¾", 1"'],
+    ['Die head', '½", ¾", 1" (BSPT / NPT)'],
+    ['Weight', 'Approx. 5 kg'],
   ] }),
-  make(T, 'fl-r50-manual-ratchet-pipe-threader', 'FL-R50 Manual Ratchet Pipe Threader', [], 'Manual ratchet pipe threader.', {
-  description: 'A manual ratchet pipe threader for threading pipe by hand, without a power supply. Contact us for the full technical details.',
-  features: ['Manual ratchet operation', 'No power supply needed'],
+  make(T, 'fl-r50-manual-ratchet-pipe-threader', 'FL-R50 Manual Ratchet Pipe Threader', [I('pipe-threading/fl-r50.jpg'), I('pipe-threading/fl-r-ratchet.jpg')], 'Small portable manual ratchet pipe threader for ½"–2" pipe.', {
+  description: 'A small, portable solution for fast and accurate threading. The compact, lightweight design makes it effortless to use in tight spaces, and it comes in a carry case with die heads from ½" to 2".',
+  features: ['Compact and lightweight design', 'Effortless operation in tight spaces', 'Die heads ½", ¾", 1", 1¼", 1½" and 2" (BSPT / NPT)', 'Supplied in a carry case'],
   applications: ['Plumbing repairs', 'Maintenance and service work', 'Tight or remote locations'],
   specifications: [
     ['Model', 'FL-R50'],
     ['Type', 'Manual ratchet pipe threader'],
-    ['Other specifications', 'Available on request'],
+    ['Available sizes', '½", ¾", 1", 1¼", 1½", 2"'],
+    ['Die head', '½", ¾", 1", 1¼", 1½", 2" (BSPT / NPT)'],
+    ['Weight', 'Approx. 12 kg'],
   ] }),
 ]
 

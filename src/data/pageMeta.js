@@ -46,7 +46,7 @@ export function metaFor(path) {
     jsonLd: [{ '@context': 'https://schema.org', '@graph': [organization, website] }],
     bodyHtml: `<h1>${esc(company.legalName)} — Pipe Processing &amp; Testing Machinery</h1><p>${esc(HOME_DESC)}</p><ul>${categories.map((c) => `<li><a href="/products/${c.slug}">${esc(c.name)}</a> — ${esc(c.description)}</li>`).join('')}</ul>` }
 
-  if (clean === '/about') return { ...base, title: 'About Us | FLEET Industries', description: clamp(`About ${company.legalName}: ${company.tagline}. Manufacturer of pipe threading, grooving, cutting, hole saw and butt fusion machinery with offices in Delhi and Bangalore.`),
+  if (clean === '/about') return { ...base, title: 'About Us | FLEET Industries', description: clamp(`About ${company.legalName}: ${company.tagline}. Pipe threading, grooving, cutting, hole saw and butt fusion machinery, with offices in Delhi and Bangalore.`),
     jsonLd: [{ '@context': 'https://schema.org', '@type': 'AboutPage', url: base.canonical, name: 'About FLEET Industries', about: { '@id': seo.siteUrl + '/#organization' } }, { '@context': 'https://schema.org', ...crumbs([['Home', '/'], ['About Us', '/about']]) }],
     bodyHtml: `<h1>${esc(company.tagline)}</h1><p>${esc(company.legalName)} brings together technology and engineering to provide innovative solutions in pipe machinery.</p>` }
 

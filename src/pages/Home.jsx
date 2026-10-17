@@ -100,6 +100,7 @@ export default function Home() {
           <div className="actions center">
             <Link to="/contact" className="btn btn-accent">Contact Us</Link>
             <Link to="/products/pipe-threading-machines" className="btn btn-ghost">Explore Products</Link>
+            <a href={company.catalogue} download="FLEET-Catalogue.pdf" className="btn btn-ghost">Download Catalogue</a>
           </div>
         </Reveal>
       </section>

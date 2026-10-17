@@ -18,6 +18,7 @@ export default function Footer() {
           <h4>Company</h4>
           <Link to="/about">About Us</Link>
           <Link to="/gallery">Gallery</Link>
+          <a href={company.catalogue} download="FLEET-Catalogue.pdf">Download Catalogue (PDF)</a>
           <Link to="/contact">Contact Us</Link>
         </div>
         <div>

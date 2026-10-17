@@ -6,7 +6,7 @@ import { categories } from '../data/categories.js'
 
 const values = [
   ['Reliable Engineering', 'Machines designed for dependable, day-to-day performance.'],
-  ['Precision Manufacturing', 'Careful manufacturing for accurate, repeatable results.'],
+  ['Precision Engineering', 'Careful engineering for accurate, repeatable results.'],
   ['Durable Equipment', 'Built to stand up to demanding industrial conditions.'],
   ['Technical Support', 'Our team helps you choose and use the right machine.'],
 ]

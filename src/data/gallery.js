@@ -20,6 +20,8 @@ export const gallery = [
   g('k-114', 'jpg', 'K-114 Hole Saw Cutting Machine', 'hole-saw-cutting-machines', 'k-114-hole-saw-cutting-machine', 608, 640),
   g('63b-2', 'jpg', '63B-2 Socket Welding Machine', 'butt-jointing-machine', '63b-2-socket-welding-machine', 640, 478),
   g('110a', 'jpg', '110A Socket Welding Machine', 'butt-jointing-machine', '110a-socket-welding-machine', 583, 619),
+  g('fl-r25', 'jpg', 'FL-R25 Manual Ratchet Pipe Threader', 'pipe-threading-machines', 'fl-r25-manual-ratchet-pipe-threader', 505, 640),
+  g('fl-r50', 'jpg', 'FL-R50 Manual Ratchet Pipe Threader', 'pipe-threading-machines', 'fl-r50-manual-ratchet-pipe-threader', 613, 640),
   g('fl-r65', 'jpg', 'FL-R65 Pipe Threading Machine', 'pipe-threading-machines', 'fl-r65-pipe-threading-machine', 611, 640),
   g('zd-40', 'jpg', 'ZD-40 Manual Pressure Test Pump', 'pressure-test-pumps', 'zd-40-pressure-test-pump', 640, 594),
   g('fl-40a', 'jpg', 'FL-40A Electric Pressure Test Pump', 'pressure-test-pumps', 'fl-40a-electric-pressure-test-pump', 568, 640),

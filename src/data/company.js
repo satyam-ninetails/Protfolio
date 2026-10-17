@@ -9,13 +9,17 @@ export const company = {
   ],
   strapline: 'Building the future together – with unmatched quality and dedicated service',
   phones: ['+91 83830 36046', '+91 89015 84802'],
+  // Product catalogue PDF (built by scripts/build-catalogue.mjs into public/).
+  catalogue: '/FLEET-Catalogue.pdf',
+  // The one number used for WhatsApp chat links across the site.
+  whatsapp: '+91 83830 36046',
   emails: [
     { label: 'Sales', address: 'sales@fleetindustries.co.in' },
     { label: 'General enquiries', address: 'info@fleetindustries.co.in' },
   ],
   hours: '[Business hours]',
-  // Create a form at formspree.io and paste its endpoint here.
-  formAction: 'https://formspree.io/f/YOUR_FORM_ID',
+  // Formspree form "FLEET Website Enquiry" (enquiries go to the email on the Formspree account).
+  formAction: 'https://formspree.io/f/xppqblvl',
 }
 
 // "+91 83830 36046" -> "+918383036046" for tel: links

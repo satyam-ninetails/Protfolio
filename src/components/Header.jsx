@@ -39,7 +39,7 @@ export default function Header() {
               <span className="phones">
                 <a href={`tel:${dial(phone1)}`}>{phone1}</a><i>/</i><a href={`tel:${dial(phone2)}`}>{phone2}</a>
               </span>
-              <a className="wa-btn" href={waLink(phone1)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><WhatsAppIcon /></a>
+              <a className="wa-btn" href={waLink(company.whatsapp)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp"><WhatsAppIcon /></a>
             </p>
             <p>
               <svg className="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 7.2L4.5 7v.6L12 13l7.5-5.4V7z" /></svg>
@@ -72,6 +72,7 @@ export default function Header() {
               )}
             </div>
             <NavLink to="/gallery">Gallery</NavLink>
+            <a href={company.catalogue} download="FLEET-Catalogue.pdf" className="nav-cat">Download Catalogue</a>
             <NavLink to="/contact" className="btn btn-primary btn-sm">Contact Us</NavLink>
           </nav>
 
@@ -80,7 +81,7 @@ export default function Header() {
           </button>
           <div className="nav-quick">
             <a href={`tel:${dial(phone1)}`}>Call</a>
-            <a className="wa-quick" href={waLink(phone1)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /></a>
+            <a className="wa-quick" href={waLink(company.whatsapp)} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"><WhatsAppIcon /></a>
           </div>
         </div>
 
@@ -89,6 +90,7 @@ export default function Header() {
             <Link to="/">Home</Link>
             <Link to="/about">About Us</Link>
             <Link to="/gallery">Gallery</Link>
+            <a href={company.catalogue} download="FLEET-Catalogue.pdf">Download Catalogue</a>
             <p className="drawer-label">Products</p>
             {categories.map((c) => <Link key={c.slug} to={`/products/${c.slug}`}>{c.name}</Link>)}
             <Link to="/contact" className="btn btn-primary">Contact Us</Link>
