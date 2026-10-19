@@ -1,3 +1,16 @@
+# 19 Oct 2026 — Vikas's final list (he confirmed "Yes that's final", 11:46 am)
+- [x] 1. ✅ FL150A technical specs: Voltage 380 V
+- [x] 2. ✅ CHM2 (2"–12"): motor power 1100 W (was 750 W) — site, PDF, short description, features
+- [x] 3. ✅ FL12A: new picture (product page, gallery, home carousel)
+- [x] 4. ✅ Catalogue: picture collage on the FRONT page (6 machines with model tags)
+- [x] 5. ✅ Catalogue: picture collage on the LAST page (6 more machines + addresses)
+- [x] 6. ✅ Catalogue: two products per page (a page gets one only when the table is too long: HB-50, EHB-50, or an odd one out)
+- [x] 7. ✅ Catalogue: coloured model-name bar + highlighted MODEL row
+- [x] 8. ✅ Catalogue: model name tag on top of each machine picture (as circled in his Sumo reference screenshot — layout only; no Sumo pictures/content used)
+- [x] 9. ✅ PDF + site rebuilt and verified  (push: waiting for the go-ahead)
+- [x] 10. ✅ Catalogue fonts made bigger (tables, features, bars, spare parts, cover, contents, footer)
+- [x] 11. ✅ Sumo reference PDF studied for layout only (coloured model labels above machines, bold section headers, spec tables) — nothing copied
+
 # Vikas's requests — checklist (last updated 17 Oct 2026)
 ✅ done and verified in the built site · ⚠️ needs input · ❌ blocked
 
@@ -18,6 +31,7 @@
 ## Earlier lists — all done (see git history): 15 Oct list, 16 Oct "not done" list, 5 emails, HB specs
 
 ## Still open
+- [ ] ⚠️ Spare-part pictures had a leftover dark line under each (my crop) — cleaned on 19 Oct
 - [ ] ⚠️ Form email goes to fleet.enterprise02@gmail.com (the only option on the Formspree account). To use info@ or sales@: Formspree → Account → Linked Emails → add and verify it, then change the form's recipient
 - [ ] ⚠️ Test submissions (3, fake address) are sitting in the form's Spam tab — safe to delete
 - [ ] ⚠️ Hole saw cutter pictures from Google (user to send)

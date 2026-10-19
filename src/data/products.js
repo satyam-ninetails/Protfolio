@@ -92,7 +92,7 @@ export const products = [
     ['Packing size', '73 × 40 × 77 cm'],
     ['Standard accessories', 'Pipe support stand; knurling wheels 1"–1½", 2"–3", 3"–6", 8"; pinch rollers 1"–1½", 2"–6", 8"'],
   ] }),
-  make(R, 'fl12a-roll-grooving-machine', 'FL12A Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a-gray.jpg'), I('roll-grooving/fl12a-poster.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
+  make(R, 'fl12a-roll-grooving-machine', 'FL12A Electric Hydraulic Roll Grooving Machine (2"–12")', [I('roll-grooving/fl12a.jpg'), I('roll-grooving/fl12a-poster.jpg')], 'Electric hydraulic roll grooving machine for 2"–12" steel pipe.', {
   description: 'An electric hydraulic roll grooving machine for fast, accurate grooving of steel pipe from 2" to 12". It is supplied with a pipe support stand, upper rollers and knurling wheels.',
   features: ['Grooves 2"–12" steel pipe', '1100 W motor', 'Pipe support stand included', 'Upper rollers and knurling wheels for each size range'],
   applications: ['Fire protection systems', 'HVAC and water supply lines', 'Industrial piping', 'Fabrication workshops'],
@@ -185,16 +185,16 @@ export const products = [
     ['Speed', '23 RPM'],
     ['Motor', '750 W, 220 V, 50 Hz, single phase'],
   ] }),
-  make(C, 'chm2-pipe-cutting-machine', 'CHM2 Pipe Cutting Machine (2"–12")', [I('pipe-cutting/chm2.jpg')], 'Pipe cutting machine for 2" – 12" pipe, 750 W.', {
-  description: 'A 750 W single-phase pipe cutting machine for 2" – 12" pipe, for clean, accurate cuts in the workshop or on site.',
-  features: ['Cuts 2" – 12" pipe', '750 W single-phase motor', 'Up to 10 mm wall thickness', '23 RPM cutting speed'],
+  make(C, 'chm2-pipe-cutting-machine', 'CHM2 Pipe Cutting Machine (2"–12")', [I('pipe-cutting/chm2.jpg')], 'Pipe cutting machine for 2" – 12" pipe, 1100 W.', {
+  description: 'A 1100 W single-phase pipe cutting machine for 2" – 12" pipe, for clean, accurate cuts in the workshop or on site.',
+  features: ['Cuts 2" – 12" pipe', '1100 W single-phase motor', 'Up to 10 mm wall thickness', '23 RPM cutting speed'],
   applications: ['Pipe fabrication', 'Construction and plant maintenance', 'Pipeline installation', 'Workshop production'],
   specifications: [
     ['Model', 'CHM2'],
     ['Capacity', '2"–12"'],
     ['Max. wall thickness', '10 mm'],
     ['Speed', '23 RPM'],
-    ['Motor', '750 W, 220 V, 50 Hz, single phase'],
+    ['Motor', '1100 W, 220 V, 50 Hz, single phase'],
   ] }),
   make(C, 'fl-j40-250-pipe-cutting-machine', 'FL-J40/250 Pipe Cutting Machine (40–250 mm)', [I('pipe-cutting/fl-j40-250.jpg'), I('pipe-cutting/fl-j40-250-2.jpg'), I('pipe-cutting/fl-j40-250-3.jpg')], 'Pipe cutting machine for 40–250 mm HDPE/PPR pipes.', {
   description: 'A pipe cutting machine for cutting HDPE and PPR pipes from 40 mm to 250 mm in diameter.',
@@ -817,7 +817,7 @@ export const products = [
     ['Model', 'FL150A'],
     ['Capacity', '2½" – 6"'],
     ['Motor', '1100 W'],
-    ['Voltage', '220–240 V, 50 Hz'],
+    ['Voltage', '380 V'],
     ['Speed', '18 / 6 RPM'],
     ['Weight', '230 kg'],
     ['Standard accessories', 'One set 2½"–4" dies, one set 5"–6" dies, one 2½"–4" die head, one 5"–6" die head, 2 L threading oil, 4-leg stand'],

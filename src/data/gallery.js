@@ -40,7 +40,7 @@ export const gallery = [
   g('ehb-50', 'jpg', 'EHB-50 Electric Pipe Bender', 'pipe-bending-machines', 'ehb-50-electric-pipe-bender', 640, 541),
   g('fl9a', 'jpg', 'FL9A Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl9a-roll-grooving-machine', 640, 640),
   g('fl9a1', 'jpg', 'FL9A1 Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl9a1-roll-grooving-machine', 511, 640),
-  g('fl12a', 'jpg', 'FL12A Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12a-roll-grooving-machine', 541, 640),
+  g('fl12a', 'jpg', 'FL12A Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12a-roll-grooving-machine', 452, 640),
   g('fl12a1', 'jpg', 'FL12A1 Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12a1-roll-grooving-machine', 427, 640),
   g('fl12p', 'jpg', 'FL12P Premium Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl12p-roll-grooving-machine', 512, 640),
   g('fl-114a', 'jpg', 'FL-114A Hole Saw Cutting Machine', 'hole-saw-cutting-machines', 'fl-114a-hole-saw-cutting-machine', 483, 640),
