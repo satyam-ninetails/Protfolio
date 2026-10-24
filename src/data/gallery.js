@@ -36,7 +36,7 @@ export const gallery = [
   g('threading-dies-1', 'jpg', 'Threading Dies Set', 'spare-parts', 'dies-set', 640, 375),
   g('threading-dies-4', 'jpg', 'Threading Dies Set', 'spare-parts', 'dies-set', 366, 640),
   g('fl-24', 'jpg', 'FL-24 Roll Grooving Machine', 'roll-grooving-machine', 'fl-24-roll-grooving-machine', 504, 640),
-  g('super-threader-50ap', 'jpg', 'Super Threader-50AP (1800 W)', 'pipe-threading-machines', 'super-threader-50ap-pipe-threading-machine', 587, 640),
+  g('fl-50s', 'jpg', 'FL-50S (1800 W) Pipe Threading Machine', 'pipe-threading-machines', 'fl-50s-pipe-threading-machine', 587, 640),
   g('ehb-50', 'jpg', 'EHB-50 Electric Pipe Bender', 'pipe-bending-machines', 'ehb-50-electric-pipe-bender', 640, 541),
   g('fl9a', 'jpg', 'FL9A Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl9a-roll-grooving-machine', 640, 640),
   g('fl9a1', 'jpg', 'FL9A1 Electric Hydraulic Roll Grooving Machine', 'roll-grooving-machine', 'fl9a1-roll-grooving-machine', 511, 640),

@@ -2,9 +2,9 @@
 //   node scripts/build-catalogue.mjs
 // Re-run it whenever products change, then rebuild/deploy the site.
 //
-// Layout: picture-led cover, contents page, TWO products per page (a page with a very long
-// spec table gets one product), a coloured model-name bar above the specs, a model tag on top of
-// every machine picture, a spare-parts grid, and a picture-led closing page.
+// Pages: picture-led cover (FL-50A, the best seller, largest) · contents · About Us · products
+// (two per page where the specs fit; chosen pages carry three or one) with a coloured model bar,
+// a model tag on each machine and bold spec values · spare-parts grid · closing page with a site photo.
 import fs from 'node:fs'
 import path from 'node:path'
 import os from 'node:os'
@@ -13,6 +13,7 @@ import { fileURLToPath } from 'node:url'
 import { products } from '../src/data/products.js'
 import { categories } from '../src/data/categories.js'
 import { company } from '../src/data/company.js'
+import { aboutIntro, aboutParagraphs, aboutValues } from '../src/data/about.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'fleet-cat-'))
@@ -21,20 +22,25 @@ const CHROME = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 
 // ---------- images (small JPEG copies keep the PDF light) ----------
 const cache = new Map()
+const sizeOf = (file) => {
+  const out = execFileSync('sips', ['-g', 'pixelWidth', '-g', 'pixelHeight', file], { encoding: 'utf8' })
+  return [Number(out.match(/pixelWidth: (\d+)/)[1]), Number(out.match(/pixelHeight: (\d+)/)[1])]
+}
 const img = (webPath, max = 900) => {
   if (!webPath) return null
   const key = webPath + max
   if (cache.has(key)) return cache.get(key)
-  const src = path.join(root, 'public', webPath)
+  const src = webPath.startsWith('/images') ? path.join(root, 'public', webPath) : webPath
   if (!fs.existsSync(src)) return null
   const out = path.join(tmp, `${cache.size}.jpg`)
   execFileSync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '78', '-Z', String(max), src, '--out', out], { stdio: 'ignore' })
-  const url = 'file://' + out
-  cache.set(key, url)
-  return url
+  const [w, h] = sizeOf(out)
+  const val = { url: 'file://' + out, aspect: w / h }
+  cache.set(key, val)
+  return val
 }
 const bySlug = Object.fromEntries(products.map((p) => [p.slug, p]))
-const pic = (slug, max = 700) => img(bySlug[slug]?.images?.[0], max)
+const picOf = (slug, max = 700) => img(bySlug[slug]?.images?.[0], max)
 
 // ---------- fonts (bundled, so the PDF always matches the website) ----------
 const fonts = JSON.parse(fs.readFileSync(path.join(root, 'scripts/fonts/fonts.json'), 'utf8'))
@@ -45,39 +51,52 @@ const spec = (p, k) => (p.specifications.find(([a]) => a === k) || [])[1]
 const modelCode = (p) => {
   const m = spec(p, 'Model')
   if (m) return String(m).replace(/\s*\(.*$/, '').trim()
-  const first = p.name.split(' ')[0]            // no Model row: use the leading model word if it has a digit (e.g. FL-114A)
+  const first = p.name.split(' ')[0] // no Model row: use the leading model word if it has a digit (e.g. FL-114A)
   return /\d/.test(first) && first.length <= 14 ? first : null
 }
-// the size range shown in the chip next to the model name
 const sizeChip = (p) => {
   const fromName = p.name.match(/\(([^)]*["”mm][^)]*)\)\s*$/)
   if (fromName) return fromName[1].replace(/\s+/g, '')
   const w = p.specifications.find(([k]) => /^Welding range/.test(k))
   if (w) { const n = String(w[1]).match(/\d+(\.\d+)?/g)?.map(Number); if (n?.length) return `${Math.min(...n)}–${Math.max(...n)} mm` }
-  for (const k of ['Capacity', 'Size', 'Cutting range', 'Cutting size', 'Bending range']) { const v = spec(p, k); if (v && String(v).length <= 24) return String(v).replace(/\s+/g, ' ') }
+  for (const k of ['Capacity', 'Size', 'Cutting range', 'Pipe diameter', 'Bending range']) { const v = spec(p, k); if (v && String(v).length <= 24) return String(v).replace(/\s+/g, ' ') }
   return null
 }
-const ACCENTS = ['#2F6FDE', '#0FA3A3', '#E8920C', '#EF5B5B', '#7A4FD6', '#2F6FDE', '#0FA3A3', '#E8920C']
+const ACCENTS = ['#2F6FDE', '#0FA3A3', '#E8920C', '#EF5B5B', '#7A4FD6', '#2F6FDE', '#0FA3A3', '#E8920C', '#EF5B5B']
 const catName = (c) => c.name.replace(/\s+Machines?$/i, '')
+const PHONES = company.phones.join('   ·   ')
+const EMAILS = company.emails.map((e) => e.address).join('   ·   ')
 
-// ---------- page builders ----------
+// Pages that must hold specific products together (Vikas's page requests). Everything else is paired in order.
+const GROUPS = {
+  'roll-grooving-machine': [['fl9a-roll-grooving-machine', 'fl9a1-roll-grooving-machine'], ['fl12a-roll-grooving-machine', 'fl12a1-roll-grooving-machine'], ['fl12p-roll-grooving-machine', 'fl-24-roll-grooving-machine']],
+  'hole-saw-cutting-machines': [['fl-114a-hole-saw-cutting-machine', 'fl-150a-hole-saw-cutting-machine'], ['k-114-hole-saw-cutting-machine', 'bi-metal-hole-saw-cutters', 'tct-hole-saw-cutters']],
+  'pressure-test-pumps': [['zd-40-pressure-test-pump', 'tp-50-pressure-test-pump', 'fl-40a-electric-pressure-test-pump']],
+  'pipe-bending-machines': [['hb-50-hydraulic-pipe-bender', 'hb-80-hydraulic-pipe-bender'], ['hb-100-hydraulic-pipe-bender', 'ehb-50-electric-pipe-bender'], ['portable-conduit-pipe-bender']],
+}
+
+// ---------- page pieces ----------
+const logo = img('/images/logo/logo.png', 700)
 const header = (title, ac, sub = '') => `
   <header class="ph" style="--ac:${ac}">
     <div class="ph-t"><span>${esc(title)}</span>${sub ? `<em>${esc(sub)}</em>` : ''}</div>
-    <div class="ph-logo">${logoUrl ? `<img src="${logoUrl}">` : ''}</div>
+    <div class="ph-logo">${logo ? `<img src="${logo.url}">` : ''}</div>
   </header>`
 const footer = (n) => `
   <footer class="pf"><span>${esc(company.legalName)}</span><span>${esc(company.phones.join('  ·  '))}  ·  ${esc(company.emails.map((e) => e.address).join('  ·  '))}</span><b>${n}</b></footer>`
 
-const card = (p, ac, flip, catLabel) => {
+const card = (p, ac, flip, catLabel, threeUp) => {
   const code = modelCode(p)
   const chip = sizeChip(p)
   const rows = p.specifications.filter(([k]) => k !== 'Model')
+  const im = img(p.images[0], 1100)
+  const aspect = im?.aspect || 1
+  // wide pictures get more room (stack above the table), nearly square/tall ones sit beside it
+  const layout = !threeUp && aspect >= 1.7 ? 'stack' : aspect >= 1.25 ? 'wide' : 'tall'
   const size = rows.length <= 7 ? 'roomy' : rows.length <= 12 ? 'mid' : ''
   const feats = rows.length <= 8 ? (p.features || []).slice(0, 4) : []
-  const im = img(p.images[0], 900)
   return `
-  <article class="card ${size}${flip ? ' flip' : ''}" data-slug="${esc(p.slug)}" style="--ac:${ac}">
+  <article class="card ${size} ${layout}${flip ? ' flip' : ''}" data-slug="${esc(p.slug)}" style="--ac:${ac}">
     <div class="bar">
       ${code ? `<span class="code">${esc(code)}</span>` : ''}
       <span class="nm"><small>${esc(catLabel)}</small>${esc(p.name)}</span>
@@ -94,79 +113,110 @@ const card = (p, ac, flip, catLabel) => {
       </div>
       <div class="pic">
         ${code ? `<span class="tag">${esc(code)}</span>` : ''}
-        ${im ? `<img src="${im}">` : ''}
+        ${im ? `<img src="${im.url}">` : ''}
       </div>
     </div>
   </article>`
 }
 
-const logoUrl = img('/images/logo/logo.png', 700)
-let solo = new Set() // products that need a whole page (very long spec tables) — filled by the overflow check below
+// ---------- document ----------
+const tiers = new Map() // page key -> density tier (0 normal … 3 tightest), raised by the overflow check
+const splitPages = new Set() // auto-paired pages that could not fit even at the tightest tier
 
-function buildHtml() {
-  let page = 1
-  const pages = []
-  const toc = []
+function layoutPages() {
   const sections = categories.map((c) => ({ c, items: products.filter((p) => p.category === c.slug) })).filter((s) => s.items.length)
-
-  // cover + contents are pages 1 and 2
-  const coverPage = 1
-  page = 3
+  const out = []
   sections.forEach(({ c, items }, si) => {
     const ac = ACCENTS[si % ACCENTS.length]
-    toc.push({ name: c.name, count: items.length, page })
     if (c.slug === 'spare-parts') {
-      const per = 16
-      for (let i = 0; i < items.length; i += per) {
-        const chunk = items.slice(i, i + per)
-        pages.push(`<section class="sheet">${header(c.name, ac, i ? 'continued' : c.description)}
-          <div class="parts">${chunk.map((p) => `<div class="part" style="--ac:${ac}">${img(p.images[0], 460) ? `<img src="${img(p.images[0], 460)}">` : ''}<b>${esc(p.name)}</b>${i === 0 && chunk.indexOf(p) < 2 ? `<span>${esc(p.shortDescription)}</span>` : ''}</div>`).join('')}</div>
-          ${footer(page)}</section>`)
-        page++
-      }
+      for (let i = 0; i < items.length; i += 16) out.push({ kind: 'parts', c, ac, items: items.slice(i, i + 16), first: i === 0, key: `parts-${i}` })
       return
     }
-    let flip = false
-    for (let i = 0; i < items.length;) {
-      const a = items[i], b = items[i + 1]
-      const pair = b && !solo.has(a.slug) && !solo.has(b.slug)
-      const list = pair ? [a, b] : [a]
-      pages.push(`<section class="sheet">${header(c.name, ac, i === 0 ? c.description : '')}
-        <div class="cards ${pair ? 'two' : 'one'}">${list.map((p) => { const h = card(p, ac, flip, catName(c)); flip = !flip; return h }).join('')}</div>
-        ${footer(page)}</section>`)
-      page++
-      i += list.length
+    let groups = GROUPS[c.slug]
+    if (!groups) {
+      groups = []
+      for (let i = 0; i < items.length;) {
+        const a = items[i], b = items[i + 1]
+        const pair = b && !splitPages.has(a.slug)
+        groups.push(pair ? [a.slug, b.slug] : [a.slug]); i += pair ? 2 : 1
+      }
+    } else {
+      groups = groups.map((g) => [...g])
+      const used = new Set(groups.flat()) // anything not named in the plan keeps its place at the end
+      items.filter((p) => !used.has(p.slug)).forEach((p) => groups.push([p.slug]))
     }
+    groups.forEach((g, gi) => out.push({ kind: 'cards', c, ac, slugs: g, first: gi === 0, key: g[0], cat: si }))
   })
-  const lastPage = page
+  return out
+}
 
-  // ---- cover (pictures in front) ----
-  const coverSet = ['fl100a1-pipe-threading-machine', 'fl12a-roll-grooving-machine', 'chm2-pipe-cutting-machine', 'fl-114a-hole-saw-cutting-machine', 'hb-50-hydraulic-pipe-bender', 'fl-315h4-hdpe-butt-fusion-machine']
-  const tile = (slug, i) => { const p = bySlug[slug]; const u = pic(slug, 600); return p && u ? `<div class="tile" style="--ac:${ACCENTS[i % ACCENTS.length]}"><img src="${u}"><span>${esc(modelCode(p) || p.name)}</span></div>` : '' }
-  const cover = `<section class="sheet cover">
-    <div class="cv-top">${logoUrl ? `<div class="cv-logo"><img src="${logoUrl}"></div>` : ''}</div>
-    <div class="cv-title"><div class="bar4"></div><h1>Product Catalogue</h1><p>${esc(company.legalName)}</p><div class="bar4"></div></div>
-    <div class="cv-grid">${coverSet.map(tile).join('')}</div>
-    <div class="cv-foot"><b>${esc(company.strapline)}</b><span>${esc(company.phones.join('  ·  '))}</span><span>${esc(company.emails.map((e) => e.address).join('  ·  '))}</span></div>
+function buildHtml() {
+  const pages = layoutPages()
+  let n = 4 // 1 cover, 2 contents, 3 about
+  const toc = [{ name: 'About Us', count: null, page: 3, ac: '#2F6FDE' }]
+  let lastCat = null
+  const body = pages.map((pg) => {
+    const pageNo = n++
+    if (lastCat !== pg.c.slug) { toc.push({ name: pg.c.name, count: products.filter((p) => p.category === pg.c.slug).length, page: pageNo, ac: pg.ac }); lastCat = pg.c.slug }
+    if (pg.kind === 'parts') {
+      return `<section class="sheet" data-key="${pg.key}">${header(pg.c.name, pg.ac, pg.first ? pg.c.description : 'continued')}
+        <div class="parts">${pg.items.map((p, i) => { const im = img(p.images[0], 460); return `<div class="part" style="--ac:${pg.ac}">${im ? `<img src="${im.url}">` : ''}<b>${esc(p.name)}</b>${pg.first && i < 2 ? `<span>${esc(p.shortDescription)}</span>` : ''}</div>` }).join('')}</div>
+        ${footer(pageNo)}</section>`
+    }
+    const list = pg.slugs.map((s) => bySlug[s]).filter(Boolean)
+    const tier = tiers.get(pg.key) ?? (list.length >= 3 ? 1 : 0)
+    let flip = (pg.cat ?? 0) % 2 === 1
+    return `<section class="sheet t${tier}" data-key="${esc(pg.key)}">${header(pg.c.name, pg.ac, pg.first ? pg.c.description : '')}
+      <div class="cards n${list.length}">${list.map((p) => { const h = card(p, pg.ac, flip, catName(pg.c), list.length >= 3); flip = !flip; return h }).join('')}</div>
+      ${footer(pageNo)}</section>`
+  })
+
+  // ---- cover: reference style — blue wave, photo diamonds, best seller (FL-50A) biggest ----
+  const dia = (slug, cls, label, ac) => { const u = picOf(slug, 700); return u ? `<div class="dwrap ${cls}"><div class="dia" style="--ac:${ac}"><img src="${u.url}"></div><span class="dlab" style="--ac:${ac}">${esc(label)}</span></div>` : '' }
+  const best = picOf('fl50a-pipe-threading-machine', 900)
+  const cover = `<section class="sheet cover2">
+    <svg class="wave" viewBox="0 0 210 120" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14264A"/><stop offset="1" stop-color="#2F6FDE"/></linearGradient></defs>
+      <path d="M0 0H210V62C176 92 140 96 108 80C76 64 40 62 0 92Z" fill="url(#g1)"/><path d="M0 92C40 62 76 64 108 80C140 96 176 92 210 62V74C176 104 140 108 108 92C76 76 40 74 0 104Z" fill="#F5A524"/></svg>
+    <div class="c2-logo">${logo ? `<img src="${logo.url}">` : ''}</div>
+    <div class="c2-title"><h1>Product<br>Catalogue</h1><p>${esc(company.legalName)}</p></div>
+    <div class="dwrap hero"><div class="dia big" style="--ac:#2F6FDE">${best ? `<img src="${best.url}">` : ''}</div><span class="dlab bigl">FL50A</span><span class="seller">BEST<br>SELLER</span></div>
+    ${dia('fl12a-roll-grooving-machine', 'd1', 'FL12A', '#0FA3A3')}
+    ${dia('fl-114a-hole-saw-cutting-machine', 'd2', 'FL-114A', '#E8920C')}
+    ${dia('hb-50-hydraulic-pipe-bender', 'd3', 'HB-50', '#7A4FD6')}
+    ${dia('fl-315h4-hdpe-butt-fusion-machine', 'd4', 'FL-315H4', '#EF5B5B')}
+    <div class="c2-foot"><b class="strap">${esc(company.strapline)}</b>
+      <div class="c2-contact"><div><i>Phone / WhatsApp</i><strong>${esc(PHONES)}</strong></div><div><i>Email</i><strong>${esc(EMAILS)}</strong></div></div></div>
   </section>`
 
-  // ---- contents ----
-  const contents = `<section class="sheet">${header('Contents', '#2F6FDE', 'Machines · tools · spare parts')}
-    <ul class="toc">${toc.map((t, i) => `<li style="--ac:${ACCENTS[i % ACCENTS.length]}"><i></i><span>${esc(t.name)}</span><em>${t.count} item${t.count === 1 ? '' : 's'}</em><b>${t.page}</b></li>`).join('')}</ul>
+  const contents = `<section class="sheet">${header('Contents', '#2F6FDE', 'About us · machines · tools · spare parts')}
+    <ul class="toc">${toc.map((t) => `<li style="--ac:${t.ac}"><i></i><span>${esc(t.name)}</span><em>${t.count ? `${t.count} item${t.count === 1 ? '' : 's'}` : ''}</em><b>${t.page}</b></li>`).join('')}</ul>
     ${footer(2)}</section>`
 
-  // ---- closing page (pictures at the back) ----
-  const backSet = ['fl150a-pipe-threading-machine', 'fl9a-roll-grooving-machine', 'fl-j40-250-pipe-cutting-machine', 'fl-150a-hole-saw-cutting-machine', 'fl-40a-electric-pressure-test-pump', 'ehb-50-electric-pipe-bender']
-  const back = `<section class="sheet cover back">
-    <div class="cv-top">${logoUrl ? `<div class="cv-logo"><img src="${logoUrl}"></div>` : ''}</div>
-    <div class="cv-title"><div class="bar4"></div><h1>Thank you</h1><p>We would be happy to help you choose the right machine</p><div class="bar4"></div></div>
-    <div class="cv-grid">${backSet.map((s, i) => tile(s, i + 3)).join('')}</div>
-    <div class="bk-contact">
-      ${company.addresses.map((a) => `<div><b>${esc(a.label)}</b>${esc(a.text)}</div>`).join('')}
-      <div><b>Phone / WhatsApp</b>${esc(company.phones.join('  ·  '))}</div>
-      <div><b>Email</b>${company.emails.map((e) => `${esc(e.label)}: ${esc(e.address)}`).join('<br>')}</div>
+  const about = `<section class="sheet">${header('About Us', '#2F6FDE', company.tagline)}
+    <div class="ab">
+      <p class="ab-lead">${esc(aboutIntro)}</p>
+      ${aboutParagraphs(company.legalName).map((t) => `<p>${esc(t)}</p>`).join('')}
+      <h3>What we stand for</h3>
+      <div class="ab-vals">${aboutValues.map(([t, d], i) => `<div style="--ac:${ACCENTS[i]}"><b>${esc(t)}</b><span>${esc(d)}</span></div>`).join('')}</div>
+      <h3>What we offer</h3>
+      <div class="ab-chips">${categories.map((c, i) => `<span style="--ac:${ACCENTS[i % ACCENTS.length]}">${esc(c.name)}</span>`).join('')}</div>
     </div>
-    <p class="bk-note">Specifications are subject to change. Please contact us to confirm details for your requirement.</p>
+    ${footer(3)}</section>`
+
+  // ---- closing page: a site photo (fire-fighting pipework), no product pictures ----
+  const sitePic = img(path.join(root, 'scripts/assets/construction-site-fire-pipes.jpg'), 1600)
+  const back = `<section class="sheet endp">
+    <div class="ep-photo">${sitePic ? `<img src="${sitePic.url}">` : ''}<div class="ep-shade"></div>
+      <div class="ep-logo">${logo ? `<img src="${logo.url}">` : ''}</div>
+      <div class="ep-title"><h1>Thank you</h1><p>We would be happy to help you choose the right machine</p></div></div>
+    <div class="ep-body">
+      <div class="ep-grid">
+        ${company.addresses.map((a) => `<div><i>${esc(a.label)}</i><strong>${esc(a.text)}</strong></div>`).join('')}
+        <div><i>Phone / WhatsApp</i><strong>${esc(PHONES)}</strong></div>
+        <div><i>Email</i><strong>${company.emails.map((e) => `${esc(e.label)}: ${esc(e.address)}`).join('<br>')}</strong></div>
+      </div>
+      <p class="ep-note">Specifications are subject to change. Please contact us to confirm details for your requirement.</p>
+    </div>
   </section>`
 
   const css = `
@@ -177,17 +227,16 @@ html,body{margin:0;padding:0}
 body{font-family:"Barlow","Helvetica Neue",Arial,sans-serif;color:#1B2433;font-size:11.5px;line-height:1.35;-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .sheet{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;background:#fff}
 .sheet:last-child{page-break-after:auto;break-after:auto}
-/* page header band */
-.ph{height:19mm;display:flex;align-items:center;justify-content:space-between;padding:0 12mm;background:linear-gradient(100deg,#0C1830 0%,#14264A 55%,var(--ac) 130%);color:#fff;border-bottom:1.6mm solid var(--ac)}
+/* page header band — lighter blue */
+.ph{height:19mm;display:flex;align-items:center;justify-content:space-between;padding:0 12mm;background:linear-gradient(100deg,#3F83E8 0%,#6AA8F6 100%);color:#fff;border-bottom:1.6mm solid var(--ac)}
 .ph-t span{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:26px;letter-spacing:.04em;text-transform:uppercase}
-.ph-t em{display:block;font-style:normal;font-size:10px;color:#cfd9ee;margin-top:-1px;max-width:130mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-t em{display:block;font-style:normal;font-size:10px;color:#EAF2FF;margin-top:-1px;max-width:130mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ph-logo{height:13mm;background:#fff;border-radius:2mm;padding:1mm 3mm;display:flex;align-items:center}.ph-logo img{height:11mm;width:auto}
-/* footer */
-.pf{position:absolute;left:0;right:0;bottom:0;height:11mm;display:flex;align-items:center;justify-content:space-between;gap:6mm;padding:0 12mm;font-size:8.8px;color:#5B677A;border-top:.3mm solid #E4E8EF;background:#F5F7FA}
+.pf{position:absolute;left:0;right:0;bottom:0;height:11mm;display:flex;align-items:center;justify-content:space-between;gap:6mm;padding:0 12mm;font-size:8.8px;font-weight:600;color:#3B475A;border-top:.3mm solid #E4E8EF;background:#F5F7FA}
 .pf span:nth-child(2){flex:1;text-align:center}.pf b{font-family:"Barlow Condensed",sans-serif;font-size:15px;color:#14264A;min-width:8mm;text-align:right}
-/* cards: two per page */
+/* cards */
 .cards{position:absolute;left:12mm;right:12mm;top:24mm;bottom:14mm;display:grid;gap:5mm}
-.cards.two{grid-template-rows:1fr 1fr}.cards.one{grid-template-rows:1fr}
+.cards.n1{grid-template-rows:1fr}.cards.n2{grid-template-rows:1fr 1fr}.cards.n3{grid-template-rows:1fr 1fr 1fr;gap:3.5mm}
 .card{border:.3mm solid #DCE3EE;border-radius:2.2mm;overflow:hidden;display:flex;flex-direction:column;min-height:0;box-shadow:0 .4mm 1.6mm rgba(20,38,74,.08);background:#fff}
 .bar{flex:none;display:flex;align-items:stretch;background:#14264A;color:#fff;min-height:11mm}
 .bar .code{display:flex;align-items:center;padding:0 5mm;background:var(--ac);font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:24px;letter-spacing:.02em;white-space:nowrap}
@@ -201,72 +250,119 @@ body{font-family:"Barlow","Helvetica Neue",Arial,sans-serif;color:#1B2433;font-s
 table{width:100%;border-collapse:collapse;font-size:10.2px}
 th,td{border-bottom:.25mm solid #E4E8EF;padding:.8mm 1.8mm;text-align:left;vertical-align:top}
 th{width:33%;color:#14264A;background:#F5F7FA;font-weight:600}
+td{font-weight:700;color:#0C1830}
 tr.mrow th,tr.mrow td{background:var(--ac);color:#fff;border-bottom:0;font-weight:700;font-size:11px;letter-spacing:.04em}
 .pic{flex:0 0 38%;position:relative;display:flex;align-items:center;justify-content:center;padding:9mm 3mm 3mm;background:linear-gradient(180deg,#fff,#F5F7FA)}
 .pic img{max-width:100%;max-height:100%;object-fit:contain}
 .tag{position:absolute;top:3mm;left:50%;transform:translateX(-50%);background:var(--ac);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:17px;letter-spacing:.05em;padding:.7mm 5mm;border-radius:1.4mm;box-shadow:0 .5mm 1.4mm rgba(0,0,0,.2);white-space:nowrap}
+.tag::after,.dlab::after{content:"";position:absolute;left:50%;bottom:-1.7mm;transform:translateX(-50%);border:1.9mm solid transparent;border-top-color:var(--ac);border-bottom:0}
 .card.roomy table{font-size:12.2px}.card.roomy th,.card.roomy td{padding:1.9mm 2.4mm}.card.roomy .short{font-size:12.2px;margin-bottom:3.2mm}.card.roomy tr.mrow th,.card.roomy tr.mrow td{font-size:13px}
 .card.mid table{font-size:11px}.card.mid th,.card.mid td{padding:1.1mm 2mm}
 .feat{margin:4mm 0 0;padding:0;list-style:none}.feat li{position:relative;padding:.8mm 0 .8mm 5mm;font-size:12px;color:#1B2433}.feat li::before{content:"";position:absolute;left:0;top:2.2mm;width:2.4mm;height:2.4mm;border-radius:50%;background:var(--ac)}
-.tag::after,.tile span::after{content:"";position:absolute;left:50%;bottom:-1.7mm;transform:translateX(-50%);border:1.9mm solid transparent;border-top-color:var(--ac);border-bottom:0}
+/* picture layouts: wide pictures get more room, very wide ones go above the table */
+.card.wide .info{flex-basis:50%}.card.wide .pic{flex-basis:50%}
+.card.stack .body{flex-direction:column}.card.stack .pic{flex:0 0 auto;height:47mm;padding:8mm 4mm 2mm;order:-1;width:100%}
+.card.stack .info{flex:1 1 auto;padding:2.2mm 4mm}.card.stack .short{display:none}.card.stack.flip .body{flex-direction:column}
+.card.stack .feat{display:none}
+.card.stack .pic .tag{top:2.6mm}
+/* density tiers for pages that carry more (or longer) cards */
+.t1 .card .short,.t1 .card .feat{display:none}.t1 table{font-size:9.6px!important}.t1 th,.t1 td{padding:.55mm 1.8mm!important}.t1 .bar{min-height:9.5mm}.t1 .bar .code{font-size:20px}.t1 .bar .nm{font-size:11.8px}.t1 .tag{font-size:14px;top:2mm}.t1 .pic{padding:7mm 2mm 2mm}.t1 .info{padding:2mm 3.2mm}
+.t2 .card .short,.t2 .card .feat{display:none}.t2 table{font-size:8.8px!important}.t2 th,.t2 td{padding:.38mm 1.6mm!important}.t2 .bar{min-height:8.5mm}.t2 .bar .code{font-size:18px}.t2 .bar .nm{font-size:10.8px}.t2 .tag{font-size:12.5px;top:1.8mm}.t2 .pic{padding:6mm 2mm 1.5mm}.t2 .info{padding:1.6mm 3mm}
+.t3 .card .short,.t3 .card .feat{display:none}.t3 table{font-size:7.9px!important}.t3 th,.t3 td{padding:.25mm 1.5mm!important}.t3 .bar{min-height:7.5mm}.t3 .bar .code{font-size:16px}.t3 .bar .nm{font-size:9.8px}.t3 .tag{font-size:11px;top:1.4mm}.t3 .pic{padding:5mm 2mm 1mm}.t3 .info{padding:1.2mm 2.6mm}
 /* spare parts */
 .parts{position:absolute;left:12mm;right:12mm;top:25mm;bottom:15mm;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:4mm}
 .part{border:.3mm solid #DCE3EE;border-top:1.1mm solid var(--ac);border-radius:1.8mm;padding:2.4mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:0;overflow:hidden}
 .part img{width:100%;flex:1;min-height:0;object-fit:contain;margin-bottom:1.6mm}.part b{font-size:11px;color:#14264A;line-height:1.2}.part span{font-size:8.8px;color:#5B677A;margin-top:.8mm;line-height:1.25}
 /* contents */
 .toc{list-style:none;margin:0;padding:0;position:absolute;left:18mm;right:18mm;top:34mm}
-.toc li{display:flex;align-items:center;gap:4mm;padding:4.4mm 0;border-bottom:.25mm dotted #b8c2d4;font-size:16px}
+.toc li{display:flex;align-items:center;gap:4mm;padding:3.9mm 0;border-bottom:.25mm dotted #b8c2d4}
 .toc i{width:3.2mm;height:9mm;background:var(--ac);border-radius:1mm}.toc span{flex:1;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:25px;color:#14264A}.toc em{font-style:normal;color:#5B677A;font-size:13px}.toc b{font-family:"Barlow Condensed",sans-serif;font-size:23px;min-width:10mm;text-align:right;color:var(--ac)}
-/* cover / back */
-.cover{background:linear-gradient(170deg,#ffffff 0%,#EAF1FD 46%,#DFF4F3 100%);display:flex;flex-direction:column;align-items:center}
-.cover::before{content:"";position:absolute;left:0;right:0;top:0;height:5mm;background:linear-gradient(90deg,#2F6FDE,#0FA3A3 35%,#F5A524 68%,#EF5B5B)}
-.cv-top{margin-top:22mm}.cv-logo{background:#fff;border-radius:3mm;padding:3mm 8mm;box-shadow:0 1mm 4mm rgba(20,38,74,.12)}.cv-logo img{height:30mm;width:auto;display:block}
-.cv-title{text-align:center;margin-top:12mm}.cv-title h1{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:56px;line-height:1;letter-spacing:.05em;text-transform:uppercase;color:#2F6FDE;margin:4mm 0 2mm}
-.cv-title p{margin:0;font-size:18px;color:#14264A;font-weight:600}.bar4{width:70mm;height:1.6mm;margin:0 auto;background:linear-gradient(90deg,#2F6FDE,#0FA3A3,#F5A524,#EF5B5B);border-radius:1mm}
-.cv-grid{margin-top:12mm;width:176mm;display:grid;grid-template-columns:repeat(3,1fr);gap:5mm}
-.tile{position:relative;height:58mm;background:#fff;border-radius:2.6mm;border-bottom:1.4mm solid var(--ac);box-shadow:0 .8mm 3mm rgba(20,38,74,.14);display:flex;align-items:center;justify-content:center;padding:9mm 3mm 3mm}
-.tile img{max-width:100%;max-height:100%;object-fit:contain}
-.tile span{position:absolute;top:2.4mm;left:50%;transform:translateX(-50%);background:var(--ac);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:16px;letter-spacing:.05em;padding:.5mm 4mm;border-radius:1.3mm;white-space:nowrap}
-.cv-foot{position:absolute;left:0;right:0;bottom:12mm;text-align:center;display:flex;flex-direction:column;gap:1.2mm;font-size:13px;color:#14264A}.cv-foot b{font-size:15px}
-.back .cv-grid{margin-top:9mm}.back .tile{height:58mm}
-.bk-contact{position:absolute;left:18mm;right:18mm;bottom:22mm;display:grid;grid-template-columns:1fr 1fr;gap:5mm 10mm;font-size:12.5px;color:#14264A}
-.bk-contact b{display:block;color:#2F6FDE;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.6mm}
-.bk-note{position:absolute;left:0;right:0;bottom:9mm;text-align:center;font-size:10px;color:#5B677A;margin:0}
+/* about */
+.ab{position:absolute;left:16mm;right:16mm;top:28mm;bottom:16mm}
+.ab-lead{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:23px;line-height:1.2;color:#14264A;border-left:1.6mm solid #F5A524;padding-left:4mm;margin:0 0 5mm}
+.ab p{font-size:13.5px;line-height:1.55;margin:0 0 3.4mm;color:#1B2433}
+.ab p.ab-lead{font-size:23px;line-height:1.2;margin:0 0 5mm}
+.ab h3{font-family:"Barlow Condensed",sans-serif;font-size:21px;color:#2F6FDE;margin:6mm 0 2.4mm;text-transform:uppercase;letter-spacing:.06em}
+.ab-vals{display:grid;grid-template-columns:1fr 1fr;gap:3.2mm}.ab-vals div{border:.3mm solid #DCE3EE;border-top:1.2mm solid var(--ac);border-radius:1.8mm;padding:3mm 3.4mm}.ab-vals b{display:block;font-size:13.5px;color:#14264A}.ab-vals span{font-size:11.5px;color:#3B475A}
+.ab-chips{display:flex;flex-wrap:wrap;gap:2.2mm}.ab-chips span{background:var(--ac);color:#fff;font-weight:600;font-size:11.5px;padding:1.2mm 3.6mm;border-radius:10mm}
+/* cover (reference style) */
+.cover2{background:#fff}
+.cover2 .wave{position:absolute;left:0;top:0;width:210mm;height:120mm}
+.c2-logo{position:absolute;left:14mm;top:13mm;background:#fff;border-radius:2.6mm;padding:2.6mm 6mm;box-shadow:0 1mm 4mm rgba(0,0,0,.22)}.c2-logo img{height:25mm;display:block}
+.c2-title{position:absolute;right:14mm;top:16mm;text-align:right;color:#fff}
+.c2-title h1{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:60px;line-height:.95;letter-spacing:.04em;text-transform:uppercase;margin:0;color:#fff}
+.c2-title p{margin:3mm 0 0;font-size:14px;font-weight:700;letter-spacing:.05em;color:#fff}
+.dwrap{position:absolute;display:flex;flex-direction:column;align-items:center}
+.dia{width:var(--s);height:var(--s);transform:rotate(45deg);overflow:hidden;border:2.2mm solid #fff;box-shadow:0 1.2mm 4mm rgba(20,38,74,.28);background:#fff;display:flex;align-items:center;justify-content:center;outline:.7mm solid var(--ac)}
+.dia img{width:140%;height:140%;object-fit:contain;transform:rotate(-45deg)}
+.dlab{position:absolute;background:var(--ac);color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:15px;letter-spacing:.05em;padding:.6mm 4mm;border-radius:1.3mm;white-space:nowrap}
+.hero{left:50%;top:106mm;margin-left:-47mm;width:94mm;height:94mm}
+.hero .dia.big{--s:62mm;margin-top:16mm}.hero .dlab.bigl{--ac:#2F6FDE;font-size:22px;padding:1mm 7mm;bottom:-6mm}
+.seller{position:absolute;right:-12mm;top:2mm;width:25mm;height:25mm;border-radius:50%;background:#EF5B5B;color:#fff;font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:16px;line-height:1.05;display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:0 1mm 3mm rgba(0,0,0,.3);transform:rotate(12deg);border:1.2mm solid #fff}
+.d1,.d2,.d3,.d4{width:50mm;height:50mm}.dwrap .dia{--s:34mm;margin-top:8mm}.hero .dia.big{--s:62mm;margin-top:16mm}.dwrap .dlab{bottom:2mm}.hero .dlab.bigl{bottom:-6mm}
+.dwrap.d1{left:11mm;top:112mm}.dwrap.d2{right:11mm;top:112mm}.dwrap.d3{left:11mm;top:176mm}.dwrap.d4{right:11mm;top:176mm}
+.c2-foot{position:absolute;left:0;right:0;bottom:0;height:46mm;background:linear-gradient(100deg,#14264A,#2F6FDE);color:#fff;padding:7mm 14mm;border-top:1.6mm solid #F5A524}
+.c2-foot .strap{display:block;text-align:center;font-size:13.5px;margin-bottom:4mm;font-weight:700}
+.c2-contact{display:grid;grid-template-columns:1fr 1fr;gap:6mm}.c2-contact i{display:block;font-style:normal;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#FFD27A;font-weight:700;margin-bottom:.6mm}.c2-contact strong{font-size:14.5px;font-weight:800;letter-spacing:.01em;line-height:1.35}
+/* closing page */
+.endp{background:#fff}
+.ep-photo{position:absolute;left:0;right:0;top:0;height:158mm;background:#14264A;overflow:hidden}
+.ep-photo>img{width:100%;height:100%;object-fit:cover}
+.ep-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,24,48,.15) 0%,rgba(12,24,48,.78) 100%)}
+.ep-logo{position:absolute;left:14mm;top:14mm;background:#fff;border-radius:2.6mm;padding:2.4mm 6mm;box-shadow:0 1mm 4mm rgba(0,0,0,.3)}.ep-logo img{height:22mm;display:block}
+.ep-title{position:absolute;left:14mm;right:14mm;bottom:12mm;color:#fff}.ep-title h1{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:60px;letter-spacing:.05em;text-transform:uppercase;margin:0;line-height:1}.ep-title p{margin:2mm 0 0;font-size:16px;font-weight:600}
+.ep-body{position:absolute;left:0;right:0;top:158mm;bottom:0;padding:9mm 14mm;background:linear-gradient(180deg,#fff,#EAF1FD);border-top:1.6mm solid #F5A524}
+.ep-grid{display:grid;grid-template-columns:1fr 1fr;gap:6mm 10mm}
+.ep-grid i{display:block;font-style:normal;color:#2F6FDE;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6mm}
+.ep-grid strong{font-size:14px;font-weight:800;color:#0C1830;line-height:1.35}
+.ep-note{margin:8mm 0 0;font-size:10px;color:#5B677A;text-align:center}
 `
-  const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(company.legalName)} — Product Catalogue</title><style>${css}</style></head><body>${cover}${contents}${pages.join('')}${back}</body></html>`
-  return { html, total: page, toc }
+  const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(company.legalName)} — Product Catalogue</title><style>${css}</style></head><body>${cover}${contents}${about}${body.join('')}${back}</body></html>`
+  return { html, total: n, toc }
 }
 
-// ---------- overflow check: render once, list cards whose content is clipped ----------
+// ---------- overflow check: render once, report pages whose cards/tiles are clipped ----------
 const checkScript = `<script>
 document.fonts.ready.then(()=>{setTimeout(()=>{
-  const bad=[];document.querySelectorAll('.card').forEach(c=>{const b=c.querySelector('.body');const i=c.querySelector('.info');const p=c.querySelector('.pic');
-    if(i.scrollHeight>i.clientHeight+1||b.scrollHeight>b.clientHeight+1) bad.push(c.dataset.slug)});
-  const pg=[];document.querySelectorAll('.part').forEach((e,k)=>{if(e.scrollHeight>e.clientHeight+1)pg.push(k)});
-  const r=document.createElement('pre');r.id='report';r.textContent=JSON.stringify({bad,parts:pg});document.body.appendChild(r)},400)})
+  const bad=new Set(), other=[];
+  document.querySelectorAll('.sheet').forEach(s=>{
+    s.querySelectorAll('.card').forEach(c=>{const b=c.querySelector('.body'),i=c.querySelector('.info'); if(i.scrollHeight>i.clientHeight+1||b.scrollHeight>b.clientHeight+1)bad.add(s.dataset.key)});
+    s.querySelectorAll('.part').forEach(e=>{if(e.scrollHeight>e.clientHeight+1)other.push(s.dataset.key)});
+    const ab=s.querySelector('.ab'); if(ab&&ab.scrollHeight>ab.clientHeight+1) other.push('about');
+    const ep=s.querySelector('.ep-body'); if(ep&&ep.scrollHeight>ep.clientHeight+1) other.push('endpage');
+    const tc=s.querySelector('.toc'); if(tc&&tc.getBoundingClientRect().bottom>s.getBoundingClientRect().bottom-40) other.push('toc');
+  });
+  const r=document.createElement('pre');r.id='report';r.textContent=JSON.stringify({bad:[...bad],other});document.body.appendChild(r)},500)})
 </script>`
 function findOverflow(html) {
   const f = path.join(tmp, 'check.html')
   fs.writeFileSync(f, html.replace('</body>', checkScript + '</body>'))
-  const dom = execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--allow-file-access-from-files', '--virtual-time-budget=20000', '--dump-dom', 'file://' + f], { encoding: 'utf8', maxBuffer: 200 * 1024 * 1024, timeout: 180000 })
+  const dom = execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--allow-file-access-from-files', '--virtual-time-budget=25000', '--dump-dom', 'file://' + f], { encoding: 'utf8', maxBuffer: 300 * 1024 * 1024, timeout: 240000 })
   const m = dom.match(/<pre id="report">(.*?)<\/pre>/s)
   if (!m) throw new Error('overflow check did not run')
   return JSON.parse(m[1].replace(/&quot;/g, '"'))
 }
 
+const planned = new Set(Object.values(GROUPS).map((g) => g[0]))
 let built
-for (let round = 0; round < 4; round++) {
+for (let round = 1; round <= 8; round++) {
   built = buildHtml()
   const rep = findOverflow(built.html)
-  if (!rep.bad.length) { if (rep.parts.length) console.warn('warning: some spare-part tiles are tight:', rep.parts.length); break }
-  rep.bad.forEach((s) => solo.add(s))
-  console.log(`round ${round + 1}: ${rep.bad.length} product(s) need a full page → ${rep.bad.join(', ')}`)
-  if (round === 3) throw new Error('layout still overflowing: ' + rep.bad.join(', '))
+  if (rep.other.length) console.warn('warning — clipped content on:', [...new Set(rep.other)].join(', '))
+  if (!rep.bad.length) break
+  for (const key of rep.bad) {
+    const t = tiers.get(key) ?? 0
+    if (t < 3) tiers.set(key, t + 1)
+    else if (!planned.has(key)) splitPages.add(key)
+    else console.warn('could not fit the page that starts with', key)
+  }
+  console.log(`round ${round}: tightened ${rep.bad.length} page(s) → ${rep.bad.join(', ')}`)
+  if (round === 8) console.warn('layout still overflowing on: ' + rep.bad.join(', '))
 }
 
 const htmlFile = path.join(tmp, 'catalogue.html')
 fs.writeFileSync(htmlFile, built.html)
 const out = path.join(root, 'public', 'FLEET-Catalogue.pdf')
-execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--no-pdf-header-footer', '--allow-file-access-from-files', `--print-to-pdf=${out}`, 'file://' + htmlFile], { stdio: 'ignore', timeout: 240000 })
-console.log(`catalogue: ${products.length} products, ${built.total} pages → ${out} (${(fs.statSync(out).size / 1048576).toFixed(1)} MB)`)
+execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--no-pdf-header-footer', '--allow-file-access-from-files', `--print-to-pdf=${out}`, 'file://' + htmlFile], { stdio: 'ignore', timeout: 300000 })
+console.log(`catalogue: ${products.length} products → ${out} (${(fs.statSync(out).size / 1048576).toFixed(1)} MB)`)
 fs.rmSync(tmp, { recursive: true, force: true })

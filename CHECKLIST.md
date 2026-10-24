@@ -1,3 +1,30 @@
+# 21 Oct 2026 (Wednesday) — Vikas's messages, 12:30–1:53 pm (25 messages + 23 pictures). Ref: ~/Downloads/vikas-whatsapp-2026-10-21
+## Catalogue PDF
+- [x] ✅ C1. Front page redesign like his reference screenshots; FL-50A picture bigger than the others; phone numbers + emails in BOLD (12:30)
+- [x] ✅ C2. Last page: NO product pictures — a construction-site picture showing fire-fighting pipes; address, phone, email in BOLD (12:33)
+- [x] ✅ C3. Add an "About Us" page after the Contents page, text from the website's About page (12:34)
+- [x] ✅ C4. Page header colour (the dark band) -> a lighter shade of blue, every page (12:36)
+- [x] ✅ C5. Technical-specification data (values) in BOLD in every product (12:39)
+- [x] ✅ C6. Roll grooving: pages 11 and 12 (FL12P + FL-24) on ONE page (12:54)
+- [x] ✅ C7. CHM1 picture bigger (12:56)
+- [x] ✅ C8. TCT hole saw cutter on page 16 — not a page of its own (1:05)
+- [x] ✅ C9. Pressure pumps pages 18 and 19 on one single page (1:07)
+- [x] ✅ C10. Butt jointing: pictures of FL-160M4, 200M4, 250M4, 315H4, 355H4, 450H4 BIGGER (1:10)
+- [x] ✅ C11. HB-50 and HB-80 on one page (1:41)
+- [x] ✅ C12. HB-100 and EHB-50 on one page; conduit bender LAST in the pipe-bending section (1:43)
+## Catalogue + website (both)
+- [x] ✅ B1. Super Threader-50AP -> model name FL-50S (12:44)
+- [x] ✅ B2. FL-R65: replace the wrong specs with the new ones (1300 W, 220 V, 28–36 RPM, 75/80 kg, 65x41x52 cm, dies...) (12:49)
+- [x] ✅ B3. FL-R65 accessories: "1 bottle oil" -> "2 Ltr oil" (12:50)
+- [x] ✅ B4. FL-J40/250 + FL-J160/400: add the technical specifications from his two tables (+ his two pictures) (1:01)
+- [x] ✅ B5. 63B-2 specs: fusion range 20,25,32,40,50,63 mm; 800 W; 220 V; 50/60 Hz; 240–280 °C (1:29)
+- [x] ✅ B6. 110A specs: fusion range 75,90,110 mm; 1200 W; 220 V; 50/60 Hz; 240–280 °C (1:30)
+- [x] ✅ B7. HB-50: remove the six "Die ½" / ¾" ..." rows -> ONE row "Die Size: ½", ¾", 1", 1¼", 1½", 2"" (1:41)
+- [x] ✅ B8. HB-50/80/100 + EHB-50: "Oil tank capacity (15# hydraulic oil)" -> "Oil tank capacity" (1:41)
+- [x] ✅ B9. Spare parts: add Heating Plate, Trimmer, Clamp and Nut Bolt (1:51–1:52)
+## Final
+- [x] ✅ F1. PDF (29 pages) + site rebuilt and verified — NOT pushed yet, waiting for the go-ahead
+
 # 19 Oct 2026 — Vikas's final list (he confirmed "Yes that's final", 11:46 am)
 - [x] 1. ✅ FL150A technical specs: Voltage 380 V
 - [x] 2. ✅ CHM2 (2"–12"): motor power 1100 W (was 750 W) — site, PDF, short description, features

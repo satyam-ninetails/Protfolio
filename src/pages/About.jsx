@@ -3,13 +3,7 @@ import SEO from '../components/SEO.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { company } from '../data/company.js'
 import { categories } from '../data/categories.js'
-
-const values = [
-  ['Reliable Engineering', 'Machines designed for dependable, day-to-day performance.'],
-  ['Precision Engineering', 'Careful engineering for accurate, repeatable results.'],
-  ['Durable Equipment', 'Built to stand up to demanding industrial conditions.'],
-  ['Technical Support', 'Our team helps you choose and use the right machine.'],
-]
+import { aboutIntro, aboutParagraphs, aboutValues } from '../data/about.js'
 
 export default function About() {
   return (
@@ -23,7 +17,7 @@ export default function About() {
           <nav className="crumbs"><Link to="/">Home</Link> / <span>About Us</span></nav>
           <span className="eyebrow">About {company.legalName}</span>
           <h1>{company.tagline}</h1>
-          <p>We bring together technology and engineering to deliver innovative solutions in pipe machinery — products designed to make your job easy.</p>
+          <p>{aboutIntro}</p>
         </div>
       </section>
 
@@ -34,10 +28,7 @@ export default function About() {
             <h2>Machinery for pipe processing and testing</h2>
           </Reveal>
           <Reveal delay={120}>
-            <p><strong>{company.legalName}</strong> brings together technology and engineering to provide innovative solutions for our customers in the range of pipe machinery. Our priority is to design and deliver products and solutions that make your job easy.</p>
-            <p>Our company has grown to become one of the leading companies, with many customers around the globe. Today, we are committed to helping our customers succeed and to building long-term value in the global market.</p>
-            <p>We use German cutting-edge technology in pipe threading machines, pipe grooving machines, hole saw cutting machines, HDPE butt fusion machines, pipe cutting machines, pipe benders, pressure testing pumps and more.</p>
-            <p>Through our sound logistics facility, we ensure on-time delivery of orders to the client's destination.</p>
+            {aboutParagraphs(company.legalName).map((t, i) => <p key={i}>{t}</p>)}
           </Reveal>
         </div>
       </section>
@@ -46,7 +37,7 @@ export default function About() {
         <div className="container">
           <Reveal className="sec-head"><span className="eyebrow">What we stand for</span><h2>Our Values</h2></Reveal>
           <div className="grid grid-4">
-            {values.map(([t, d], i) => (
+            {aboutValues.map(([t, d], i) => (
               <Reveal key={t} delay={i * 90} className="why"><span className="why-n">{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{d}</p></Reveal>
             ))}
           </div>
