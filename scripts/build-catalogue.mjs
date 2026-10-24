@@ -164,7 +164,7 @@ function buildHtml() {
         ${footer(pageNo)}</section>`
     }
     const list = pg.slugs.map((s) => bySlug[s]).filter(Boolean)
-    const tier = tiers.get(pg.key) ?? (list.length >= 3 ? 1 : 0)
+    const tier = tiers.get(pg.key) ?? (list.length >= 3 ? 2 : 0)
     let flip = (pg.cat ?? 0) % 2 === 1
     return `<section class="sheet t${tier}" data-key="${esc(pg.key)}">${header(pg.c.name, pg.ac, pg.first ? pg.c.description : '')}
       <div class="cards n${list.length}">${list.map((p) => { const h = card(p, pg.ac, flip, catName(pg.c), list.length >= 3); flip = !flip; return h }).join('')}</div>
@@ -204,17 +204,22 @@ function buildHtml() {
     ${footer(3)}</section>`
 
   // ---- closing page: a site photo (fire-fighting pipework), no product pictures ----
+  const EP_ICONS = {'phone': '<path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/>', 'mail': '<path d="M3 5h18a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm9 8.2L4.5 7.5v.4L12 13.600 19.500 7.900v-.4z"/>', 'pin': '<path d="M12 2a7 7 0 00-7 7c0 5.200 7 13 7 13s7-7.800 7-13a7 7 0 00-7-7zm0 9.500A2.500 2.500 0 1112 6.500a2.500 2.500 0 010 5z"/>'}
   const sitePic = img(path.join(root, 'scripts/assets/construction-site-fire-pipes.jpg'), 1600)
+  const ico = (k) => `<svg viewBox="0 0 24 24" width="15" height="15" fill="#0E1B38">${EP_ICONS[k]}</svg>`
   const back = `<section class="sheet endp">
+    <div class="ep-amber"></div>
     <div class="ep-photo">${sitePic ? `<img src="${sitePic.url}">` : ''}<div class="ep-shade"></div>
       <div class="ep-logo">${logo ? `<img src="${logo.url}">` : ''}</div>
-      <div class="ep-title"><h1>Thank you</h1><p>We would be happy to help you choose the right machine</p></div></div>
+      <div class="ep-title"><span class="ep-kick">${esc(company.legalName)}</span><h1>Thank you</h1><p>We would be happy to help you choose the right machine</p></div></div>
     <div class="ep-body">
+      <h2>Get in touch</h2>
       <div class="ep-grid">
-        ${company.addresses.map((a) => `<div><i>${esc(a.label)}</i><strong>${esc(a.text)}</strong></div>`).join('')}
-        <div><i>Phone / WhatsApp</i><strong>${esc(PHONES)}</strong></div>
-        <div><i>Email</i><strong>${company.emails.map((e) => `${esc(e.label)}: ${esc(e.address)}`).join('<br>')}</strong></div>
+        <div class="ep-c">${ico('phone')}<div><i>Phone / WhatsApp</i><strong class="big">${esc(PHONES)}</strong></div></div>
+        <div class="ep-c">${ico('mail')}<div><i>Email</i><strong class="big">${company.emails.map((e) => `${esc(e.address)}`).join('<br>')}</strong></div></div>
+        ${company.addresses.map((a) => `<div class="ep-c">${ico('pin')}<div><i>${esc(a.label)}</i><strong>${esc(a.text)}</strong></div></div>`).join('')}
       </div>
+      <div class="ep-chips">${categories.map((c) => `<span>${esc(c.name)}</span>`).join('')}</div>
       <p class="ep-note">Specifications are subject to change. Please contact us to confirm details for your requirement.</p>
     </div>
   </section>`
@@ -228,7 +233,12 @@ body{font-family:"Barlow","Helvetica Neue",Arial,sans-serif;color:#1B2433;font-s
 .sheet{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;background:#fff}
 .sheet:last-child{page-break-after:auto;break-after:auto}
 /* page header band — lighter blue */
-.ph{height:19mm;display:flex;align-items:center;justify-content:space-between;padding:0 12mm;background:linear-gradient(100deg,#3F83E8 0%,#6AA8F6 100%);color:#fff;border-bottom:1.6mm solid var(--ac)}
+.ph{position:relative;height:21mm;display:flex;align-items:center;justify-content:space-between;padding:0 12mm 2.2mm;color:#fff}
+.ph>*{position:relative;z-index:1}
+/* angled lower edge with a coloured accent strip (category colour) */
+.ph::before,.ph::after{content:"";position:absolute;left:0;right:0;top:0;clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 4mm))}
+.ph::before{bottom:0;background:var(--ac)}
+.ph::after{bottom:1.6mm;background:linear-gradient(100deg,#3F83E8 0%,#6AA8F6 100%)}
 .ph-t span{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:26px;letter-spacing:.04em;text-transform:uppercase}
 .ph-t em{display:block;font-style:normal;font-size:10px;color:#EAF2FF;margin-top:-1px;max-width:130mm;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ph-logo{height:13mm;background:#fff;border-radius:2mm;padding:1mm 3mm;display:flex;align-items:center}.ph-logo img{height:11mm;width:auto}
@@ -265,10 +275,11 @@ tr.mrow th,tr.mrow td{background:var(--ac);color:#fff;border-bottom:0;font-weigh
 .card.stack .info{flex:1 1 auto;padding:2.2mm 4mm}.card.stack .short{display:none}.card.stack.flip .body{flex-direction:column}
 .card.stack .feat{display:none}
 .card.stack .pic .tag{top:2.6mm}
-/* density tiers for pages that carry more (or longer) cards */
-.t1 .card .short,.t1 .card .feat{display:none}.t1 table{font-size:9.6px!important}.t1 th,.t1 td{padding:.55mm 1.8mm!important}.t1 .bar{min-height:9.5mm}.t1 .bar .code{font-size:20px}.t1 .bar .nm{font-size:11.8px}.t1 .tag{font-size:14px;top:2mm}.t1 .pic{padding:7mm 2mm 2mm}.t1 .info{padding:2mm 3.2mm}
-.t2 .card .short,.t2 .card .feat{display:none}.t2 table{font-size:8.8px!important}.t2 th,.t2 td{padding:.38mm 1.6mm!important}.t2 .bar{min-height:8.5mm}.t2 .bar .code{font-size:18px}.t2 .bar .nm{font-size:10.8px}.t2 .tag{font-size:12.5px;top:1.8mm}.t2 .pic{padding:6mm 2mm 1.5mm}.t2 .info{padding:1.6mm 3mm}
-.t3 .card .short,.t3 .card .feat{display:none}.t3 table{font-size:7.9px!important}.t3 th,.t3 td{padding:.25mm 1.5mm!important}.t3 .bar{min-height:7.5mm}.t3 .bar .code{font-size:16px}.t3 .bar .nm{font-size:9.8px}.t3 .tag{font-size:11px;top:1.4mm}.t3 .pic{padding:5mm 2mm 1mm}.t3 .info{padding:1.2mm 2.6mm}
+/* density tiers for pages that carry more (or longer) cards: t1 is a gentle step, t4 the tightest */
+.t1 table{font-size:10.8px!important}.t1 th,.t1 td{padding:.9mm 2mm!important}.t1 .card .short{font-size:10.5px;margin-bottom:1.6mm}.t1 .info{padding:2.6mm 3.6mm}
+.t2 .card .short,.t2 .card .feat{display:none}.t2 table{font-size:9.6px!important}.t2 th,.t2 td{padding:.55mm 1.8mm!important}.t2 .bar{min-height:9.5mm}.t2 .bar .code{font-size:20px}.t2 .bar .nm{font-size:11.8px}.t2 .tag{font-size:14px;top:2mm}.t2 .pic{padding:7mm 2mm 2mm}.t2 .info{padding:2mm 3.2mm}
+.t3 .card .short,.t3 .card .feat{display:none}.t3 table{font-size:8.8px!important}.t3 th,.t3 td{padding:.38mm 1.6mm!important}.t3 .bar{min-height:8.5mm}.t3 .bar .code{font-size:18px}.t3 .bar .nm{font-size:10.8px}.t3 .tag{font-size:12.5px;top:1.8mm}.t3 .pic{padding:6mm 2mm 1.5mm}.t3 .info{padding:1.6mm 3mm}
+.t4 .card .short,.t4 .card .feat{display:none}.t4 table{font-size:7.9px!important}.t4 th,.t4 td{padding:.25mm 1.5mm!important}.t4 .bar{min-height:7.5mm}.t4 .bar .code{font-size:16px}.t4 .bar .nm{font-size:9.8px}.t4 .tag{font-size:11px;top:1.4mm}.t4 .pic{padding:5mm 2mm 1mm}.t4 .info{padding:1.2mm 2.6mm}
 /* spare parts */
 .parts{position:absolute;left:12mm;right:12mm;top:25mm;bottom:15mm;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:4mm}
 .part{border:.3mm solid #DCE3EE;border-top:1.1mm solid var(--ac);border-radius:1.8mm;padding:2.4mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:0;overflow:hidden}
@@ -304,18 +315,24 @@ tr.mrow th,tr.mrow td{background:var(--ac);color:#fff;border-bottom:0;font-weigh
 .c2-foot{position:absolute;left:0;right:0;bottom:0;height:46mm;background:linear-gradient(100deg,#14264A,#2F6FDE);color:#fff;padding:7mm 14mm;border-top:1.6mm solid #F5A524}
 .c2-foot .strap{display:block;text-align:center;font-size:13.5px;margin-bottom:4mm;font-weight:700}
 .c2-contact{display:grid;grid-template-columns:1fr 1fr;gap:6mm}.c2-contact i{display:block;font-style:normal;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#FFD27A;font-weight:700;margin-bottom:.6mm}.c2-contact strong{font-size:14.5px;font-weight:800;letter-spacing:.01em;line-height:1.35}
-/* closing page */
-.endp{background:#fff}
-.ep-photo{position:absolute;left:0;right:0;top:0;height:158mm;background:#14264A;overflow:hidden}
+/* closing page: diagonal photo, dark contact panel */
+.endp{background:linear-gradient(165deg,#0E1B38 0%,#17408F 100%)}
+.ep-photo,.ep-amber{position:absolute;left:0;right:0;top:0;clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 26mm))}
+.ep-photo{height:190mm;background:#14264A;overflow:hidden}
+.ep-amber{height:195mm;background:#F5A524}
 .ep-photo>img{width:100%;height:100%;object-fit:cover}
-.ep-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,24,48,.15) 0%,rgba(12,24,48,.78) 100%)}
+.ep-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,24,48,.10) 0%,rgba(12,24,48,.80) 100%)}
 .ep-logo{position:absolute;left:14mm;top:14mm;background:#fff;border-radius:2.6mm;padding:2.4mm 6mm;box-shadow:0 1mm 4mm rgba(0,0,0,.3)}.ep-logo img{height:22mm;display:block}
-.ep-title{position:absolute;left:14mm;right:14mm;bottom:12mm;color:#fff}.ep-title h1{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:60px;letter-spacing:.05em;text-transform:uppercase;margin:0;line-height:1}.ep-title p{margin:2mm 0 0;font-size:16px;font-weight:600}
-.ep-body{position:absolute;left:0;right:0;top:158mm;bottom:0;padding:9mm 14mm;background:linear-gradient(180deg,#fff,#EAF1FD);border-top:1.6mm solid #F5A524}
-.ep-grid{display:grid;grid-template-columns:1fr 1fr;gap:6mm 10mm}
-.ep-grid i{display:block;font-style:normal;color:#2F6FDE;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:.6mm}
-.ep-grid strong{font-size:14px;font-weight:800;color:#0C1830;line-height:1.35}
-.ep-note{margin:8mm 0 0;font-size:10px;color:#5B677A;text-align:center}
+.ep-title{position:absolute;left:14mm;right:14mm;bottom:34mm;color:#fff}.ep-kick{display:block;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#FFD27A;margin-bottom:2mm}
+.ep-title h1{font-family:"Barlow Condensed",sans-serif;font-weight:800;font-size:64px;letter-spacing:.05em;text-transform:uppercase;margin:0;line-height:1}.ep-title p{margin:2mm 0 0;font-size:16px;font-weight:600}
+.ep-body{position:absolute;left:0;right:0;top:202mm;bottom:0;padding:0 14mm;color:#fff}
+.ep-body h2{margin:0 0 4mm;font-family:"Barlow Condensed",sans-serif;font-size:22px;letter-spacing:.1em;text-transform:uppercase;color:#FFD27A}
+.ep-grid{display:grid;grid-template-columns:1fr 1fr;gap:5.5mm 10mm}
+.ep-c{display:flex;gap:3mm;align-items:flex-start}.ep-c svg{flex:none;box-sizing:content-box;width:15px;height:15px;padding:1.6mm;border-radius:50%;background:#F5A524}
+.ep-c i{display:block;font-style:normal;color:#FFD27A;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:.5mm}
+.ep-c strong{font-size:12px;font-weight:800;line-height:1.35}.ep-c strong.big{font-size:15px}
+.ep-chips{display:flex;flex-wrap:wrap;gap:2mm;margin-top:6mm}.ep-chips span{border:.3mm solid rgba(255,255,255,.55);border-radius:10mm;padding:.8mm 3.2mm;font-size:9.5px;font-weight:600;color:#fff}
+.ep-note{position:absolute;left:14mm;right:14mm;bottom:6mm;margin:0;font-size:9.5px;color:#BFD0F2;text-align:center}
 `
   const html = `<!doctype html><html><head><meta charset="utf-8"><title>${esc(company.legalName)} — Product Catalogue</title><style>${css}</style></head><body>${cover}${contents}${about}${body.join('')}${back}</body></html>`
   return { html, total: n, toc }
@@ -352,7 +369,7 @@ for (let round = 1; round <= 8; round++) {
   if (!rep.bad.length) break
   for (const key of rep.bad) {
     const t = tiers.get(key) ?? 0
-    if (t < 3) tiers.set(key, t + 1)
+    if (t < 4) tiers.set(key, t + 1)
     else if (!planned.has(key)) splitPages.add(key)
     else console.warn('could not fit the page that starts with', key)
   }
