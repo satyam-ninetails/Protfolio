@@ -10,7 +10,7 @@
 // Keep it false while the site is being built; flip to true on launch day.
 // ─────────────────────────────────────────────────────────────────────────────
 export const seo = {
-  indexable: false,
+  indexable: true,
   siteUrl: 'https://fleetindustries.co.in', // no trailing slash
   ogImage: '/images/og-default.jpg',        // 1200×630 share image
   brand: 'FLEET',

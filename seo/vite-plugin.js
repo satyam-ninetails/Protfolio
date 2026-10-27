@@ -35,8 +35,9 @@ export function headHtml(m) {
     <!--seo:end-->`
 }
 
+const SCRAPERS = ['AhrefsBot', 'SemrushBot', 'MJ12bot', 'DotBot', 'PetalBot', 'BLEXBot', 'DataForSeoBot', 'Bytespider', 'GPTBot', 'CCBot', 'ClaudeBot', 'Amazonbot']
 const robotsTxt = () => seo.indexable
-  ? `# Search engines are welcome.\nUser-agent: *\nAllow: /\n\nSitemap: ${seo.siteUrl}/sitemap.xml\n`
+  ? `# Search engines are welcome, but kept polite: slow crawl, no SEO scrapers, no big PDF crawling.\nUser-agent: *\nAllow: /\nDisallow: /FLEET-Catalogue.pdf\nCrawl-delay: 10\n\n${SCRAPERS.map((b) => `User-agent: ${b}\nDisallow: /\n`).join('\n')}\nSitemap: ${seo.siteUrl}/sitemap.xml\n`
   : `# Site is not public yet — all crawlers are asked to stay out.\n# (Flip "indexable" to true in src/data/seo.js to open it up.)\nUser-agent: *\nDisallow: /\n`
 
 function sitemapXml() {
